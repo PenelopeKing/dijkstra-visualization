@@ -12,7 +12,8 @@
     const marginBottom = 0;
     
     let svg
-
+    
+    let x,y;
     
     console.log(nodes)
     console.log(edges)
@@ -20,13 +21,28 @@
     $: x=d3
     .scaleUtc() /* date as input and axis as output */
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-    .range([marginLeft, width - marginRight])
+    .range([200, 250])
 
     $: y=d3
     .scaleLinear()
     .domain(d3.extent(nodes.nodes, (d) => d.y))
-    .range([height - marginBottom, marginTop])
+    .range([200, 100])
+
 </script>
+
+
+<svg class = "nodes">
+    {#if index >= 1}
+        {#each nodes.nodes as node}
+        <circle
+            cx={x(node.x)}
+            cy={y(node.y)}
+            r="5"
+            fill="blue"
+        />
+        {/each}
+    {/if}
+</svg>
 
 <div class="weighted-graph">
     <svg
@@ -38,8 +54,8 @@
     >
   <g stroke="#000" stroke-opacity="0.2">
     {#each nodes.nodes as n}
-    <!--{} means fill with JS expression-->
-      <circle key={n.id} cx={x(n.x)} cy={y(n.y)} r="2.5"/>
+        console.log
+        <circle key={n.id} cx={x(n.x)} cy={y(n.y)} r="2.5"/>
     {/each}
     </g>
 
