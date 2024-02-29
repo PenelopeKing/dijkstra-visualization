@@ -1,5 +1,5 @@
 <script>
-    import Scroller from "/@sveltejs/svelte-scroller";
+    import Scroller from "@sveltejs/svelte-scroller";
     import Nodes from "./Nodes.svelte";
     let count, index, offset, progress;
     let width, height;
