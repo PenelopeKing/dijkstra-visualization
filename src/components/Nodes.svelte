@@ -1,5 +1,7 @@
 <script>
+    // get node data with nodes.nodes
     import { nodes } from "../data/ex_nodes"
+    // get edge data with edges.edges
     import { edges } from "../data/ex_edges"
     import { fly, draw } from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
@@ -42,7 +44,7 @@
         {/each}
         {#each edges.edges as e}
             <polyline
-                points={
+                points={ // String of coordintates x0,y0 x1,y1
                 String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
                         + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
                         }
