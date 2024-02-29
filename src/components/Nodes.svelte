@@ -6,6 +6,11 @@
     import * as d3 from 'd3';
 
     export let height, width, index;
+    const marginLeft = 0;
+    const marginRight = 0;
+    const marginTop = 0;
+    const marginBottom = 0;
+    
     let svg
 
     
