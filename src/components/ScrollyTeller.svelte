@@ -1,7 +1,10 @@
 <script>
     import Scroller from "@sveltejs/svelte-scroller";
-  
+    import Nodes from "./Nodes.svelte";
     let count, index, offset, progress;
+    let width, height;
+
+
 </script>
 <Scroller
   top={0.0}
@@ -17,6 +20,7 @@
     class="background"
     slot="background"
     >
+    <Nodes {index} {width} {height} />
 </div>
 
 <div class="foreground" slot="foreground">
