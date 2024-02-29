@@ -27,7 +27,7 @@
 </script>
 
 <div class="weighted-graph">
-    <svg
+    <svg class="graph"
     bind:this={svg}
     {width}
     {height}
@@ -35,28 +35,23 @@
     style="max-width: 100%; height: auto;"
     >
     {#if index > 0}
-    <g stroke="#000" stroke-opacity="1">
         {#each nodes.nodes as n}
             <circle key={n.id} cx={x(n.x)} cy={y(n.y)} r="10"
+            stroke="#000" stroke-opacity="1"
             transition:draw={{ duration: 5000, easing: cubicInOut }}/>
         {/each}
-    </g>
-
-       
-    <g stroke="#000" stroke-opacity="1">
         {#each edges.edges as e}
-
-
             <polyline
-            points={String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
-                    + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
-                    }
-            stroke="#FFCCBC"
-            stroke-width="10"
-            transition:draw={{ duration: 5000, easing: cubicInOut }}
-        />
+                points={
+                String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
+                        + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
+                        }
+                stroke="#FFCCBC"
+                stroke-width="10"
+                transition:draw={{ duration: 5000, easing: cubicInOut }}
+            />
         {/each}
-    </g>
+    
     
 
     {/if}
