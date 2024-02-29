@@ -31,6 +31,10 @@ export const edges = {
     {
       "source": 5,
       "target": 3
+    },
+    {
+      "source": 1,
+      "target": 3
     }
   ]
 }

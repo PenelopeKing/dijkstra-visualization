@@ -2,7 +2,8 @@
     import Scroller from "@sveltejs/svelte-scroller";
     import Nodes from "./Nodes.svelte";
     let count, index, offset, progress;
-    let width, height;
+    let width = 900;
+    let height = 100;
 
 
 </script>
@@ -21,11 +22,11 @@
     slot="background"
     bind:clientWidth={width}
     bind:clientHeight={height}>
-    
     <Nodes {index} {width} {height} />
 </div>
 
-<div class="foreground" slot="foreground">
+<div class="foreground" slot="foreground"
+style="pointer-events: none;">
   <section>Pg 1: Interactive Set Up - Premise</section>
   <section>Pg 2: Interactive Map Animation</section>
   <section>Pg 3: Interactive Map - Free Reign </section>
@@ -38,7 +39,6 @@
   <section>Pg 10: Node e</section>
   <section>Pg 11: Explanation cont... </section>
   <section>Pg 12: Final Solution </section>
-
 </div>
 
 </Scroller>
@@ -51,7 +51,6 @@
     position: relative;
     outline: green solid 3px;
   }
-
   .foreground {
     width: 90%;
     margin: 0 auto;
@@ -59,10 +58,8 @@
     position: relative;
     outline: red solid 3px;
   }
-
   section {
-    height: 80vh;
-    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
+    height: 90vh;
     /* color: white; */
     outline: magenta solid 3px;
     text-align: center;
