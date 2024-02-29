@@ -19,7 +19,9 @@
 <div
     class="background"
     slot="background"
-    >
+    bind:clientWidth={width}
+    bind:clientHeight={height}>
+    
     <Nodes {index} {width} {height} />
 </div>
 

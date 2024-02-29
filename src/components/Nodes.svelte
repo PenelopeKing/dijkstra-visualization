@@ -2,23 +2,20 @@
     import { nodes } from "../data/ex_nodes"
     import { edges } from "../data/ex_edges"
     import { fly, draw } from "svelte/transition";
+    import { cubicOut, cubicInOut } from "svelte/easing";
     import { tweened } from "svelte/motion";
     import * as d3 from 'd3';
 
     export let height, width, index;
-    const marginLeft = 0;
-    const marginRight = 0;
-    const marginTop = 0;
-    const marginBottom = 0;
+    const marginLeft = 300;
+    const marginRight = 300;
+    const marginTop = 300;
+    const marginBottom = 300;
     
-    let svg
-
-    
-    console.log(nodes)
-    console.log(edges)
+    let svg;
 
     $: x=d3
-    .scaleUtc() /* date as input and axis as output */
+    .scaleLinear() /* date as input and axis as output */
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
     .range([marginLeft, width - marginRight])
 
@@ -36,11 +33,15 @@
     viewBox="0 0 {width} {height}"
     style="max-width: 100%; height: auto;"
     >
-  <g stroke="#000" stroke-opacity="0.2">
-    {#each nodes.nodes as n}
-    <!--{} means fill with JS expression-->
-      <circle key={n.id} cx={x(n.x)} cy={y(n.y)} r="2.5"/>
-    {/each}
+    {#if index > 0}
+    <g stroke="#000" stroke-opacity="0.2">
+        {#each nodes.nodes as n}
+            <circle key={n.id} cx={x(n.x)} cy={y(n.y)} r="10"
+            transition:draw={{ duration: 5000, easing: cubicInOut }}/>
+        {/each}
     </g>
+    
+
+    {/if}
 
 </div>
