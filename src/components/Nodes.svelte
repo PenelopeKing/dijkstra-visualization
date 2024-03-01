@@ -39,7 +39,9 @@
     rectY = tweened(380, { duration: 1000, easing: cubicOut });
   }
   function resetUserInteraction() {
+
     d3.select(svg).selectAll("*").remove();
+
     blueLines = [];
   }
     function setCurrNode(node){
@@ -167,8 +169,12 @@
 
             {/each}
             <rect x={$rectX} y={$rectY} width="50" height="20" fill="green" 
-            in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
+            in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
+            out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
+
+            
             {/if}
+
 
     {#if index > 1}
         {setRect()}
