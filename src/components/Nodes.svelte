@@ -55,23 +55,30 @@
     }
     // Function to update position of rectangle based on selected node
     function updateRectanglePosition(selectedNode) {
+        //console.log(selectedNode)
         const edges_lst = edges.edges.filter(e => (e.source === selectedNode.id || e.target === selectedNode.id));
         if (!edges_lst) return; // No edge found
+
+        //console.log(edges_lst)
         //const sourceNode = nodes.nodes.find(n => n.id === edge_lst.source);
-        const sourceNode = nodes.nodes.find(node => edges_lst.some(edge => edge.source === node.id));
+        //const sourceNode = nodes.nodes.find(node => edges_lst.some(edge => edge.source === node.id));
+        //console.log(sourceNode)
         const targetNode = selectedNode; //nodes.nodes.find(n => n.id === edge.target);
-        if (currNode.id != sourceNode.id) {
+        const exists = edges_lst.some(edge => edge.source === currNode.id); 
+        if (!exists) {
             console.log("not connected")
-            console.log(sourceNode)
             return;
         }
+        const sourceNode = currNode;
         // only allow if a singular edge exists that connects sourceNode and targetNode
         const rect = svg.querySelector('rect');
         const rectX = (x(sourceNode.x) + (x(targetNode.x) - x(sourceNode.x)) -5 )  ;
         const rectY = (y(sourceNode.y) + (y(targetNode.y) - y(sourceNode.y)) -7);
         rect.setAttribute('x', rectX);
         rect.setAttribute('y', rectY);
-        // update edge color
+
+
+        // update edge and node colors :(
 
 
         setCurrNode(targetNode); // change what currNode is 
@@ -117,7 +124,7 @@
                 />
 
             {/each}
-            <rect x="100" y="360" width="50" height="20" fill="orange"
+            <rect x="100" y="360" width="50" height="20" fill="green"
             in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
         {/if}
     </svg>
