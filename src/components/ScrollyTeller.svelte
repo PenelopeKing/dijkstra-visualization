@@ -75,47 +75,67 @@ style="pointer-events: none;">
   <section>
     <p>Pg 4: Start of Dijkstra Explanation... Set Up 2</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Animation to show the right answer to the user.</p>
   </section>
   <section>
     <p>Pg 5: Node a </p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Make u.est appear for all nodes</p>
   </section>
   <section>
-    <p>Pg 6: Node f</p>
+    <p>Pg 6</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Make table for C and Outside Appear</p>
   </section>
   <section>
-    <p>Pg 7: Node b</p>
+    <p>Pg 7</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Highlight Nodes F, B, C</p>
   </section>
   <section>
-    <p>Pg 8: Node c</p>
+    <p>Pg 8</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Calculate distance from A to F, show it</p>
   </section>
   <section>
-    <p>Pg 9: Node d</p>
+    <p>Pg 9</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Compare distance values to u.est, replace with new value</p>
   </section>
   <section>
-    <p>Pg 10: Node e</p>
+    <p>Pg 10</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Move f from Outside to C</p>
   </section>
   <section>
-    <p>Pg 11: Explanation cont... </p>
+    <p>Pg 11: node b </p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Animate calculations for node b</p>
   </section>
   <section>
-    <p>Pg 12: Final Solution</p>
+    <p>Pg 12: node c </p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Animate calculations for node c</p>
+  </section>
+  <section>
+    <p>Pg 13: node e </p>
+    <br/>
+    <p class = "text" align = left>Animate calculations for node e</p>
+  </section>
+  <section>
+    <p>Pg 14: node d </p>
+    <br/>
+    <p class = "text" align = left>Animate calculations for node d</p>
+  </section>
+  <section>
+    <p>Pg 15: Final Solution</p>
+    <br/>
+    <p class = "text" align = left>Show final solution with all updated edge weights</p>
+  </section>
+  <section>
+    <p>Pg 16: End</p>
+    <br/>
+    <p class = "text" align = left>End notes on dijkstra alg.</p>
   </section>
 </div>
 

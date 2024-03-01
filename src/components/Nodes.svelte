@@ -22,7 +22,7 @@
     $: x=d3
     .scaleLinear() /* date as input and axis as output */
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-    .range([marginLeft * 1.25, width / 1.7])
+    .range([marginLeft * 1.25, width / 1.])
     $: y=d3
     .scaleLinear()
     .domain(d3.extent(nodes.nodes, (d) => d.y))
@@ -39,9 +39,7 @@
     rectY = tweened(380, { duration: 1000, easing: cubicOut });
   }
   function resetUserInteraction() {
-
     d3.select(svg).selectAll("*").remove();
-
     blueLines = [];
   }
     function setCurrNode(node){
@@ -135,8 +133,11 @@
     {#if index === 0}
         {resetUserInteraction()}
     {/if}
-
     {#if index === 1}
+        {resetUserInteraction()}
+    {/if}
+
+    {#if index === 2}
         {setRect()}
         {resetUserInteraction()}
         {#each edges.edges as e}
@@ -169,14 +170,10 @@
 
             {/each}
             <rect x={$rectX} y={$rectY} width="50" height="20" fill="green" 
-            in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
-            out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
-
-            
+            in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
             {/if}
 
-
-    {#if index > 1}
+    {#if index > 2}
         {setRect()}
         {resetUserInteraction()}
         {#each edges.edges as e}
