@@ -2,7 +2,7 @@
     import Scroller from "./Scroller.svelte";
     import Nodes from "./Nodes.svelte";
     let count, index, offset, progress;
-    let width = 900;
+    let width = 800;
     let height = 100;
 
     function handleClick(event) {
@@ -31,48 +31,143 @@
     bind:clientHeight={height}
     style="pointer-events: auto"
     on:click={() => handleClick(event)}>
-    <Nodes {index} {width} {height} />
+    <div div style="display: flex; flex-direction: row;">
+      <span id = "nodes-graph" style="margin-left: 20px;"> <Nodes {index} {width} {height} /> </span>
+  </div>
 </div>
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="foreground" 
 slot="foreground"
 style="pointer-events: none;">
-  <section>Pg 1: Interactive Set Up - Premise</section>
-  <section>Pg 2: Interactive Map Animation</section>
-  <section>Pg 3: Interactive Map - Free Reign </section>
-  <section>Pg 4: Start of Dijkstra Explanation... Set Up</section>
-  <section>Pg 5: Node a </section>
-  <section>Pg 6: Node f</section>
-  <section>Pg 7: Node b</section>
-  <section>Pg 8: Node c</section>
-  <section>Pg 9: Node d</section>
-  <section>Pg 10: Node e</section>
-  <section>Pg 11: Explanation cont... </section>
-  <section>Pg 12: Final Solution </section>
+  <section class = "first-page">
+    <div class = "header-background">
+        <h1 align="center">An Introduction to Dijkstra Algorithm</h1>
+    </div>
+      <p style="color:#fcfcfc" >Penny King & Garvey Li</p>
+      <br/>
+      <br/>
+      <p class = "text" align= left >Welcome to your first day at your job at OOperEats. It is time to make your first delivery. Unfortunately our map system is down so it is up to you to decide the path you want to take to your customer’s destination. Keep in mind that we want to be as quick as possible so you can be ready for your next order pick up!
+        </p>
+      <p class = "text" align= left> Your Goal: Find the fastest path to your destination from the restaurant pick up.</p>
+  </section>
+  <section>
+    <p>Pg 2: Interactive Map</p>
+    <br/>
+    <p class = "text" align= left>The restaurant you are currently at is the blue dot at the left.</p>
+    <p class = "text" align= left>These pink dots are neighborhoods you can pass through on your drive.</p>
+    <p class = "text" align= left>The numbers represent how long it takes to get from one neighborhood to another.</p>
+    <p class = "text" align= left>This red dot is your final destination.</p>
+    <br />
+    <p class = "text" align= left>Try to find the fastest path possible to your destination. Create the path you think is best by clicking on the nodes. Scroll down when you are done!</p>
+  
+  </section>
+  <section>
+    <p>Pg 3: Answer</p>
+    <br/>
+    <p class = "text" align= left>Was this what you got?</p>
+    <p class = "text" align = left>Finding the shortest path is not a simple task…
+      How can we find the concrete shortest path to your customer?
+      </p>
+    <p class = "text" align = left>One method to do so in this situation is called Dijkstra Algorithm.</p>
+
+  </section>
+  <section>
+    <p>Pg 4: Start of Dijkstra Explanation... Set Up 2</p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 5: Node a </p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 6: Node f</p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 7: Node b</p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 8: Node c</p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 9: Node d</p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 10: Node e</p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 11: Explanation cont... </p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <p>Pg 12: Final Solution</p>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
 </div>
 
 </Scroller>
 
 
 <style>
-  .background {
+ .text {
+  margin-left:750px;
+  margin-right: 50px;
+ }
+  * {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .first-page{
+    margin:0;
+    padding:0;
+  }
+
+  .header-background {
+    margin:0;
+    padding:0;
+    top: 0;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
     width: 100%;
+    height: 120px;
+    color: #fcfcfc;
+  }
+
+  .background {
+    width: 70%;
     height: 100vh;
+    margin:0;
+    padding:0;
     position: relative;
     outline: green solid 3px;
     z-index: 10;
   }
   .foreground {
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     height: auto;
     position: relative;
     outline: red solid 3px;
     z-index: 0;
   }
   section {
-    height: 90vh;
+    height: 95vh;
     /* color: white; */
     outline: magenta solid 3px;
     text-align: center;
@@ -81,4 +176,15 @@ style="pointer-events: none;">
     padding: 1em;
     margin: 0 0 2em 0;
   }
+  span{
+    outline: orange solid 3px;
+  }
+  h1 {
+    background-color: #499e97;
+    padding: 60px;
+    margin: 0px;
+    outline: orange 3px;
+  }
+
+
 </style>

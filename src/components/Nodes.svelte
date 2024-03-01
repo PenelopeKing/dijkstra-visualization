@@ -22,7 +22,7 @@
     $: x=d3
     .scaleLinear() /* date as input and axis as output */
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-    .range([marginLeft * 1.25, width / 2])
+    .range([marginLeft * 1.25, width / 1.7])
     $: y=d3
     .scaleLinear()
     .domain(d3.extent(nodes.nodes, (d) => d.y))
@@ -181,10 +181,8 @@
                             }
                     stroke={e.color}
                     stroke-width="3"
-                    
                 />
             {/each}
-
 
             {#each nodes.nodes as n}
                 {#if n.id == 0}
@@ -197,18 +195,9 @@
                     r="20" 
                     fill={n.color}
                 />
-
             {/each}
-
             {/if}
-
-        
     </svg>
-    <div class="text-box">
-        {#if index >= 0}
-            <p>hello</p>
-        {/if}
-    </div>
 
-    
+  
 </div>
