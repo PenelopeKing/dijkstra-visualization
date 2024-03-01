@@ -7,7 +7,6 @@
     import { fly, draw , fade} from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { tweened } from "svelte/motion";
-    import ButtonComponent from "./Button.svelte"
 
     
     import * as d3 from 'd3';
@@ -58,28 +57,19 @@
         rect.setAttribute('y', rectY);
     }
 
-    let mousePosition = [0,0];
-    function recordMousePosition(event) {
-        console.log("recorded mouse position")
-        mousePosition = d3.pointer(event);
-    }
-
     
 </script>
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="weighted-graph">
-
     <svg class="graph"
     bind:this={svg}
     {width}
     {height}
     viewBox="0 0 {width} {height}"
-    style="max-width: 100%; height: auto;"
-    on:pointermove={recordMousePosition}
+    style="max-width: 100%; height: auto; pointer-events: auto;"
     >
     {#if index > 0}
-
         {#each edges.edges as e}
                 <polyline
                     points={ // String of coordintates x0,y0 x1,y1
@@ -99,6 +89,7 @@
                     r="20" 
                     fill={n.color}
                     in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
+                    style="pointer-events: auto;"
                     on:click={() => handleClick(event, n)}
                 />
             {/each}

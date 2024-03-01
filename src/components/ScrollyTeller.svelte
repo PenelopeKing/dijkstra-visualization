@@ -1,9 +1,14 @@
 <script>
-    import Scroller from "@sveltejs/svelte-scroller";
+    import Scroller from "./Scroller.svelte";
     import Nodes from "./Nodes.svelte";
     let count, index, offset, progress;
     let width = 900;
     let height = 100;
+
+    function handleClick(event) {
+        console.log("clicked")
+        // Update position of rectangle to follow edge to clicked node
+    }
 
 
 </script>
@@ -15,17 +20,23 @@
   bind:index
   bind:offset
   bind:progress
->
 
+>
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
     class="background"
     slot="background"
     bind:clientWidth={width}
-    bind:clientHeight={height}>
+    bind:clientHeight={height}
+    style="pointer-events: auto"
+    on:click={() => handleClick(event)}>
     <Nodes {index} {width} {height} />
 </div>
-
-<div class="foreground" slot="foreground"
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="foreground" 
+slot="foreground"
 style="pointer-events: none;">
   <section>Pg 1: Interactive Set Up - Premise</section>
   <section>Pg 2: Interactive Map Animation</section>
@@ -50,6 +61,7 @@ style="pointer-events: none;">
     height: 100vh;
     position: relative;
     outline: green solid 3px;
+    z-index: 10;
   }
   .foreground {
     width: 90%;
@@ -57,6 +69,7 @@ style="pointer-events: none;">
     height: auto;
     position: relative;
     outline: red solid 3px;
+    z-index: 0;
   }
   section {
     height: 90vh;
