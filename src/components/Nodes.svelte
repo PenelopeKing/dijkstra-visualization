@@ -17,6 +17,7 @@
     const marginTop = 200;
     const marginBottom = 200;
 
+    let currNode;
     let svg;
 
     $: x=d3
@@ -36,25 +37,44 @@
   };
     let strokeWidth = tweened(1, { duration: 5000, easing: cubicOut });
     
+
+    function setCurrNode(node){
+        currNode = node;
+        console.log('set currNode')
+    }
     // Function to handle clicking on nodes
     function handleClick(event, node) {
         console.log("clicked on node")
         // Update position of rectangle to follow edge to clicked node
         updateRectanglePosition(node);
     }
+    function hasMatchingId(dict1, dict2) {
+        if (dict1.id === dict2.id){
+            return dict1
+        }
+    }
     // Function to update position of rectangle based on selected node
     function updateRectanglePosition(selectedNode) {
-        const edge = edges.edges.find(e => (e.source === selectedNode.id || e.target === selectedNode.id));
-        if (!edge) return; // No edge found
-
-        const sourceNode = nodes.nodes.find(n => n.id === edge.source);
-        const targetNode = nodes.nodes.find(n => n.id === edge.target);
-
+        const edges_lst = edges.edges.filter(e => (e.source === selectedNode.id || e.target === selectedNode.id));
+        if (!edges_lst) return; // No edge found
+        //const sourceNode = nodes.nodes.find(n => n.id === edge_lst.source);
+        const sourceNode = nodes.nodes.find(node => edges_lst.some(edge => edge.source === node.id));
+        const targetNode = selectedNode; //nodes.nodes.find(n => n.id === edge.target);
+        if (currNode.id != sourceNode.id) {
+            console.log("not connected")
+            console.log(sourceNode)
+            return;
+        }
+        // only allow if a singular edge exists that connects sourceNode and targetNode
         const rect = svg.querySelector('rect');
-        const rectX = x(sourceNode.x) + (x(targetNode.x) - x(sourceNode.x)) / 2 - 10;
-        const rectY = y(sourceNode.y) + (y(targetNode.y) - y(sourceNode.y)) / 2 - 10;
+        const rectX = (x(sourceNode.x) + (x(targetNode.x) - x(sourceNode.x)) -5 )  ;
+        const rectY = (y(sourceNode.y) + (y(targetNode.y) - y(sourceNode.y)) -7);
         rect.setAttribute('x', rectX);
         rect.setAttribute('y', rectY);
+        // update edge color
+
+
+        setCurrNode(targetNode); // change what currNode is 
     }
 
     
@@ -76,12 +96,15 @@
                     String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
                             + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
                             }
-                    stroke="#5e5e5e"
+                    stroke={e.color}
                     stroke-width="3"
                     in:draw|global={{intro: true , duration: 1000, delay: 200, easing: cubicInOut }}
                 />
             {/each}
             {#each nodes.nodes as n}
+                {#if n.id == 0}
+                        {setCurrNode(n)}
+                    {/if}
                 <circle 
                     key={n.id} 
                     cx={x(n.x)} 
@@ -92,9 +115,10 @@
                     style="pointer-events: auto;"
                     on:click={() => handleClick(event, n)}
                 />
+
             {/each}
-    
+            <rect x="100" y="360" width="50" height="20" fill="orange"
+            in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
         {/if}
-    <rect x="100" y="350" width="50" height="20" fill="orange" />
     </svg>
 </div>
