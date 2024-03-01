@@ -35,8 +35,8 @@
     duration: 1000,
     easing: cubicOut,
   };
-    let strokeWidth = tweened(1, { duration: 5000, easing: cubicOut });
-    
+    let rectX = tweened(100, { duration: 1000, easing: cubicOut });
+    let rectY = tweened(360, { duration: 1000, easing: cubicOut });
 
     function setCurrNode(node){
         currNode = node;
@@ -70,15 +70,13 @@
             return;
         }
         const sourceNode = currNode;
-        // only allow if a singular edge exists that connects sourceNode and targetNode
-        const rect = svg.querySelector('rect');
-        const rectX = (x(sourceNode.x) + (x(targetNode.x) - x(sourceNode.x)) -5 )  ;
-        const rectY = (y(sourceNode.y) + (y(targetNode.y) - y(sourceNode.y)) -7);
-        rect.setAttribute('x', rectX);
-        rect.setAttribute('y', rectY);
 
+        const connected_edge = edges.edges.find(e => (e.source == sourceNode.ig && e.target == selectedNode.id))
+        // animate movement of car
+        rectX.set(x(sourceNode.x) + (x(targetNode.x) - x(sourceNode.x)) - 5);
+        rectY.set(y(sourceNode.y) + (y(targetNode.y) - y(sourceNode.y)) - 7);
 
-        // update edge and node colors :(
+        // update edge and node colors
 
 
         setCurrNode(targetNode); // change what currNode is 
@@ -124,7 +122,8 @@
                 />
 
             {/each}
-            <rect x="100" y="360" width="50" height="20" fill="green"
+            //rect x="100" y="360" width="50" height="20" fill="green"
+            <rect x={$rectX} y={$rectY} width="50" height="20" fill="green" 
             in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
         {/if}
     </svg>
