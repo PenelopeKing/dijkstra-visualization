@@ -6,7 +6,7 @@
     let height = 100;
 
     function handleClick(event) {
-        console.log("clicked")
+        console.log("clicked on whole background")
         // Update position of rectangle to follow edge to clicked node
     }
 

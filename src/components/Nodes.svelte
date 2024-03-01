@@ -38,7 +38,7 @@
     
     // Function to handle clicking on nodes
     function handleClick(event, node) {
-        console.log("clicked")
+        console.log("clicked on node")
         // Update position of rectangle to follow edge to clicked node
         updateRectanglePosition(node);
     }
