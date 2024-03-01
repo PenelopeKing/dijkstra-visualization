@@ -1,8 +1,10 @@
 <script>
-    // get node data with nodes.nodes
+    // get node and edge data 
     import { nodes } from "../data/ex_nodes"
-    // get edge data with edges.edges
     import { edges } from "../data/ex_edges"
+    import { sol_nodes } from "../data/sol_nodes"
+    import { sol_edges } from "../data/sol_edges"
+
     import { fly, draw , fade} from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { tweened } from "svelte/motion";
@@ -16,7 +18,7 @@
     let svg;
     let tempx;
     let tempy;
-    const blue = "#7083ff"
+    const blue = "#499e97"
     
     let blueLines = [];
     $: x=d3
@@ -147,7 +149,7 @@
                             }
                     stroke={e.color}
                     stroke-width="3"
-                    in:draw|global={{intro: true , duration: 1000, delay: 200, easing: cubicInOut }}
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
                 />
             {/each}
 
@@ -162,7 +164,7 @@
                     cy={y(n.y)} 
                     r="20" 
                     fill={n.color}
-                    in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
+                    in:fade|global={{intro: true , duration: 500, delay: 50, easing: cubicInOut }}
                     style="pointer-events: auto;"
                     on:click={() => handleClick(event, n)}
                 />
@@ -189,11 +191,7 @@
                     stroke-width="3"
                 />
             {/each}
-
             {#each nodes.nodes as n}
-                {#if n.id == 0}
-                        {setCurrNode(n)}
-                    {/if}
                 <circle 
                     key={n.id} 
                     cx={x(n.x)} 
@@ -202,7 +200,35 @@
                     fill={n.color}
                 />
             {/each}
+
+            {#if index === 2}
+            console.log('here')
+                {#each sol_edges.edges as e}
+                    <polyline
+                        points={ // String of coordintates x0,y0 x1,y1
+                        String(x(sol_nodes.nodes[e.source].x)) + "," + String(y(sol_nodes.nodes[e.source].y))
+                                + " " + String(x(sol_nodes.nodes[e.target].x)) + "," + String(y(sol_nodes.nodes[e.target].y))
+                                }
+                        stroke={blue}
+                        stroke-width="5"
+                        in:draw|global={{intro: true , duration: 1000, delay: (100 + (e.source * 200)), easing: cubicInOut }}
+                        out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                        />
+                    {/each}
+        
+                {#each sol_nodes.nodes as n}
+                    <circle 
+                        key={n.id} 
+                        cx={x(n.x)} 
+                        cy={y(n.y)} 
+                        r="20" 
+                        fill={n.color}
+                        in:fade|global={{intro: true , duration: 1000, delay: 10 + (n.id * 200), easing: cubicInOut }}
+                        out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                    />
+                {/each}   
             {/if}
+    {/if}
     </svg>
 
   

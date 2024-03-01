@@ -5,7 +5,7 @@ export const nodes = {
         "name": "A",
         "x": 0,
         "y": 0,
-        "color":"#7083ff"
+        "color":"#499e97"
         
       },
       {
