@@ -1,5 +1,4 @@
 <script>
-
     // get node data with nodes.nodes
     import { nodes } from "../data/ex_nodes"
     // get edge data with edges.edges
@@ -37,9 +36,13 @@
   };
     let strokeWidth = tweened(1, { duration: 5000, easing: cubicOut });
     
+    let selected;
+    function select(cricle, event){
+        selected = circle;
+    }
     // Function to handle clicking on nodes
     function handleClick(event, node) {
-        console.log("clicked")
+        console.log("click")
         // Update position of rectangle to follow edge to clicked node
         updateRectanglePosition(node);
     }
@@ -67,7 +70,7 @@
     
 </script>
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="weighted-graph">
 
     <svg class="graph"
@@ -76,7 +79,7 @@
     {height}
     viewBox="0 0 {width} {height}"
     style="max-width: 100%; height: auto;"
-    on:pointermove={recordMousePosition}
+    on:click={handleClick}
     >
     {#if index > 0}
 
@@ -99,7 +102,7 @@
                     r="20" 
                     fill={n.color}
                     in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
-                    on:click={() => handleClick(event, n)}
+                    onclick={(event) => select(handleClick(event))}
                 />
             {/each}
     

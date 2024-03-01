@@ -21,7 +21,8 @@
     class="background"
     slot="background"
     bind:clientWidth={width}
-    bind:clientHeight={height}>
+    bind:clientHeight={height}
+    style="pointer-events: none;">
     <Nodes {index} {width} {height} />
 </div>
 
