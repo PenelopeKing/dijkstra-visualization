@@ -75,37 +75,45 @@ style="pointer-events: none;">
   <section>
     <p>Pg 4: Start of Dijkstra Explanation... Set Up 2</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>The Dijkstra Algorithm is very similar to the Breadth First Search algorithm, and lets us find the shortest path between a source and target node on a positively weighted graph (directed or undirected).</p>
+      <p class = "text" align = left>To start out, we define a value u.est for each node denoting the distance from the source node. For the initial source node, this equals 0, and is unknown for all other nodes, so we can set them to positive infinity.</p>
+
   </section>
   <section>
-    <p>Pg 5: Node a </p>
+    <p>Pg 5: Initialize C and Outside Sets </p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>
+      To help us keep track of which edges we need to update, we’ll categorize the nodes into two sets: C and Outside. Nodes in Outside have uest values of infinite, while nodes in C do not.
+    </p>
+    <p class = "text" align = left>
+      With the setup done, we’re ready to start.
+    </p>
   </section>
   <section>
-    <p>Pg 6: Node f</p>
+    <p>Pg 6: Find the closest node to C. f</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>The first step is to look at all the nodes in Outside that are 1 edge away from the nodes in C. In this case, those nodes are f, b, and c.</p>
   </section>
   <section>
-    <p>Pg 7: Node b</p>
+    <p>Pg 7: Calculate the distance between the source node of C and the closest Outside node.</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Then, we pick the node with the smallest edge weight connecting to the nodes in set C. We’ll call this a target node. In this case, that would be node f.</p>
+    <p class = "text" align = left>Now, for the target node, we want to calculate its new distance value. We do this by adding the edge weight to the uest value of the respective source node. </p>
   </section>
   <section>
-    <p>Pg 8: Node c</p>
-    <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Pg 8: Compare the calculated distance to u.est. c</p>
+    <p class = "text" align = left>If the new distance value is less than the target node’s uest, then we update the target node’s uest to be the distance value. 7 &lt; inf, so f’s new uest is 7.</p>
+    
   </section>
   <section>
-    <p>Pg 9: Node d</p>
+    <p>Pg 9: Move the node from Outside to C</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Since node f has a uest value that isn’t infinity, we move it to C.</p>
   </section>
   <section>
-    <p>Pg 10: Node e</p>
+    <p>Pg 10: Repeat!</p>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>And now we repeat those steps until there are no more edges to update uest with for any node.</p>
   </section>
   <section>
     <p>Pg 11: Explanation cont... </p>

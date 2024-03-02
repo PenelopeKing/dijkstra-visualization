@@ -17,6 +17,7 @@
     const marginBottom = 100;
     const C = c_outside.C
     const Outside = c_outside.Outside
+    const set_index = Object.keys(c_outside.C)
 
     let currNode;
     let svg;
@@ -241,8 +242,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {#each Array(5) as _, i (i)}
-                                {#if index - 3 > i}
+                                
+                                {#each set_index as i}
+                                    {#if index > i}
                                     <tr>
                                         <td>{C[i]}</td>
                                         <td>{Outside[i]}</td>
