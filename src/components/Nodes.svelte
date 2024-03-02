@@ -4,6 +4,7 @@
     import { edges } from "../data/ex_edges"
     import { sol_nodes } from "../data/sol_nodes"
     import { sol_edges } from "../data/sol_edges"
+    import { c_outside } from "../data/sets"
 
     import { fly, draw , fade} from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
@@ -14,6 +15,9 @@
     const marginRight = 100;
     const marginTop = 100;
     const marginBottom = 100;
+    const C = c_outside.C
+    const Outside = c_outside.Outside
+
     let currNode;
     let svg;
     let tempx;
@@ -128,80 +132,77 @@
 
 <div class="weighted-graph">
     <svg class="graph"
-    bind:this={svg}
-    {width}
-    {height}
-    viewBox="0 0 {width} {height}"
-    style="max-width: 100%; height: auto; pointer-events: auto;"
-    >
-    {#if index === 0}
-        {resetUserInteraction()}
-    {/if}
+        bind:this={svg}
+        {width}
+        {height}
+        viewBox="0 0 {width} {height}"
+        style="max-width: 100%; height: auto; pointer-events: auto;"
+        >
+        {#if index === 0}
+            {resetUserInteraction()}
+        {/if}
 
-    {#if index === 1}
-        {setRect()}
-        {resetUserInteraction()}
-        {#each edges.edges as e}
-                <polyline
-                    points={ // String of coordintates x0,y0 x1,y1
-                    String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
-                            + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
-                            }
-                    stroke={e.color}
-                    stroke-width="3"
-                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
-                />
-            {/each}
-
-
-            {#each nodes.nodes as n}
-                {#if n.id == 0}
-                        {setCurrNode(n)}
-                    {/if}
-                <circle 
-                    key={n.id} 
-                    cx={x(n.x)} 
-                    cy={y(n.y)} 
-                    r="20" 
-                    fill={n.color}
-                    in:fade|global={{intro: true , duration: 500, delay: 50, easing: cubicInOut }}
-                    style="pointer-events: auto;"
-                    on:click={() => handleClick(event, n)}
-                />
-
-            {/each}
-            <rect x={$rectX} y={$rectY} width="50" height="20" fill="green" 
-            in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
-            out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
-
-            
-            {/if}
+        {#if index === 1}
+            {setRect()}
+            {resetUserInteraction()}
+            {#each edges.edges as e}
+                    <polyline
+                        points={ // String of coordintates x0,y0 x1,y1
+                        String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
+                                + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
+                                }
+                        stroke={e.color}
+                        stroke-width="3"
+                        in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    />
+                {/each}
 
 
-    {#if index > 1}
-        {setRect()}
-        {resetUserInteraction()}
-        {#each edges.edges as e}
-                <polyline
-                    points={ // String of coordintates x0,y0 x1,y1
-                    String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
-                            + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
-                            }
-                    stroke={e.color}
-                    stroke-width="3"
-                />
-            {/each}
-            {#each nodes.nodes as n}
-                <circle 
-                    key={n.id} 
-                    cx={x(n.x)} 
-                    cy={y(n.y)} 
-                    r="20" 
-                    fill={n.color}
-                />
-            {/each}
+                {#each nodes.nodes as n}
+                    {#if n.id == 0}
+                            {setCurrNode(n)}
+                        {/if}
+                    <circle 
+                        key={n.id} 
+                        cx={x(n.x)} 
+                        cy={y(n.y)} 
+                        r="20" 
+                        fill={n.color}
+                        in:fade|global={{intro: true , duration: 500, delay: 50, easing: cubicInOut }}
+                        style="pointer-events: auto;"
+                        on:click={() => handleClick(event, n)}
+                    />
+                {/each}
+                <rect x={$rectX} y={$rectY} width="50" height="20" fill="green" 
+                in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
+        {/if}
 
-            {#if index === 2}
+
+        {#if index > 1}
+            {setRect()}
+            {resetUserInteraction()}
+            {#each edges.edges as e}
+                    <polyline
+                        points={ // String of coordintates x0,y0 x1,y1
+                        String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
+                                + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
+                                }
+                        stroke={e.color}
+                        stroke-width="3"
+                    />
+                {/each}
+                {#each nodes.nodes as n}
+                    <circle 
+                        key={n.id} 
+                        cx={x(n.x)} 
+                        cy={y(n.y)} 
+                        r="20" 
+                        fill={n.color}
+                    />
+                {/each}
+        {/if}
+        {#if index === 2}
             console.log('here')
                 {#each sol_edges.edges as e}
                     <polyline
@@ -228,8 +229,53 @@
                     />
                 {/each}   
             {/if}
-    {/if}
+            {#if index > 3}
+                {console.log("table should be here")}
+                <foreignObject x="700" y="200" width="300" height="500">
+                    <div>
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>C</th>
+                                    <th>Outside</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {#each Array(5) as _, i (i)}
+                                {#if index - 3 > i}
+                                    <tr>
+                                        <td>{C[i]}</td>
+                                        <td>{Outside[i]}</td>
+                                    </tr>
+                                    {/if}
+                                {/each}
+                            </tbody>
+                        </table>
+                    </div>
+                </foreignObject>
+
+                
+            {/if}
+        
+            
+        
+        
     </svg>
 
   
 </div>
+
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: left;
+}
+    th, td {
+  border-color: #96D4D4;
+  width:50%;
+}
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+</style>
