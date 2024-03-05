@@ -140,9 +140,6 @@
         style="max-width: 100%; height: auto; pointer-events: auto;"
         >
 
-        
-
-
         {#if index === 0}
             {resetUserInteraction()}
         {/if}
@@ -175,6 +172,16 @@
                     in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
                     marker-end="url(#arrow)"
                 />
+                <text
+                    x="{x((nodes.nodes[e.source].x + nodes.nodes[e.target].x) / 2)}"
+                    y="{y((nodes.nodes[e.source].y + nodes.nodes[e.target].y) / 2)}"
+                
+                    >
+                        PUT WEIGHTS HERE
+
+
+                </text>
+                
                 {/each}
 
 
@@ -261,10 +268,25 @@
                         in:fade|global={{intro: true , duration: 1000, delay: 10 + (n.id * 200), easing: cubicInOut }}
                         out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                     />
+                    
                 {/each}   
+            {/if}
+            {#if index >= 3}
+            {#each nodes.nodes as n}
+                    <text
+                    x="{x(n.x) - 10}"
+                    y="{y(n.y) + 40}"
+                
+                    >
+                        PUT U.EST HERE
+
+
+                </text>
+                {/each}
             {/if}
             {#if index > 3}
                 {console.log("table should be here")}
+                
                 <foreignObject x="700" y="200" width="300" height="500">
                     <div>
                         <table style="width:100%">
