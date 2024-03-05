@@ -139,6 +139,10 @@
         viewBox="0 0 {width} {height}"
         style="max-width: 100%; height: auto; pointer-events: auto;"
         >
+
+        
+
+
         {#if index === 0}
             {resetUserInteraction()}
         {/if}
@@ -147,15 +151,30 @@
             {setRect()}
             {resetUserInteraction()}
             {#each edges.edges as e}
-                    <polyline
-                        points={ // String of coordintates x0,y0 x1,y1
-                        String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
-                                + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
-                                }
-                        stroke={e.color}
-                        stroke-width="3"
-                        in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
-                    />
+                <defs>
+                    <!-- A marker to be used as an arrowhead. -->
+                    <!-- refX determines how far down the line the marker is. -->
+                    <marker
+                    id="arrow"
+                    viewBox="0 0 10 10"
+                    refX="23"
+                    refY="5"
+                    markerWidth="5"
+                    markerHeight="5"
+                    orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" />
+                    </marker>
+                </defs>
+                <polyline
+                    points={ // String of coordinates x0,y0 x1,y1
+                    String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
+                            + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
+                            }
+                    stroke={e.color}
+                    stroke-width="3"
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    marker-end="url(#arrow)"
+                />
                 {/each}
 
 
@@ -184,15 +203,30 @@
             {setRect()}
             {resetUserInteraction()}
             {#each edges.edges as e}
-                    <polyline
-                        points={ // String of coordintates x0,y0 x1,y1
-                        String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
-                                + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
-                                }
-                        stroke={e.color}
-                        stroke-width="3"
-                    />
-                {/each}
+                <defs>
+                    <!-- A marker to be used as an arrowhead. -->
+                    <!-- refX determines how far down the line the marker is. -->
+                    <marker
+                    id="arrow"
+                    viewBox="0 0 10 10"
+                    refX="23"
+                    refY="5"
+                    markerWidth="5"
+                    markerHeight="5"
+                    orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" />
+                    </marker>
+                </defs>
+                <polyline
+                    points={ // String of coordintates x0,y0 x1,y1
+                    String(x(nodes.nodes[e.source].x)) + "," + String(y(nodes.nodes[e.source].y))
+                            + " " + String(x(nodes.nodes[e.target].x)) + "," + String(y(nodes.nodes[e.target].y))
+                            }
+                    stroke={e.color}
+                    stroke-width="3"
+                    marker-end="url(#arrow)"
+                />
+            {/each}
                 {#each nodes.nodes as n}
                     <circle 
                         key={n.id} 
@@ -204,7 +238,6 @@
                 {/each}
         {/if}
         {#if index === 2}
-            console.log('here')
                 {#each sol_edges.edges as e}
                     <polyline
                         points={ // String of coordintates x0,y0 x1,y1
