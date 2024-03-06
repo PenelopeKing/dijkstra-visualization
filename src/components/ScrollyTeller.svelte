@@ -99,7 +99,7 @@ style="pointer-events: none;">
     <br/>
     <p class = "text" align = left>Then, we calculate new distance values for each of the nodes adjacent to C.</p>
     <p class = "text" align = left>We do this by adding the edge weight to the u.est value of the respective source node. 
-      If the new distance value is less than the respective node’s u.est, then we update the target node’s u.est to be the distance value. For node f, 7 &lt; inf, so f’s new uest is 7.
+      If the new distance value is less than the respective node’s u.est, then we update the target node’s u.est to be the distance value. For node f, 7 &lt; inf, so f’s new u.est is 7.
     </p>
   </section>
   <section>

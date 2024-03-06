@@ -285,7 +285,7 @@
                         x="{x(n.x) + uest_vals[n.id]['x_shift']}"
                         y="{y(n.y) + uest_vals[n.id]['y_shift']}"
                         >
-                            u.est = {uest_vals[n.id][0]}
+                            u.est= {uest_vals[n.id][0]}
                     </text>
                 {/each}
             {/if}
@@ -317,7 +317,7 @@
                     </div>
                 </foreignObject>
             {/if}
-            <!--First set of edge and u.est updates-->
+            <!--First set of edge-->
             {#if index >= 5}
                 <polyline
                 points={ // String of coordintates x0,y0 x1,y1 for edge a, f
@@ -351,15 +351,26 @@
                 />
                 
             {/if}
+            <!--First set of u.est updates-->
             {#if index >= 6}
-                {#each nodes.nodes as n}
-                        <text
-                        x="{x(n.x) + uest_vals[n.id]['x_shift']}"
-                        y="{y(n.y) + uest_vals[n.id]['y_shift']}"
-                        >
-                            u.est =---- {uest_vals[n.id][1]}
-                    </text>
-                {/each}
+            <text
+                x="{x(nodes.nodes[1].x) + uest_vals[nodes.nodes[1].id]['x_shift']}"
+                y="{y(nodes.nodes[1].y) + uest_vals[nodes.nodes[1].id]['y_shift']}"
+                >
+                    u.est=---- 0+9={uest_vals[nodes.nodes[1].id][1]}
+            </text>
+            <text
+                x="{x(nodes.nodes[2].x) + uest_vals[nodes.nodes[2].id]['x_shift']}"
+                y="{y(nodes.nodes[2].y) + uest_vals[nodes.nodes[2].id]['y_shift']}"
+                >
+                    u.est=---- 0+14={uest_vals[nodes.nodes[2].id][1]}
+            </text>
+            <text
+                x="{x(nodes.nodes[5].x) + uest_vals[nodes.nodes[5].id]['x_shift']}"
+                y="{y(nodes.nodes[5].y) + uest_vals[nodes.nodes[5].id]['y_shift']}"
+                >
+                    u.est=---- 0+7={uest_vals[nodes.nodes[5].id][1]}
+            </text>
             {/if}
 
 
