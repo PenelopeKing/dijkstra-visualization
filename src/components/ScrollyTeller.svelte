@@ -92,17 +92,18 @@ style="pointer-events: none;">
   <section>
     <p>Pg 6: Find the closest node to C. f</p>
     <br/>
-    <p class = "text" align = left>The first step is to look at all the nodes in Outside that are 1 edge away from the nodes in C. In this case, those nodes are f, b, and c.</p>
+    <p class = "text" align = left>The first step is to look at all the nodes in Outside that are 1 edge away from (or adjacent) the nodes in C. In this case, those nodes are f, b, and c.</p>
   </section>
   <section>
     <p>Pg 7: Calculate the distance between the source node of C and the closest Outside node.</p>
     <br/>
-    <p class = "text" align = left>Then, we pick the node with the smallest edge weight connecting to the nodes in set C. We’ll call this a target node. In this case, that would be node f.</p>
-    <p class = "text" align = left>Now, for the target node, we want to calculate its new distance value. We do this by adding the edge weight to the uest value of the respective source node. </p>
+    <p class = "text" align = left>Then, we calculate new distance values for each of the nodes adjacent to C.</p>
+    <p class = "text" align = left>We do this by adding the edge weight to the u.est value of the respective source node. 
+      If the new distance value is less than the respective node’s u.est, then we update the target node’s u.est to be the distance value. For node f, 7 &lt; inf, so f’s new uest is 7.
+    </p>
   </section>
   <section>
     <p class = "text" align = left>Pg 8: Compare the calculated distance to u.est. c</p>
-    <p class = "text" align = left>If the new distance value is less than the target node’s uest, then we update the target node’s uest to be the distance value. 7 &lt; inf, so f’s new uest is 7.</p>
     
   </section>
   <section>

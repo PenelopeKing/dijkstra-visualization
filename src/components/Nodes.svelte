@@ -5,6 +5,7 @@
     import { sol_nodes } from "../data/sol_nodes"
     import { sol_edges } from "../data/sol_edges"
     import { c_outside } from "../data/sets"
+    import { uest_vals } from "../data/uest"
 
     import { fly, draw , fade} from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
@@ -23,7 +24,9 @@
     let svg;
     let tempx;
     let tempy;
-    const blue = "#499e97"
+    const blue = "#499e97";
+    const red = '#FF0000';
+    const green = '#00FF00';
     
     let blueLines = [];
     $: x=d3
@@ -173,13 +176,10 @@
                     marker-end="url(#arrow)"
                 />
                 <text
-                    x="{x((nodes.nodes[e.source].x + nodes.nodes[e.target].x) / 2)}"
-                    y="{y((nodes.nodes[e.source].y + nodes.nodes[e.target].y) / 2)}"
-                
+                    x="{x((nodes.nodes[e.source].x + nodes.nodes[e.target].x) / 2) + e.x_shift}"
+                    y="{y((nodes.nodes[e.source].y + nodes.nodes[e.target].y) / 2) + e.y_shift}"
                     >
-                        PUT WEIGHTS HERE
-
-
+                    {e.weight}
                 </text>
                 
                 {/each}
@@ -233,6 +233,12 @@
                     stroke-width="3"
                     marker-end="url(#arrow)"
                 />
+                <text
+                    x="{x((nodes.nodes[e.source].x + nodes.nodes[e.target].x) / 2) + e.x_shift}"
+                    y="{y((nodes.nodes[e.source].y + nodes.nodes[e.target].y) / 2) + e.y_shift}"
+                    >
+                    {e.weight}
+                </text>
             {/each}
                 {#each nodes.nodes as n}
                     <circle 
@@ -244,6 +250,7 @@
                     />
                 {/each}
         {/if}
+        <!--Draw in solution edges-->
         {#if index === 2}
                 {#each sol_edges.edges as e}
                     <polyline
@@ -271,19 +278,18 @@
                     
                 {/each}   
             {/if}
+            <!--Draw in first set of u.est values-->
             {#if index >= 3}
-            {#each nodes.nodes as n}
-                    <text
-                    x="{x(n.x) - 10}"
-                    y="{y(n.y) + 40}"
-                
-                    >
-                        PUT U.EST HERE
-
-
-                </text>
+                {#each nodes.nodes as n}
+                        <text
+                        x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                        y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                        >
+                            u.est = {uest_vals[n.id][0]}
+                    </text>
                 {/each}
             {/if}
+            <!--Show Set table-->
             {#if index > 3}
                 {console.log("table should be here")}
                 
@@ -310,9 +316,53 @@
                         </table>
                     </div>
                 </foreignObject>
-
+            {/if}
+            <!--First set of edge and u.est updates-->
+            {#if index >= 5}
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[5].x)) + "," + String(y(nodes.nodes[5].y))
+                        }
+                stroke={red}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[1].x)) + "," + String(y(nodes.nodes[1].y))
+                        }
+                stroke={red}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 1000, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[2].x)) + "," + String(y(nodes.nodes[2].y))
+                        }
+                stroke={red}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 1500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
                 
             {/if}
+            {#if index >= 6}
+                {#each nodes.nodes as n}
+                        <text
+                        x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                        y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                        >
+                            u.est =---- {uest_vals[n.id][1]}
+                    </text>
+                {/each}
+            {/if}
+
+
         
             
         
