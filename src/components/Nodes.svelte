@@ -30,9 +30,9 @@
     
     let blueLines = [];
     $: x=d3
-    .scaleLinear() /* date as input and axis as output */
+    .scaleLinear() 
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-    .range([marginLeft * 1.25, width / 1.7])
+    .range([marginLeft * 4, width / 1.6])
     $: y=d3
     .scaleLinear()
     .domain(d3.extent(nodes.nodes, (d) => d.y))
@@ -42,11 +42,11 @@
     duration: 1000,
     easing: cubicOut,
   };
-    let rectX = tweened(130, { duration: 1000, easing: cubicOut });
-    let rectY = tweened(380, { duration: 1000, easing: cubicOut });
+    let rectX = tweened(400, { duration: 1000, easing: cubicOut });
+    let rectY = tweened(385, { duration: 1000, easing: cubicOut });
   function setRect() {
-    rectX = tweened(130, { duration: 1000, easing: cubicOut });
-    rectY = tweened(380, { duration: 1000, easing: cubicOut });
+    rectX = tweened(400, { duration: 1000, easing: cubicOut });
+    rectY = tweened(385, { duration: 1000, easing: cubicOut });
   }
   function resetUserInteraction() {
 
@@ -293,7 +293,7 @@
             {#if index > 3}
                 {console.log("table should be here")}
                 
-                <foreignObject x="700" y="200" width="300" height="500">
+                <foreignObject x="50" y="200" width="300" height="500">
                     <div>
                         <table style="width:100%">
                             <thead>
@@ -317,7 +317,7 @@
                     </div>
                 </foreignObject>
             {/if}
-            <!--First set of edge-->
+            <!--First set of edge updates-->
             {#if index >= 5}
                 <polyline
                 points={ // String of coordintates x0,y0 x1,y1 for edge a, f
@@ -357,22 +357,43 @@
                 x="{x(nodes.nodes[1].x) + uest_vals[nodes.nodes[1].id]['x_shift']}"
                 y="{y(nodes.nodes[1].y) + uest_vals[nodes.nodes[1].id]['y_shift']}"
                 >
-                    u.est=---- 0+9={uest_vals[nodes.nodes[1].id][1]}
+                    u.est=---- &gt; 0+9={uest_vals[nodes.nodes[1].id][1]}
             </text>
             <text
                 x="{x(nodes.nodes[2].x) + uest_vals[nodes.nodes[2].id]['x_shift']}"
                 y="{y(nodes.nodes[2].y) + uest_vals[nodes.nodes[2].id]['y_shift']}"
                 >
-                    u.est=---- 0+14={uest_vals[nodes.nodes[2].id][1]}
+                    u.est=---- &gt; 0+14={uest_vals[nodes.nodes[2].id][1]}
             </text>
             <text
                 x="{x(nodes.nodes[5].x) + uest_vals[nodes.nodes[5].id]['x_shift']}"
                 y="{y(nodes.nodes[5].y) + uest_vals[nodes.nodes[5].id]['y_shift']}"
                 >
-                    u.est=---- 0+7={uest_vals[nodes.nodes[5].id][1]}
+                    u.est=---- &gt; 0+7={uest_vals[nodes.nodes[5].id][1]}
             </text>
             {/if}
-
+            <!--Set node f to visited-->
+            {#if index >= 7}
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[5].x)) + "," + String(y(nodes.nodes[5].y))
+                        }
+                stroke={blue}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                        key={nodes.nodes[5].id} 
+                        cx={x(nodes.nodes[5].x)} 
+                        cy={y(nodes.nodes[5].y)} 
+                        r="20" 
+                        fill={blue}
+                        in:fade|global={{intro: true , duration: 1000, delay: 10 + (nodes.nodes[5].id * 200), easing: cubicInOut }}
+                        out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                    />
+            {/if}
 
         
             

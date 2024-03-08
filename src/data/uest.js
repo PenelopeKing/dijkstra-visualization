@@ -4,7 +4,7 @@ export const uest_vals = {
     0: {'x_shift': 20, 'y_shift' : 20, 0: 0, 1: 0, 2: 0, 3: 0, 4: 0},
     1: {
         'x_shift': -5,
-        'y_shift' : 40,
+        'y_shift' : 50,
         0: 'inf', 
         1: 9, 
         2: 9, 

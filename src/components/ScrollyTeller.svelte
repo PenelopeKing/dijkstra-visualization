@@ -60,7 +60,6 @@ style="pointer-events: none;">
     <p class = "text" align= left>This red dot is your final destination.</p>
     <br />
     <p class = "text" align= left>Try to find the fastest path possible to your destination. Create the path you think is best by clicking on the nodes. Scroll down when you are done!</p>
-  
   </section>
   <section>
     <p>Pg 3: Answer</p>
@@ -83,19 +82,19 @@ style="pointer-events: none;">
     <p>Pg 5: Initialize C and Outside Sets </p>
     <br/>
     <p class = "text" align = left>
-      To help us keep track of which edges we need to update, we’ll categorize the nodes into two sets: C and Outside. Nodes in Outside have uest values of infinite, while nodes in C do not.
+      To help us keep track of which edges we need to update, we’ll categorize the nodes into two sets: C and Outside. Nodes in C have been 'visited', while Nodes in Outside have not.
     </p>
     <p class = "text" align = left>
       With the setup done, we’re ready to start.
     </p>
   </section>
   <section>
-    <p>Pg 6: Find the closest node to C. f</p>
+    <p>Pg 6: Find the closest nodes to C.</p>
     <br/>
     <p class = "text" align = left>The first step is to look at all the nodes in Outside that are 1 edge away from (or adjacent) the nodes in C. In this case, those nodes are f, b, and c.</p>
   </section>
   <section>
-    <p>Pg 7: Calculate the distance between the source node of C and the closest Outside node.</p>
+    <p class = "text" align = left>Pg 7: Calculate the distance between the source node of C and the closest Outside nodes. Update u.est.</p>
     <br/>
     <p class = "text" align = left>Then, we calculate new distance values for each of the nodes adjacent to C.</p>
     <p class = "text" align = left>We do this by adding the edge weight to the u.est value of the respective source node. 
@@ -103,16 +102,16 @@ style="pointer-events: none;">
     </p>
   </section>
   <section>
-    <p class = "text" align = left>Pg 8: Compare the calculated distance to u.est. c</p>
-    
+    <p class = "text" align = left>Pg 8: Find the unvisited Node that is closest to the source.</p>
+    <p class = "text" align = left>Now, the next step is to find the node in Outside closest to our source node 'a', which in this case is node 'f'.</p> 
   </section>
   <section>
     <p>Pg 9: Move the node from Outside to C</p>
     <br/>
-    <p class = "text" align = left>Since node f has a uest value that isn’t infinity, we move it to C.</p>
+    <p class = "text" align = left></p>
   </section>
   <section>
-    <p>Pg 10: Repeat!</p>
+    <p>Pg 10: Move the node from Outside to C</p>
     <br/>
     <p class = "text" align = left>And now we repeat those steps until there are no more edges to update uest with for any node.</p>
   </section>
@@ -133,7 +132,7 @@ style="pointer-events: none;">
 
 <style>
  .text {
-  margin-left:750px;
+  margin-left:1000px;
   margin-right: 50px;
  }
   * {
@@ -158,12 +157,11 @@ style="pointer-events: none;">
   }
 
   .background {
-    width: 70%;
+    width: 100%;
     height: 100vh;
     margin:0;
     padding:0;
     position: relative;
-    outline: green solid 3px;
     z-index: 10;
   }
   .foreground {
@@ -172,27 +170,22 @@ style="pointer-events: none;">
     margin: 0;
     height: auto;
     position: relative;
-    outline: red solid 3px;
     z-index: 0;
   }
   section {
     height: 95vh;
     /* color: white; */
-    outline: magenta solid 3px;
     text-align: center;
     max-width: 1500px; /* adjust at will */
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
   }
-  span{
-    outline: orange solid 3px;
-  }
+
   h1 {
     background-color: #499e97;
     padding: 60px;
     margin: 0px;
-    outline: orange 3px;
   }
 
 
