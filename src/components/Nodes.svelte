@@ -24,9 +24,9 @@
     let svg;
     let tempx;
     let tempy;
-    const blue = "#499e97";
+    const blue = "#3d87ff";
     const red = '#FF0000';
-    const green = '#00FF00';
+    const green = '#008f180';
     
     let blueLines = [];
     $: x=d3
@@ -142,9 +142,12 @@
         viewBox="0 0 {width} {height}"
         style="max-width: 100%; height: auto; pointer-events: auto;"
         >
+        
 
         {#if index === 0}
             {resetUserInteraction()}
+            <img src = "../imgs/car.png" alt = "car" x=20 y=100 width="50" height="20"  />
+
         {/if}
 
         {#if index === 1}
@@ -200,6 +203,10 @@
                         on:click={() => handleClick(event, n)}
                     />
                 {/each}
+                <img src = "imgs/car.png" alt = "car" x={$rectX} y={$rectY} width="50" height="20" 
+                in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
+
                 <rect x={$rectX} y={$rectY} width="50" height="20" fill="green" 
                 in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
                 out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />

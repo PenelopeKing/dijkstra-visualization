@@ -6,7 +6,7 @@ export const sol_nodes = {
       "x": 0,
       "y": 0,
       "u.est": 0,
-      "color":"#499e97"
+      "color":"#3d87ff"
     },
     {
       "id": 1,
@@ -14,7 +14,7 @@ export const sol_nodes = {
       "x": 2,
       "y": 1,
       "u.est": Infinity,
-      "color":"#499e97"
+      "color":"#3d87ff"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@ export const sol_nodes = {
       "x": 1,
       "y": 3,
       "u.est": Infinity,
-      "color":"#499e97"
+      "color":"#3d87ff"
     },
     {
       "id": 3,
@@ -30,7 +30,7 @@ export const sol_nodes = {
       "x": 5,
       "y": 0,
       "u.est": Infinity,
-      "color":"#499e97"
+      "color":"#3d87ff"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@ export const sol_nodes = {
       "x": 4,
       "y": 2,
       "u.est": Infinity,
-      "color":"#499e97"
+      "color":"#3d87ff"
     }
   ],
   
