@@ -5,6 +5,7 @@
     import { sol_nodes } from "../data/sol_nodes"
     import { sol_edges } from "../data/sol_edges"
     import { c_outside } from "../data/sets"
+    import { uest_vals } from "../data/uest"
 
     import { fly, draw , fade} from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
@@ -23,13 +24,15 @@
     let svg;
     let tempx;
     let tempy;
-    const blue = "#499e97"
+    const blue = "#499e97";
+    const red = '#FF0000';
+    const green = '#00FF00';
     
     let blueLines = [];
     $: x=d3
-    .scaleLinear() /* date as input and axis as output */
+    .scaleLinear() 
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-    .range([marginLeft * 1.25, width / 1.7])
+    .range([marginLeft * 4, width / 1.6])
     $: y=d3
     .scaleLinear()
     .domain(d3.extent(nodes.nodes, (d) => d.y))
@@ -39,11 +42,11 @@
     duration: 1000,
     easing: cubicOut,
   };
-    let rectX = tweened(130, { duration: 1000, easing: cubicOut });
-    let rectY = tweened(380, { duration: 1000, easing: cubicOut });
+    let rectX = tweened(400, { duration: 1000, easing: cubicOut });
+    let rectY = tweened(385, { duration: 1000, easing: cubicOut });
   function setRect() {
-    rectX = tweened(130, { duration: 1000, easing: cubicOut });
-    rectY = tweened(380, { duration: 1000, easing: cubicOut });
+    rectX = tweened(400, { duration: 1000, easing: cubicOut });
+    rectY = tweened(385, { duration: 1000, easing: cubicOut });
   }
   function resetUserInteraction() {
 
@@ -140,9 +143,6 @@
         style="max-width: 100%; height: auto; pointer-events: auto;"
         >
 
-        
-
-
         {#if index === 0}
             {resetUserInteraction()}
         {/if}
@@ -175,6 +175,13 @@
                     in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
                     marker-end="url(#arrow)"
                 />
+                <text
+                    x="{x((nodes.nodes[e.source].x + nodes.nodes[e.target].x) / 2) + e.x_shift}"
+                    y="{y((nodes.nodes[e.source].y + nodes.nodes[e.target].y) / 2) + e.y_shift}"
+                    >
+                    {e.weight}
+                </text>
+                
                 {/each}
 
 
@@ -226,6 +233,12 @@
                     stroke-width="3"
                     marker-end="url(#arrow)"
                 />
+                <text
+                    x="{x((nodes.nodes[e.source].x + nodes.nodes[e.target].x) / 2) + e.x_shift}"
+                    y="{y((nodes.nodes[e.source].y + nodes.nodes[e.target].y) / 2) + e.y_shift}"
+                    >
+                    {e.weight}
+                </text>
             {/each}
                 {#each nodes.nodes as n}
                     <circle 
@@ -237,6 +250,7 @@
                     />
                 {/each}
         {/if}
+        <!--Draw in solution edges-->
         {#if index === 2}
                 {#each sol_edges.edges as e}
                     <polyline
@@ -261,11 +275,25 @@
                         in:fade|global={{intro: true , duration: 1000, delay: 10 + (n.id * 200), easing: cubicInOut }}
                         out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                     />
+                    
                 {/each}   
             {/if}
+            <!--Draw in first set of u.est values-->
+            {#if index >= 3}
+                {#each nodes.nodes as n}
+                        <text
+                        x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                        y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                        >
+                            u.est= {uest_vals[n.id][0]}
+                    </text>
+                {/each}
+            {/if}
+            <!--Show Set table-->
             {#if index > 3}
                 {console.log("table should be here")}
-                <foreignObject x="700" y="200" width="300" height="500">
+                
+                <foreignObject x="50" y="200" width="300" height="500">
                     <div>
                         <table style="width:100%">
                             <thead>
@@ -288,9 +316,85 @@
                         </table>
                     </div>
                 </foreignObject>
-
+            {/if}
+            <!--First set of edge updates-->
+            {#if index >= 5}
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[5].x)) + "," + String(y(nodes.nodes[5].y))
+                        }
+                stroke={red}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[1].x)) + "," + String(y(nodes.nodes[1].y))
+                        }
+                stroke={red}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 1000, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[2].x)) + "," + String(y(nodes.nodes[2].y))
+                        }
+                stroke={red}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 1500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
                 
             {/if}
+            <!--First set of u.est updates-->
+            {#if index >= 6}
+            <text
+                x="{x(nodes.nodes[1].x) + uest_vals[nodes.nodes[1].id]['x_shift']}"
+                y="{y(nodes.nodes[1].y) + uest_vals[nodes.nodes[1].id]['y_shift']}"
+                >
+                    u.est=---- &gt; 0+9={uest_vals[nodes.nodes[1].id][1]}
+            </text>
+            <text
+                x="{x(nodes.nodes[2].x) + uest_vals[nodes.nodes[2].id]['x_shift']}"
+                y="{y(nodes.nodes[2].y) + uest_vals[nodes.nodes[2].id]['y_shift']}"
+                >
+                    u.est=---- &gt; 0+14={uest_vals[nodes.nodes[2].id][1]}
+            </text>
+            <text
+                x="{x(nodes.nodes[5].x) + uest_vals[nodes.nodes[5].id]['x_shift']}"
+                y="{y(nodes.nodes[5].y) + uest_vals[nodes.nodes[5].id]['y_shift']}"
+                >
+                    u.est=---- &gt; 0+7={uest_vals[nodes.nodes[5].id][1]}
+            </text>
+            {/if}
+            <!--Set node f to visited-->
+            {#if index >= 7}
+                <polyline
+                points={ // String of coordintates x0,y0 x1,y1 for edge a, f
+                String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                        + " " + String(x(nodes.nodes[5].x)) + "," + String(y(nodes.nodes[5].y))
+                        }
+                stroke={blue}
+                stroke-width="5"
+                in:draw|global={{intro: true , duration: 500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                        key={nodes.nodes[5].id} 
+                        cx={x(nodes.nodes[5].x)} 
+                        cy={y(nodes.nodes[5].y)} 
+                        r="20" 
+                        fill={blue}
+                        in:fade|global={{intro: true , duration: 1000, delay: 10 + (nodes.nodes[5].id * 200), easing: cubicInOut }}
+                        out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                    />
+            {/if}
+
         
             
         
