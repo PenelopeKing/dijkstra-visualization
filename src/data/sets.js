@@ -6,7 +6,7 @@ export const c_outside = {
         7: "{a, f}",
         10: "{a, f, b}",
         12: "{a, f, b, c}",
-        15: "{a, f, b, c, e}",
+        14: "{a, f, b, c, e}",
         16: "{a, f, b, c, e, d}",
         
 
@@ -16,7 +16,7 @@ export const c_outside = {
         7: "{b, c, d, e}",
         10: "{c, d, e}",
         12: "{d, e}",
-        15: "{d}",
+        14: "{d}",
         16: "{}",
     }
     }

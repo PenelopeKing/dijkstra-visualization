@@ -516,16 +516,16 @@
             <!--Add node b to visited-->
             {#if index >= 11}
                 {#if index < 13}
-                {#each nodes.nodes as n}
-                <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
+                    {#each nodes.nodes as n}
+                        <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
 
-                    <text
-                    x="{x(n.x) + uest_vals[n.id]['x_shift']}"
-                    y="{y(n.y) + uest_vals[n.id]['y_shift']}"
-                    >
-                        {n.name}.est = {uest_vals[n.id][2]}
-                    </text>
-                {/each}
+                            <text
+                            x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                            y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                            >
+                                {n.name}.est = {uest_vals[n.id][2]}
+                        </text>
+                    {/each}
                 {/if}
                 <polyline
                     points={ // String of coordintates x0,y0 x1,y1 for edge a, b
@@ -615,16 +615,18 @@
             {/if}
             <!--Add node c to Visited-->
             {#if index >= 13}
-                {#each nodes.nodes as n}
-                    <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
+                {#if index < 15}
+                    {#each nodes.nodes as n}
+                        <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
 
-                        <text
-                        x="{x(n.x) + uest_vals[n.id]['x_shift']}"
-                        y="{y(n.y) + uest_vals[n.id]['y_shift']}"
-                        >
-                            {n.name}.est = {uest_vals[n.id][3]}
-                        </text>
-                {/each}
+                            <text
+                            x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                            y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                            >
+                                {n.name}.est = {uest_vals[n.id][3]}
+                            </text>
+                    {/each}
+                {/if}
                 <polyline
                     points={ // String of coordintates x0,y0 x1,y1 for edge f, b
                     String(x(nodes.nodes[1].x)) + "," + String(y(nodes.nodes[1].y))
@@ -653,6 +655,139 @@
                 />
                 <text x={x(nodes.nodes[1].x) - 4} y={y(nodes.nodes[1].y) + 5}>b</text>
                 <text x={x(nodes.nodes[2].x) - 4} y={y(nodes.nodes[2].y) + 5}>c</text>
+            {/if}
+            {#if index >= 14}
+                <polyline
+                    points={ // String of coordintates x0,y0 x1,y1 for edge f, b
+                        String(x(nodes.nodes[2].x)) + "," + String(y(nodes.nodes[2].y))
+                            + " " + String(x(nodes.nodes[4].x)) + "," + String(y(nodes.nodes[4].y))
+                        }
+                    stroke={pink}
+                    stroke-width="5"
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[2].id} 
+                    cx={x(nodes.nodes[2].x)} 
+                    cy={y(nodes.nodes[2].y)} 
+                    r="20" 
+                    fill={blue}
+                />
+                <text x={x(nodes.nodes[2].x) - 4} y={y(nodes.nodes[2].y) + 5}>c</text>
+                <text x={x(nodes.nodes[4].x) - 4} y={y(nodes.nodes[4].y) + 5}>e</text>
+                {#if index < 15}
+                    <text
+                        x="{x(nodes.nodes[4].x) + uest_vals[nodes.nodes[4].id]['x_shift']}"
+                        y="{y(nodes.nodes[4].y) + uest_vals[nodes.nodes[4].id]['y_shift']}"
+                    >
+                        e.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 11 + 4 = {uest_vals[nodes.nodes[4].id][4]}
+                    </text>
+                {/if}
+            {/if}
+            <!--Add e to visited-->
+            {#if index >= 15}
+                {#if index < 17}
+                    {#each nodes.nodes as n}
+                        <text
+                            x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                            y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                        >
+                            {n.name}.est = {uest_vals[n.id][4]}
+                        </text>
+                    {/each}
+                {/if}
+                <polyline
+                    points={ // String of coordintates x0,y0 x1,y1 for edge f, b
+                    String(x(nodes.nodes[2].x)) + "," + String(y(nodes.nodes[2].y))
+                            + " " + String(x(nodes.nodes[4].x)) + "," + String(y(nodes.nodes[4].y))
+                            }
+                    stroke={blue}
+                    stroke-width="5"
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[4].id} 
+                    cx={x(nodes.nodes[4].x)} 
+                    cy={y(nodes.nodes[4].y)} 
+                    r="20" 
+                    fill={blue}
+                    in:fade|global={{intro: true , duration: 500, delay: 500, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <text x={x(nodes.nodes[4].x) - 4} y={y(nodes.nodes[4].y) + 5}>e</text>
+            {/if}
+            <!--Update d.est-->
+            {#if index >= 16}
+                <polyline
+                    points={ // String of coordintates x0,y0 x1,y1 for edge e, d
+                    String(x(nodes.nodes[4].x)) + "," + String(y(nodes.nodes[4].y))
+                            + " " + String(x(nodes.nodes[3].x)) + "," + String(y(nodes.nodes[3].y))
+                            }
+                    stroke={pink}
+                    stroke-width="5"
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[4].id} 
+                    cx={x(nodes.nodes[4].x)} 
+                    cy={y(nodes.nodes[4].y)} 
+                    r="20" 
+                    fill={blue}
+                />
+                <circle 
+                    key={nodes.nodes[3].id} 
+                    cx={x(nodes.nodes[3].x)} 
+                    cy={y(nodes.nodes[3].y)} 
+                    r="20" 
+                    fill={red}
+                />            
+                <text x={x(nodes.nodes[3].x) - 4} y={y(nodes.nodes[3].y) + 5}>d</text>
+                <text x={x(nodes.nodes[4].x) - 4} y={y(nodes.nodes[4].y) + 5}>e</text>
+                {#if index < 17}
+                    <text
+                        x="{x(nodes.nodes[3].x) + uest_vals[nodes.nodes[3].id]['x_shift']}"
+                        y="{y(nodes.nodes[3].y) + uest_vals[nodes.nodes[3].id]['y_shift']}"
+                    >
+                        d.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 11 + 4 = {uest_vals[nodes.nodes[3].id][5]}
+                    </text>
+                {/if}
+                
+            {/if}
+            <!--Add d to visited-->
+            {#if index >= 17}
+                <polyline
+                    points={ // String of coordintates x0,y0 x1,y1 for edge e, d
+                    String(x(nodes.nodes[4].x)) + "," + String(y(nodes.nodes[4].y))
+                            + " " + String(x(nodes.nodes[3].x)) + "," + String(y(nodes.nodes[3].y))
+                            }
+                    stroke={blue}
+                    stroke-width="5"
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[3].id} 
+                    cx={x(nodes.nodes[3].x)} 
+                    cy={y(nodes.nodes[3].y)} 
+                    r="20.4" 
+                    fill={blue}
+                    in:fade|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <text x={x(nodes.nodes[3].x) - 4} y={y(nodes.nodes[3].y) + 5}>d</text>
+                <text x={x(nodes.nodes[4].x) - 4} y={y(nodes.nodes[4].y) + 5}>e</text>
+                {#each nodes.nodes as n}
+                    <text
+                        x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                        y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                    >
+                        {n.name}.est = {uest_vals[n.id][5]}
+                    </text>
+                {/each}
+
             {/if}
 
         

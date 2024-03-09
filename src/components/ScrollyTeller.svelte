@@ -142,7 +142,27 @@ style="pointer-events: none;">
     <p class = "text" align = left>Node c has the smallest u.est value of the Unvisited nodes.</p>
   </section>
   <section>
-    <h3 class = "page-head" align = left >Pg 15: Final Solution</h3>
+    <h3 class = "page-head" align = left >Pg 15: Find edges connecting adjacent nodes and update u.est.</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 16: Find the closest Unvisited node.</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 17: Find edges connecting adjacent nodes and update u.est.</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 18: Finished</h3>
+    <br/>
+    <p class = "text" align = left>Now there are no more edges to make updates with nor nodes to visit.</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 19: Find edges connecting adjacent nodes and update u.est.</h3>
     <br/>
     <p class = "text" align = left>Filler Text</p>
   </section>
