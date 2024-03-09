@@ -2,43 +2,38 @@ export const sol_nodes = {
   "nodes": [
     {
       "id": 0,
-      "name": "a",
+      "name": "A",
       "x": 0,
       "y": 0,
-      "u.est": 0,
-      "color":"#3d87ff"
+      "color":"#499e97"
     },
     {
       "id": 1,
-      "name": "b",
+      "name": "B",
       "x": 2,
       "y": 1,
-      "u.est": Infinity,
-      "color":"#3d87ff"
+      "color":"#499e97"
     },
     {
       "id": 2,
-      "name": "c",
+      "name": "C",
       "x": 1,
       "y": 3,
-      "u.est": Infinity,
-      "color":"#3d87ff"
+      "color":"#499e97"
     },
     {
       "id": 3,
-      "name": "d",
+      "name": "D",
       "x": 5,
       "y": 0,
-      "u.est": Infinity,
-      "color":"#3d87ff"
+      "color":"#499e97"
     },
     {
       "id": 4,
-      "name": "e",
+      "name": "E",
       "x": 4,
       "y": 2,
-      "u.est": Infinity,
-      "color":"#3d87ff"
+      "color":"#499e97"
     }
   ],
   

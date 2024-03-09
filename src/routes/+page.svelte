@@ -5,6 +5,3 @@
 <main>
   <ScrollyTeller />
 </main>
-
-<style>
-</style>

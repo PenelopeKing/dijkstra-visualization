@@ -184,10 +184,6 @@
 </svelte-scroller-outer>
 
 <style>
-	* {
-		margin:0;
-		padding:0;
-	}
 	svelte-scroller-outer {
 		display: block;
 		position: relative;
