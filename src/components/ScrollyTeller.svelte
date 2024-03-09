@@ -56,7 +56,7 @@ style="pointer-events: none;">
     <br/>
     <p class = "text" align= left>The restaurant you are currently at is the blue dot at the left.</p>
     <p class = "text" align= left>These pink dots are neighborhoods you can pass through on your drive.</p>
-    <p class = "text" align= left>The numbers represent how long it takes to get from one neighborhood to another.</p>
+    <p class = "text" align= left>The numbers represent how many minutes takes to get from one neighborhood to another.</p>
     <p class = "text" align= left>This red dot is your final destination.</p>
     <br />
     <p class = "text" align= left>Try to find the fastest path possible to your destination. Create the path you think is best by clicking on the nodes. Scroll down when you are done!</p>
@@ -75,7 +75,7 @@ style="pointer-events: none;">
     <h3 class = "page-head" align = left>Pg 4: Start of Dijkstra Explanation... Set Up 2</h3>
     <br/>
     <p class = "text" align = left>The Dijkstra Algorithm is very similar to the Breadth First Search algorithm, and lets us find the shortest path between a source and target node on a positively weighted graph (directed or undirected).</p>
-      <p class = "text" align = left>To start out, we define a value u.est for each node denoting the distance from the source node. For the initial source node, this equals 0, and is unknown for all other nodes, so we can set them to positive infinity.</p>
+      <p class = "text" align = left>To start out, we define a value u.est for each node denoting the distance from the source node, where u is the name of the node. For the initial source node, this equals 0, and is unknown for all other nodes, so we can set them to positive infinity.</p>
 
   </section>
   <section>
@@ -107,24 +107,42 @@ style="pointer-events: none;">
   </section>
   <section>
     <h3 class = "page-head" align = left>Pg 9: Move the node from Outside to C</h3>
-    <br/>
+    <p class = "text" align = left>Node f is now considered to be visited! So, we can move it from the Unvisited set to the Visited set.</p> 
+
     <p class = "text" align = left></p>
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 10: Move the node from Outside to C</h3>
+    <h3 class = "page-head" align = left>Pg 10: Repeat!</h3>
     <br/>
-    <p class = "text" align = left>And now we repeat those steps until there are no more edges to update uest with for any node.</p>
+    <p class = "text" align = left>And now we repeat those steps until there are no more edges to update u.est with for any node.</p>
+
   </section>
   <section>
-    <h3 class = "page-head" align = left >Pg 11: Explanation cont... </h3>
+    <h3 class = "page-head" align = left >Pg 11: Find edges connecting adjacent nodes and update u.est. </h3>
+    <br/>
+    <p class = "text" align = left>So once again, we find the edges connected to the Visited set and update their estimated distances.</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 12: Find the shortest edge connected to the Visited set.</h3>
     <br/>
     <p class = "text" align = left>Filler Text</p>
   </section>
   <section>
-    <h3 class = "page-head" align = left >Pg 12: Final Solution</h3>
+    <h3 class = "page-head" align = left >Pg 13: Final Solution</h3>
     <br/>
     <p class = "text" align = left>Filler Text</p>
   </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 14: Final Solution</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 15: Final Solution</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+
 </div>
 
 </Scroller>

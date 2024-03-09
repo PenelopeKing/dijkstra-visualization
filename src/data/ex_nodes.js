@@ -2,7 +2,7 @@ export const nodes = {
     "nodes": [
       {
         "id": 0,
-        "name": "A",
+        "name": "a",
         "x": 0,
         "y": 0,
         "u.est": 0,
@@ -11,23 +11,23 @@ export const nodes = {
       },
       {
         "id": 1,
-        "name": "B",
+        "name": "b",
         "x": 2,
         "y": 1,
         "u.est": Infinity,
-        "color":"pink"
+        "color":"#FFB6C1"
       },
       {
         "id": 2,
-        "name": "C",
+        "name": "c",
         "x": 1,
         "y": 3,
         "u.est": Infinity,
-        "color":"pink"
+        "color":"#FFB6C1"
       },
       {
         "id": 3,
-        "name": "D",
+        "name": "d",
         "x": 5,
         "y": 0,
         "u.est": Infinity,
@@ -35,19 +35,19 @@ export const nodes = {
       },
       {
         "id": 4,
-        "name": "E",
+        "name": "e",
         "x": 4,
         "y": 2,
         "u.est": Infinity,
-        "color":"pink"
+        "color":"#FFB6C1"
       },
       {
         "id": 5,
-        "name": "F",
+        "name": "f",
         "x": 1,
         "y": -2,
         "u.est": Infinity,
-        "color":"pink"
+        "color":"#FFB6C1"
       }
     ],
     

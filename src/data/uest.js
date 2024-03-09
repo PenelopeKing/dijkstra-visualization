@@ -18,11 +18,11 @@ export const uest_vals = {
         1: 14, 
         2: 14, 
         3: 11, 
-        4: 'inf', 
+        4: 11, 
         },
     3: {
         'x_shift': -5,
-        'y_shift' : 35,
+        'y_shift' : 50,
         0: 'inf', 
         1: 'inf', 
         2: 22, 
