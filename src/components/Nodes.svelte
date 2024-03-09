@@ -32,7 +32,7 @@
     $: x=d3
     .scaleLinear() 
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-    .range([marginLeft * 4, width / 1.6])
+    .range([marginLeft * 4, width / 1.7])
     $: y=d3
     .scaleLinear()
     .domain(d3.extent(nodes.nodes, (d) => d.y))
