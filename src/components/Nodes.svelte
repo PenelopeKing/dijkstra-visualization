@@ -291,6 +291,9 @@
             {/if}
             <!--Draw in first set of u.est values-->
             {#if index >= 3}
+                {#if index ===3}
+                    <text x={x(nodes.nodes[2].x) - 20} y={y(nodes.nodes[2].y) - 60}>u.est is the estimated distance between node u and the source node</text>
+                {/if}
                 {#if index < 7}
 
                 {#each nodes.nodes as n}
@@ -314,8 +317,8 @@
                         <table style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>C</th>
-                                    <th>Outside</th>
+                                    <th>Visited</th>
+                                    <th>Unvisited</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -343,10 +346,11 @@
                             }
                     stroke={pink}
                     stroke-width="5"
-                    in:draw|global={{intro: true , duration: 500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
                     out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                     />
                 {/if}
+                {#if index < 11}
                 <polyline
                 points={ // String of coordintates x0,y0 x1,y1 for edge a, b
                 String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
@@ -354,9 +358,10 @@
                         }
                 stroke={pink}
                 stroke-width="5"
-                in:draw|global={{intro: true , duration: 1000, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                in:draw|global={{intro: true , duration: 1000, delay: 300, easing: cubicInOut }}
                 out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                 />
+                {/if}
                 <polyline
                 points={ // String of coordintates x0,y0 x1,y1 for edge a, c
                 String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
@@ -364,7 +369,7 @@
                         }
                 stroke={pink}
                 stroke-width="5"
-                in:draw|global={{intro: true , duration: 1500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                in:draw|global={{intro: true , duration: 1000, delay: 600, easing: cubicInOut }}
                 out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                 />
                 <circle 
@@ -412,7 +417,7 @@
                         }
                 stroke={blue}
                 stroke-width="5"
-                in:draw|global={{intro: true , duration: 500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                in:draw|global={{intro: true , duration: 1000, delay: 0, easing: cubicInOut }}
                 out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                 />
                 <circle 
@@ -421,8 +426,8 @@
                         cy={y(nodes.nodes[5].y)} 
                         r="20" 
                         fill={blue}
-                        in:fade|global={{intro: true , duration: 500, delay: 10 + (nodes.nodes[5].id * 50), easing: cubicInOut }}
-                        out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                        in:fade|global={{intro: true , duration: 500, delay: 500, easing: cubicInOut }}
+                        out:fade|global={{intro: true , duration: 500, delay: 100, easing: cubicInOut }}
                 />
                 <circle 
                     key={nodes.nodes[0].id} 
@@ -430,8 +435,6 @@
                     cy={y(nodes.nodes[0].y)} 
                     r="20" 
                     fill={blue}
-                    in:fade|global={{intro: true , duration: 500, delay: 10 + (nodes.nodes[5].id * 50), easing: cubicInOut }}
-                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                 />
                 <text x={x(nodes.nodes[0].x) - 4} y={y(nodes.nodes[0].y) + 5}>a</text>
                 <text x={x(nodes.nodes[5].x) - 4} y={y(nodes.nodes[5].y) + 5}>f</text>
@@ -456,7 +459,7 @@
                             }
                     stroke={pink}
                     stroke-width="5"
-                    in:draw|global={{intro: true , duration: 1000, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
                     out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                     />
                     <polyline
@@ -466,7 +469,7 @@
                             }
                     stroke={pink}
                     stroke-width="5"
-                    in:draw|global={{intro: true , duration: 1500, delay: (100 + (0 * 200)), easing: cubicInOut }}
+                    in:draw|global={{intro: true , duration: 1000, delay: 300, easing: cubicInOut }}
                     out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
                     />
                 <circle 
@@ -510,7 +513,9 @@
                 </text>
                 {/if}
             {/if}
+            <!--Add node b to visited-->
             {#if index >= 11}
+                {#if index < 13}
                 {#each nodes.nodes as n}
                 <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
 
@@ -521,6 +526,133 @@
                         {n.name}.est = {uest_vals[n.id][2]}
                     </text>
                 {/each}
+                {/if}
+                <polyline
+                    points={ // String of coordintates x0,y0 x1,y1 for edge a, b
+                    String(x(nodes.nodes[0].x)) + "," + String(y(nodes.nodes[0].y))
+                            + " " + String(x(nodes.nodes[1].x)) + "," + String(y(nodes.nodes[1].y))
+                            }
+                    stroke={blue}
+                    stroke-width="5"
+                    in:draw|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[1].id} 
+                    cx={x(nodes.nodes[1].x)} 
+                    cy={y(nodes.nodes[1].y)} 
+                    r="20" 
+                    fill={blue}
+                    in:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[0].id} 
+                    cx={x(nodes.nodes[0].x)} 
+                    cy={y(nodes.nodes[0].y)} 
+                    r="20" 
+                    fill={blue}
+         
+                />
+                <text x={x(nodes.nodes[0].x) - 4} y={y(nodes.nodes[0].y) + 5}>a</text>
+                <text x={x(nodes.nodes[1].x) - 4} y={y(nodes.nodes[1].y) + 5}>b</text>
+
+            {/if}
+            {#if index >= 12}
+                <polyline
+                        points={ // String of coordintates x0,y0 x1,y1 for edge f, b
+                        String(x(nodes.nodes[1].x)) + "," + String(y(nodes.nodes[1].y))
+                                + " " + String(x(nodes.nodes[2].x)) + "," + String(y(nodes.nodes[2].y))
+                                }
+                        stroke={pink}
+                        stroke-width="5"
+                        in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                        out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <polyline
+                        points={ // String of coordintates x0,y0 x1,y1 for edge f, b
+                        String(x(nodes.nodes[1].x)) + "," + String(y(nodes.nodes[1].y))
+                                + " " + String(x(nodes.nodes[3].x)) + "," + String(y(nodes.nodes[3].y))
+                                }
+                        stroke={pink}
+                        stroke-width="5"
+                        in:draw|global={{intro: true , duration: 1000, delay: 300, easing: cubicInOut }}
+                        out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                        />
+                <circle 
+                        key={nodes.nodes[1].id} 
+                        cx={x(nodes.nodes[1].x)} 
+                        cy={y(nodes.nodes[1].y)} 
+                        r="20" 
+                        fill={blue}
+            
+                    />
+                <circle 
+                    key={nodes.nodes[3].id} 
+                    cx={x(nodes.nodes[3].x)} 
+                    cy={y(nodes.nodes[3].y)} 
+                    r="20" 
+                    fill={red}
+            
+                />
+                <text x={x(nodes.nodes[1].x) - 4} y={y(nodes.nodes[1].y) + 5}>b</text>
+                <text x={x(nodes.nodes[2].x) - 4} y={y(nodes.nodes[2].y) + 5}>c</text>
+                <text x={x(nodes.nodes[3].x) - 4} y={y(nodes.nodes[3].y) + 5}>d</text>
+                {#if index < 13}
+                    <text
+                            x="{x(nodes.nodes[3].x) + uest_vals[nodes.nodes[3].id]['x_shift']}"
+                            y="{y(nodes.nodes[3].y) + uest_vals[nodes.nodes[3].id]['y_shift']}"
+                            >
+                                d.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 9 + 12 = {uest_vals[nodes.nodes[3].id][3]}
+                    </text>
+                    <text
+                            x="{x(nodes.nodes[2].x) + uest_vals[nodes.nodes[2].id]['x_shift']}"
+                            y="{y(nodes.nodes[2].y) + uest_vals[nodes.nodes[2].id]['y_shift']}"
+                            >
+                                c.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 9 + 2 = {uest_vals[nodes.nodes[2].id][3]}
+                    </text>
+                {/if}
+            {/if}
+            <!--Add node c to Visited-->
+            {#if index >= 13}
+                {#each nodes.nodes as n}
+                    <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
+
+                        <text
+                        x="{x(n.x) + uest_vals[n.id]['x_shift']}"
+                        y="{y(n.y) + uest_vals[n.id]['y_shift']}"
+                        >
+                            {n.name}.est = {uest_vals[n.id][3]}
+                        </text>
+                {/each}
+                <polyline
+                    points={ // String of coordintates x0,y0 x1,y1 for edge f, b
+                    String(x(nodes.nodes[1].x)) + "," + String(y(nodes.nodes[1].y))
+                            + " " + String(x(nodes.nodes[2].x)) + "," + String(y(nodes.nodes[2].y))
+                            }
+                    stroke={blue}
+                    stroke-width="5"
+                    in:draw|global={{intro: true , duration: 1000, delay: 100, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[2].id} 
+                    cx={x(nodes.nodes[2].x)} 
+                    cy={y(nodes.nodes[2].y)} 
+                    r="20" 
+                    fill={blue}
+                    in:fade|global={{intro: true , duration: 500, delay: 500, easing: cubicInOut }}
+                    out:fade|global={{intro: true , duration: 500, delay: 0, easing: cubicInOut }}
+                />
+                <circle 
+                    key={nodes.nodes[1].id} 
+                    cx={x(nodes.nodes[1].x)} 
+                    cy={y(nodes.nodes[1].y)} 
+                    r="20" 
+                    fill={blue}
+                />
+                <text x={x(nodes.nodes[1].x) - 4} y={y(nodes.nodes[1].y) + 5}>b</text>
+                <text x={x(nodes.nodes[2].x) - 4} y={y(nodes.nodes[2].y) + 5}>c</text>
             {/if}
 
         

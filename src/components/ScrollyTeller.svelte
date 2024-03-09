@@ -79,34 +79,36 @@ style="pointer-events: none;">
 
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 5: Initialize C and Outside Sets </h3>
+    <h3 class = "page-head" align = left>Pg 5: Initialize Visited and Unvisited Sets </h3>
     <br/>
     <p class = "text" align = left>
-      To help us keep track of which edges we need to update, we’ll categorize the nodes into two sets: C and Outside. Nodes in C have been 'visited', while Nodes in Outside have not.
+      To help us keep track of which edges we need to update, we’ll categorize the nodes into two sets: Visited and Unvisited. Nodes in Visited have been 'visited', while Nodes in Unvisited have not.
     </p>
     <p class = "text" align = left>
       With the setup done, we’re ready to start.
     </p>
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 6: Find the closest nodes to C.</h3>
+    <h3 class = "page-head" align = left>Pg 6: Find the nodes closest to the set of Visited nodes.</h3>
     <br/>
-    <p class = "text" align = left>The first step is to look at all the nodes in Outside that are 1 edge away from (or adjacent) the nodes in C. In this case, those nodes are f, b, and c.</p>
+    <p class = "text" align = left>The first step is to look at all the nodes in Unvisited that are 1 edge away from (or adjacent) the nodes in C. In this case, those nodes are f, b, and c.</p>
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 7: Calculate the distance between the source node of C and the closest Outside nodes. Update u.est.</h3>
+    <h3 class = "page-head" align = left>Pg 7: Calculate the distance between the source node and the closest Unvisited nodes. Update u.est.</h3>
     <br/>
-    <p class = "text" align = left>Then, we calculate new distance values for each of the nodes adjacent to C.</p>
-    <p class = "text" align = left>We do this by adding the edge weight to the u.est value of the respective source node. 
-      If the new distance value is less than the respective node’s u.est, then we update the target node’s u.est to be the distance value. For node f, 7 &lt; inf, so f’s new u.est is 7.
-    </p>
+    <p class = "text" align = left>Then, we calculate new distance values for each of the nodes adjacent to the Visited set.</p>
+    <p class = "text" align = left>We do this by adding the edge weight to the u.est value of the respective source node.</p>
+    <p class = "text" align = left>If the new distance value is less than the respective node’s u.est, then we update the target node’s u.est to be the distance value.</p>
+    <p class = "text" align = left>For node f, 7 &lt; inf, so f’s new u.est is 7.</p>
   </section>
   <section>
     <h3 class = "page-head" align = left >Pg 8: Find the unvisited Node that is closest to the source.</h3>
-    <p class = "text" align = left>Now, the next step is to find the node in Outside closest to our source node 'a', which in this case is node 'f'.</p> 
+    <p class = "text" align = left>Now, the next step is to find the node in Unvisited that is closest to our source node 'a', which in this case is node 'f'.</p> 
+    <p class = "text" align = left>In other words, find the node in Unvisited with the smallest u.est.</p> 
+
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 9: Move the node from Outside to C</h3>
+    <h3 class = "page-head" align = left>Pg 9: Move the node from Unvisited to C</h3>
     <p class = "text" align = left>Node f is now considered to be visited! So, we can move it from the Unvisited set to the Visited set.</p> 
 
     <p class = "text" align = left></p>
@@ -120,22 +122,24 @@ style="pointer-events: none;">
   <section>
     <h3 class = "page-head" align = left >Pg 11: Find edges connecting adjacent nodes and update u.est. </h3>
     <br/>
-    <p class = "text" align = left>So once again, we find the edges connected to the Visited set and update their estimated distances.</p>
+    <p class = "text" align = left>Once again, we find the edges connected to the Visited set and update their estimated distances.</p>
   </section>
   <section>
-    <h3 class = "page-head" align = left >Pg 12: Find the shortest edge connected to the Visited set.</h3>
+    <h3 class = "page-head" align = left >Pg 12: Find the closest Unvisited node.</h3>
+    <br/>
+    <p class = "text" align = left>Then we find the closest Unvisited node, which is node 'b'.</p>
+    <p class = "text" align = left>Now we can add b to the Visited set.</p>
+
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 13: Find edges connecting adjacent nodes and update u.est.</h3>
     <br/>
     <p class = "text" align = left>Filler Text</p>
   </section>
   <section>
-    <h3 class = "page-head" align = left >Pg 13: Final Solution</h3>
+    <h3 class = "page-head" align = left >Pg 14: Find the closest Unvisited node.</h3>
     <br/>
-    <p class = "text" align = left>Filler Text</p>
-  </section>
-  <section>
-    <h3 class = "page-head" align = left >Pg 14: Final Solution</h3>
-    <br/>
-    <p class = "text" align = left>Filler Text</p>
+    <p class = "text" align = left>Node c has the smallest u.est value of the Unvisited nodes.</p>
   </section>
   <section>
     <h3 class = "page-head" align = left >Pg 15: Final Solution</h3>
