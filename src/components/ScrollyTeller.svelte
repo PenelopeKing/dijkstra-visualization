@@ -88,14 +88,16 @@ style="pointer-events: none;">
     <p class = "text-top" align = left>The Dijkstra Algorithm is very similar to the Breadth First Search algorithm, and lets us find the shortest path between a source and target node on a positively weighted graph (directed or undirected).</p>
       <p class = "text" align = left>To start out, we define a value u.est for each node denoting the distance from the source node. For the initial source node, this equals 0, and is unknown for all other nodes, so we can set them to positive infinity.</p>
     </div>
+
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 5: Initialize C and Outside Sets </h3>
+    <h3 class = "page-head" align = left>Pg 5: Initialize Visited and Unvisited Sets </h3>
     <br/>
 
     <div class = "textbox">
     <p class = "text-top" align = left>
       To help us keep track of which edges we need to update, we'll categorize the nodes into two sets: C and Outside. Nodes in C have been 'visited', while Nodes in Outside have not.
+
     </p>
     <p class = "text" align = left>
       With the setup done, we're ready to start.
@@ -104,7 +106,7 @@ style="pointer-events: none;">
 
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 6: Find the closest nodes to C.</h3>
+    <h3 class = "page-head" align = left>Pg 6: Find the nodes closest to the set of Visited nodes.</h3>
     <br/>
     <div class = "textbox">
     <p class = "text" align = left>The first step is to look at all the nodes in Outside that are 1 edge away from (or adjacent) the nodes in C. In this case, those nodes are f, b, and c.</p>
@@ -112,7 +114,7 @@ style="pointer-events: none;">
   
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 7: Calculate the distance between the source node of C and the closest Outside nodes. Update u.est.</h3>
+    <h3 class = "page-head" align = left>Pg 7: Calculate the distance between the source node and the closest Unvisited nodes. Update u.est.</h3>
     <br/>
 
     <div class = "textbox">
@@ -137,18 +139,33 @@ style="pointer-events: none;">
     <div class = "textbox">
     <p class = "text" align = left>Text</p>
     </div>
+
   </section>
   <section>
-    <h3 class = "page-head" align = left>Pg 10: Move the node from Outside to C</h3>
+    <h3 class = "page-head" align = left>Pg 10: Repeat!</h3>
+    <br/>
+    <p class = "text" align = left>And now we repeat those steps until there are no more edges to update u.est with for any node.</p>
+
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 11: Find edges connecting adjacent nodes and update u.est. </h3>
     <br/>
 
     <div class = "textbox">
     <p class = "text" align = left>And now we repeat those steps until there are no more edges to update uest with for any node.</p>
     </div>
 
+
   </section>
   <section>
-    <h3 class = "page-head" align = left >Pg 11: Explanation cont... </h3>
+    <h3 class = "page-head" align = left >Pg 12: Find the closest Unvisited node.</h3>
+    <br/>
+    <p class = "text" align = left>Then we find the closest Unvisited node, which is node 'b'.</p>
+    <p class = "text" align = left>Now we can add b to the Visited set.</p>
+
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 13: Find edges connecting adjacent nodes and update u.est.</h3>
     <br/>
 
     <div class = "textbox">
@@ -156,13 +173,39 @@ style="pointer-events: none;">
     </div>
   </section>
   <section>
-    <h3 class = "page-head" align = left >Pg 12: Final Solution</h3>
+    <h3 class = "page-head" align = left >Pg 14: Find the closest Unvisited node.</h3>
+    <br/>
+    <p class = "text" align = left>Node c has the smallest u.est value of the Unvisited nodes.</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 15: Find edges connecting adjacent nodes and update u.est.</h3>
     <br/>
 
     <div class = "textbox">
     <p class = "text" align = left>Filler Text</p>
     </div>
   </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 16: Find the closest Unvisited node.</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 17: Find edges connecting adjacent nodes and update u.est.</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 18: Finished</h3>
+    <br/>
+    <p class = "text" align = left>Now there are no more edges to make updates with nor nodes to visit.</p>
+  </section>
+  <section>
+    <h3 class = "page-head" align = left >Pg 19: Find edges connecting adjacent nodes and update u.est.</h3>
+    <br/>
+    <p class = "text" align = left>Filler Text</p>
+  </section>
+
 </div>
 
 </Scroller>
