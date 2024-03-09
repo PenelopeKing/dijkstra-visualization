@@ -33,7 +33,7 @@
     $: x=d3
     .scaleLinear() 
     .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-    .range([marginLeft * 4, width / 1.6])
+    .range([marginLeft * 4, width / 1.7])
     $: y=d3
     .scaleLinear()
     .domain(d3.extent(nodes.nodes, (d) => d.y))
@@ -45,14 +45,14 @@
   };
     let rectX = tweened(400, { duration: 1000, easing: cubicOut });
     let rectY = tweened(385, { duration: 1000, easing: cubicOut });
-  function setRect() {
+  
+
+    function setRect() {
     rectX = tweened(400, { duration: 1000, easing: cubicOut });
     rectY = tweened(385, { duration: 1000, easing: cubicOut });
   }
   function resetUserInteraction() {
-
     d3.select(svg).selectAll("*").remove();
-
     blueLines = [];
   }
     function setCurrNode(node){
@@ -143,16 +143,15 @@
         style="max-width: 100%; height: auto; pointer-events: auto;"
         >
         
-
+        
         {#if index === 0}
             {resetUserInteraction()}
-            <img src = "../imgs/car.png" alt = "car" x=20 y=100 width="50" height="20"  />
-
         {/if}
 
         {#if index === 1}
             {setRect()}
             {resetUserInteraction()}
+
             {#each edges.edges as e}
                 <defs>
                     <!-- A marker to be used as an arrowhead. -->
@@ -184,9 +183,7 @@
                     >
                     {e.weight}
                 </text>
-                
                 {/each}
-
 
                 {#each nodes.nodes as n}
                     {#if n.id == 0}
@@ -205,13 +202,11 @@
                     
                     
                 {/each}
-                <img src = "imgs/car.png" alt = "car" x={$rectX} y={$rectY} width="50" height="20" 
-                in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
-                out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
 
-                <rect x={$rectX} y={$rectY} width="50" height="20" fill="green" 
+                <image xlink:href="../imgs/bluecar.png" x={$rectX} y={$rectY} width="70" height="40"
                 in:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }}
                 out:fade|global={{intro: true , duration: 500, delay: 10, easing: cubicInOut }} />
+    
         {/if}
 
 
