@@ -155,6 +155,7 @@
         viewBox="0 0 {width} {height}"
         style="max-width: 100%; height: auto; pointer-events: auto;"
     >
+    
         {#if index === 0}
             {resetUserInteraction()}
         {/if}
@@ -170,12 +171,12 @@
                     <marker
                         id="arrow"
                         viewBox="0 0 10 10"
-                        refX="23"
+                        refX="22"
                         refY="5"
                         markerWidth="5"
                         markerHeight="5"
                         orient="auto-start-reverse"
-                        class="arrow-animation"
+                        class="arrow-fade-in"
                     >
                         <path id="arrowPath" d="M 0 0 L 10 5 L 0 10 z"/>
                     </marker>
@@ -232,6 +233,7 @@
                     on:click={() => handleClick(event, n)}
                 />
                 
+                
             {/each}
 
             <image
@@ -265,7 +267,7 @@
                     <marker
                         id="arrow"
                         viewBox="0 0 10 10"
-                        refX="23"
+                        refX="22"
                         refY="5"
                         markerWidth="5"
                         markerHeight="5"
@@ -407,7 +409,7 @@
                 </div>
             </foreignObject>
         {/if}
-        <!--First set of edge updates-->
+        <!--First set of edge updates. (a, f), (a, b), (a, c)-->
         {#if index >= 5}
             {#if index < 7}
                 <polyline
@@ -611,6 +613,7 @@
                 {/each}
             {/if}
         {/if}
+        <!-- Second set of edge updates. (f, b), (f, d)-->
         {#if index >= 10}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge f, d
@@ -742,7 +745,7 @@
                 stroke-width="5"
                 in:draw|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 1000,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1204,17 +1207,20 @@
         background-color: #ffffff;
     }
 
-    .arrow-animation {
-        animation: arrowAnimation 1s linear infinite alternate;
+    .arrow-fade-in {
+        opacity: 0;
+        animation: fadeIn 3s ease-in-out; /* Adjust the duration and timing function as needed */
+        animation-delay: 400ms;
+
     }
 
-    @keyframes arrowAnimation {
+    @keyframes fadeIn {
         from {
-            refX: 23;
+            opacity: 0;
         }
 
         to {
-            refX: 23; /* Change this value to the desired end position */
+            opacity: 10;
         }
     }
 </style>

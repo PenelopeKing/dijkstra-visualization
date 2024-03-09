@@ -196,18 +196,18 @@
       <div class="textbox">
         <p class="text" align="left">
           Now, the next step is to find the node in Unvisited closest to our
-          source node 'a', which in this case is node 'f'.
+          source node 'a'.
         </p>
+        <p class="text" align="left">In otherwords, find the univisited node with the smallest estimated distance, which in this case is node 'f'.</p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 9: Move the node from Unvisited to C
+        Pg 9: Move the node from Unvisited to Visited
       </h3>
       <br />
-
       <div class="textbox">
-        <p class="text" align="left">Text</p>
+        <p class="text" align="left">Now, we consider the node 'f' to be visited! So we can move it from the Unvisited set to Visited.</p>
       </div>
     </section>
     <section>
@@ -216,7 +216,7 @@
       <div class="textbox">
         <p class="text" align="left">
           And now we repeat those steps until there are no more edges to update
-          u.est with for any node.
+          u.est with for any node 'u'.
         </p>
       </div>
     </section>
@@ -228,8 +228,7 @@
 
       <div class="textbox">
         <p class="text" align="left">
-          And now we repeat those steps until there are no more edges to update
-          uest with for any node.
+          Once again, we find all edges connected to Unvisited nodes adjacent to the Visited nodes.
         </p>
       </div>
     </section>

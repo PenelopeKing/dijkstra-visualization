@@ -23,7 +23,7 @@ export const uest_vals = {
         5: 11
         },
     3: {
-        'x_shift': -5,
+        'x_shift': -40,
         'y_shift' : 50,
         0: 'inf', 
         1: 'inf', 
