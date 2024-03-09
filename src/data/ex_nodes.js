@@ -6,7 +6,7 @@ export const nodes = {
         "x": 0,
         "y": 0,
         "u.est": 0,
-        "color":"#499e97"
+        "color":"#3d87ff"
         
       },
       {
