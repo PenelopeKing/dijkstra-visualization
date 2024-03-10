@@ -72,7 +72,7 @@
       </div>
     </section>
     <section>
-      <h3 class="page-head" align="left">Part 1: Interactive Map</h3>
+      <h3 class="page-head" align="left">Interactive Map</h3>
       <br/>
       <div class="textbox">
         <p class="text-top" align="left">
@@ -99,7 +99,7 @@
       </div>
     </section>
     <section>
-      <h3 class="page-head" align="left">Pg 3: Answer</h3>
+      <h3 class="page-head" align="left">Answer</h3>
       <br/>
       <div class="textbox">
         <p class="text-top" align="left">Was this what you got?</p>
@@ -116,7 +116,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 4: Start of Dijkstra Explanation... Set Up 2
+        Start of Dijkstra Explanation... Set Up 2
       </h3>
       <br/>
       <div class="textbox">
@@ -136,13 +136,13 @@
           </b>
           <br/><br/>
           For the initial source node <i>a</i>, this equals 0, and is unknown for all
-          other nodes, so we can set them to positive infinity.
+          other nodes, so we set them to positive infinity.
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 5: Initialize Visited and Unvisited Sets
+        Initialize Visited and Unvisited Sets
       </h3>
       <br/>
 
@@ -161,7 +161,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 6: Find the Unvisited nodes adjacent to the set of Visited nodes.
+        Find the Unvisited nodes adjacent to the set of Visited nodes.
       </h3>
       <br/>
       <div class="textbox">
@@ -174,7 +174,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 7: Update distance estimates (u.est)
+        Update distance estimates (u.est)
       </h3>
       <br/>
 
@@ -195,7 +195,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 8: Find the Unvisited Node closest to the source.
+        Find the Unvisited Node closest to the source.
       </h3>
 
       <div class="textbox">
@@ -210,7 +210,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 9: Move the node from Unvisited to Visited
+        Move the node from Unvisited to Visited
       </h3>
       <br/>
       <div class="textbox">
@@ -220,7 +220,7 @@
       </div>
     </section>
     <section>
-      <h3 class="page-head" align="left">Pg 10: Repeat!</h3>
+      <h3 class="page-head" align="left">Repeat!</h3>
       <br/>
       <div class="textbox">
         <p class="text" align="left">
@@ -231,7 +231,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 11: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
       </h3>
       <br/>
       <div class="textbox">
@@ -247,7 +247,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 12: Find the Unvisited Node closest to the source.
+        Find the Unvisited Node closest to the source.
       </h3>
       <br/>
       <div class="textbox">
@@ -259,7 +259,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 13: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
       </h3>
       <br/>
 
@@ -270,7 +270,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 14: Find the Unvisited Node closest to the source.
+        Find the Unvisited Node closest to the source.
       </h3>
       <br/>
       <div class="textbox">
@@ -281,7 +281,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 15: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
       </h3>
       <br/>
 
@@ -291,7 +291,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 16: Find the Unvisited Node closest to the source.
+        Find the Unvisited Node closest to the source.
       </h3>
       <br/>
       <div class="textbox">
@@ -300,7 +300,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 17: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
       </h3>
       <br/>
       <div class="textbox">
@@ -308,7 +308,7 @@
       </div>
     </section>
     <section>
-      <h3 class="page-head" align="left">Pg 18: Find the Unvisited Node closest to the source.</h3>
+      <h3 class="page-head" align="left">Find the Unvisited Node closest to the source.</h3>
       <br/>
       <div class="textbox">
         <p class="text" align="left">
@@ -319,13 +319,28 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 19: All done!
+        All done!
       </h3>
       <br/>
       <div class="textbox">
         <p class="text" align="left">We have completed Dijsktra's Algorithm for this positively weighted and directed graph. 
           <br/><br/>
-          Notice that we not only found the shortest path to node <i>d</i> from node <i>a</i>, but we found the shortest paths between <b>all</b> nodes and node <i>a</i>.
+          But wait a minute...
+          <br/><br/>
+          This doesn't look exactly like our solution from before!
+          <br/><br/>
+          As it turns out, Dijsktra's Algorithm finds the shortest path between a source node and <b>ALL</b> the nodes in a positively weighted graph.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        So what is the fastest route from the restaurant to the final destination?
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          To get our solution from before, we simply only consider the path that connects the source and target nodes.
         </p>
       </div>
     </section>

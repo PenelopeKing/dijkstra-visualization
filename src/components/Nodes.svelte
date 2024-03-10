@@ -137,9 +137,6 @@
 
         // create new circle
         setCurrNode(targetNode); // change what currNode is
-
-
-
     }
 </script>
 
@@ -155,7 +152,6 @@
         viewBox="0 0 {width} {height}"
         style="max-width: 100%; height: auto; pointer-events: auto;"
     >
-    
         {#if index === 0}
             {resetUserInteraction()}
         {/if}
@@ -178,7 +174,7 @@
                         orient="auto-start-reverse"
                         class="arrow-fade-in"
                     >
-                        <path id="arrowPath" d="M 0 0 L 10 5 L 0 10 z"/>
+                        <path id="arrowPath" d="M 0 0 L 10 5 L 0 10 z" />
                     </marker>
                 </defs>
                 <polyline
@@ -216,7 +212,7 @@
                 {#if n.id == 0}
                     {setCurrNode(n)}
                 {/if}
-                
+
                 <circle
                     key={n.id}
                     cx={x(n.x)}
@@ -232,8 +228,6 @@
                     style="pointer-events: auto;"
                     on:click={() => handleClick(event, n)}
                 />
-                
-                
             {/each}
 
             <image
@@ -410,7 +404,7 @@
             </foreignObject>
         {/if}
         <!--First set of edge updates. (a, f), (a, b), (a, c)-->
-        {#if index >= 5}
+        {#if index >= 5 && index < 19}
             {#if index < 7}
                 <polyline
                     points={// String of coordintates x0,y0 x1,y1 for edge a, f
@@ -515,9 +509,8 @@
                 y={y(nodes.nodes[1].y) +
                     uest_vals[nodes.nodes[1].id]["y_shift"]}
             >
-                b.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 0 + 9 = {uest_vals[
-                    nodes.nodes[1].id
-                ][1]}
+                b.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                    >&gt; 0 + 9 = {uest_vals[nodes.nodes[1].id][1]}
                 </tspan>
             </text>
             <text
@@ -526,9 +519,8 @@
                 y={y(nodes.nodes[2].y) +
                     uest_vals[nodes.nodes[2].id]["y_shift"]}
             >
-                c.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 0 + 14 = {uest_vals[
-                    nodes.nodes[2].id
-                ][1]}
+                c.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                    >&gt; 0 + 14 = {uest_vals[nodes.nodes[2].id][1]}
                 </tspan>
             </text>
 
@@ -538,15 +530,14 @@
                 y={y(nodes.nodes[5].y) +
                     uest_vals[nodes.nodes[5].id]["y_shift"]}
             >
-                f.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 0 + 7 = {uest_vals[
-                    nodes.nodes[5].id
-                ][1]}
+                f.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                    >&gt; 0 + 7 = {uest_vals[nodes.nodes[5].id][1]}
                 </tspan>
             </text>
         {/if}
 
         <!--Set node f to visited-->
-        {#if index >= 7}
+        {#if index >= 7 && index < 19}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge a, f
                 String(x(nodes.nodes[0].x)) +
@@ -617,7 +608,7 @@
             {/if}
         {/if}
         <!-- Second set of edge updates. (f, b), (f, d)-->
-        {#if index >= 10}
+        {#if index >= 10 && index < 19}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge f, d
                 String(x(nodes.nodes[5].x)) +
@@ -705,9 +696,8 @@
                     y={y(nodes.nodes[1].y) +
                         uest_vals[nodes.nodes[1].id]["y_shift"]}
                 >
-                    b.est = &nbsp;&nbsp; <tspan fill={red}>&lt; 7 + 10 = {uest_vals[
-                        nodes.nodes[1].id
-                    ][2]}
+                    b.est = &nbsp;&nbsp; <tspan fill={red}
+                        >&lt; 7 + 10 = {uest_vals[nodes.nodes[1].id][2]}
                     </tspan>
                 </text>
                 <text
@@ -716,9 +706,8 @@
                     y={y(nodes.nodes[3].y) +
                         uest_vals[nodes.nodes[3].id]["y_shift"]}
                 >
-                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 7 + 15 = {uest_vals[
-                        nodes.nodes[3].id
-                    ][2]}
+                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                        >&gt; 7 + 15 = {uest_vals[nodes.nodes[3].id][2]}
                     </tspan>
                 </text>
             {/if}
@@ -794,7 +783,7 @@
                 >b</text
             >
         {/if}
-        {#if index >= 12}
+        {#if index >= 12 && index < 19}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge f, b
                 String(x(nodes.nodes[1].x)) +
@@ -873,9 +862,8 @@
                     y={y(nodes.nodes[3].y) +
                         uest_vals[nodes.nodes[3].id]["y_shift"]}
                 >
-                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 9 + 12 = {uest_vals[
-                        nodes.nodes[3].id
-                    ][3]}
+                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                        >&gt; 9 + 12 = {uest_vals[nodes.nodes[3].id][3]}
                     </tspan>
                 </text>
                 <text
@@ -884,9 +872,8 @@
                     y={y(nodes.nodes[2].y) +
                         uest_vals[nodes.nodes[2].id]["y_shift"]}
                 >
-                    c.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 9 + 2 = {uest_vals[
-                        nodes.nodes[2].id
-                    ][3]}
+                    c.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                        >&gt; 9 + 2 = {uest_vals[nodes.nodes[2].id][3]}
                     </tspan>
                 </text>
             {/if}
@@ -1007,9 +994,8 @@
                     y={y(nodes.nodes[4].y) +
                         uest_vals[nodes.nodes[4].id]["y_shift"]}
                 >
-                    e.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 11 + 4 = {uest_vals[
-                        nodes.nodes[4].id
-                    ][4]}
+                    e.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                        >&gt; 11 + 4 = {uest_vals[nodes.nodes[4].id][4]}
                     </tspan>
                 </text>
             {/if}
@@ -1126,9 +1112,8 @@
                     y={y(nodes.nodes[3].y) +
                         uest_vals[nodes.nodes[3].id]["y_shift"]}
                 >
-                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 11 + 4 = {uest_vals[
-                        nodes.nodes[3].id
-                    ][5]}
+                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}
+                        >&gt; 11 + 4 = {uest_vals[nodes.nodes[3].id][5]}
                     </tspan>
                 </text>
             {/if}
@@ -1192,6 +1177,9 @@
                     {n.name}.est = {uest_vals[n.id][5]}
                 </text>
             {/each}
+            <text x={x(nodes.nodes[5].x) - 4} y={y(nodes.nodes[5].y) + 5}
+                >f</text
+            >
         {/if}
     </svg>
 </div>
@@ -1220,7 +1208,6 @@
         opacity: 0;
         animation: fadeIn 3s ease-in-out; /* Adjust the duration and timing function as needed */
         animation-delay: 400ms;
-
     }
 
     @keyframes fadeIn {
