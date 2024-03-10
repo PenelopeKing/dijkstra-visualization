@@ -42,9 +42,9 @@
   <div class="foreground" slot="foreground" style="pointer-events: none;">
     <section class="first-page">
       <div class="header-background">
-        <br />
-        <br />
-        <br />
+        <br/>
+        <br/>
+        <br/>
         <div class="block">
           <h1 align="center">
             Food for Thought: An Introduction to Dijkstra Algorithm Using Food
@@ -55,9 +55,9 @@
           </p>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
+      <br/>
+      <br/>
+      <br/>
       <div class="textbox2">
         <p class="text2" align="left">
           Welcome to your first day at your job at OOperEats. It is time to make
@@ -65,16 +65,15 @@
           to you to decide the path you want to take to your customer’s
           destination. Keep in mind that we want to be as quick as possible so
           you can be ready for your next order!
-        </p>
-        <p class="text2" align="left">
-          Your Goal: Find the fastest path to your destination from the pick-up
-          order restaurant.
+          <br/><br/>
+          Your Goal: Find the fastest path to your destination from the pick-up order
+          restaurant.
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">Part 1: Interactive Map</h3>
-      <br />
+      <br/>
       <div class="textbox">
         <p class="text-top" align="left">
           The restaurant you are currently at is the <span style="color: blue"
@@ -82,17 +81,15 @@
           > at the left.
         </p>
         <p class="text-center" align="left">
-          The <span style="color: pink">pink dots</span> are neighborhoods you can
-          pass through on your drive.
-        </p>
-        <p class="text-center" align="left">
-          The numbers represent how long it takes to get from one neighborhood
+          The <span style="color: pink">pink dots</span> are neighborhoods you
+          can pass through on your drive.
+          <br/><br/>
+          The numbers represent how many minutes it takes to get from one neighborhood
           to another.
-        </p>
-        <p class="text-center" align="left">
+          <br/><br/>
           This <span style="color: red">red dot</span> is your final destination.
         </p>
-        <br />
+        <br/>
         <p class="text" align="left">
           <b
             >Try to find the fastest path possible to your destination. Create
@@ -103,7 +100,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">Pg 3: Answer</h3>
-      <br />
+      <br/>
       <div class="textbox">
         <p class="text-top" align="left">Was this what you got?</p>
         <p class="text-center" align="left">
@@ -121,19 +118,24 @@
       <h3 class="page-head" align="left">
         Pg 4: Start of Dijkstra Explanation... Set Up 2
       </h3>
-      <br />
+      <br/>
       <div class="textbox">
         <p class="text-top" align="left">
           The Dijkstra Algorithm is very similar to the Breadth First Search
-          algorithm, and lets us find the shortest path between a source and
-          target node on a positively weighted graph (directed or undirected).
+          algorithm, and lets us find the shortest path between a
+          <span style="color: blue">source</span>
+          and
+          <span style="color: red">target</span>
+          node on a positively weighted graph (directed or undirected).
         </p>
         <p class="text" align="left">
-          To start out, we define a value u.est for each node u, denoting its
-          estimated distance from the source node.
-        </p>
-        <p class="text" align="left">
-          For the initial source node, this equals 0, and is unknown for all
+          To start out, we define a value
+          <b>
+            u.est for each node u, denoting its estimated distance from the
+            source node.
+          </b>
+          <br/><br/>
+          For the initial source node <i>a</i>, this equals 0, and is unknown for all
           other nodes, so we can set them to positive infinity.
         </p>
       </div>
@@ -142,173 +144,189 @@
       <h3 class="page-head" align="left">
         Pg 5: Initialize Visited and Unvisited Sets
       </h3>
-      <br />
+      <br/>
 
       <div class="textbox">
         <p class="text-top" align="left">
-          To help us keep track of which edges we need to update, we'll
-          categorize the nodes into two sets: Visited and Unvisited. Nodes in
-          Visited have been 'visited', while Nodes in Unvisited have not.
-        </p>
-        <p class="text" align="left">
+          To help us keep track of which nodes to update and which edges to look
+          at, we'll categorize the nodes into two sets: Visited and Unvisited.
+          <br/><br/>
+          Nodes in Visited have a <b>known shortest distance</b> from the source
+          node, while nodes in Unvisited do not.
+          <br/><br/>
           With the setup done, we're ready to start.
         </p>
+        <br/>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 6: Find the nodes closest to the set of Visited nodes.
+        Pg 6: Find the Unvisited nodes adjacent to the set of Visited nodes.
       </h3>
-      <br />
+      <br/>
       <div class="textbox">
         <p class="text" align="left">
-          The first step is to look at all the nodes in Unvisited that are 1
-          edge away from (or adjacent) the nodes in C. In this case, those nodes
-          are f, b, and c.
+          The first step is to look at all the nodes in Unvisited that are <b
+            >1 edge away from (or adjacent to) the Visited nodes</b
+          >. <br/><br/>In this case, those nodes are <i>f</i>, <i>b</i>, and <i>c</i>.
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 7: Calculate the distance between the source node and the closest
-        Unvisited nodes. Update u.est.
+        Pg 7: Update distance estimates (u.est)
       </h3>
-      <br />
+      <br/>
 
       <div class="textbox">
         <p class="text-top" align="left">
-          Then, we calculate new distance values for each of the nodes adjacent
-          to C.
-        </p>
-        <p class="text" align="left">
-          We do this by adding the edge weight to the u.est value of the
-          respective source node. If the new distance value is less than the
-          respective node’s u.est, then we update the target node’s u.est to be
-          the distance value. For node f, 7 &lt; inf, so f’s new u.est is 7.
+          Then, we calculate new distance values for each of the Unvisited nodes adjacent
+          to the Visited nodes.
+          <br/><br/>
+          We do this by <b>adding the edge weight to the u.est value of the connected Visited node</b>. 
+          <br/><br/>
+          If the new distance value is less than the respective Unvisited node’s
+          u.est, then we update u.est to be the calculated distance value.
+          <br/><br/>
+          For node <i>f</i>, infinity &gt; 0 + 7, so <i>f.est</i> is now 7.
+          <br/><br/>
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 8: Find the unvisited Node that is closest to the source.
+        Pg 8: Find the Unvisited Node closest to the source.
       </h3>
 
       <div class="textbox">
         <p class="text" align="left">
           Now, the next step is to find the node in Unvisited closest to our
-          source node 'a'.
+          source node <i>a</i>.
+          <br/><br/>  
+          In otherwords, <b>find the node in Unvisited with the smallest estimated
+          distance</b>, which in this case is node <i>f</i>
         </p>
-        <p class="text" align="left">In otherwords, find the univisited node with the smallest estimated distance, which in this case is node 'f'.</p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
         Pg 9: Move the node from Unvisited to Visited
       </h3>
-      <br />
+      <br/>
       <div class="textbox">
-        <p class="text" align="left">Now, we consider the node 'f' to be visited! So we can move it from the Unvisited set to Visited.</p>
+        <p class="text" align="left">
+          Now, we consider the node <i>f</i> to be visited! So we can move it to the Visited set.
+        </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">Pg 10: Repeat!</h3>
-      <br />
+      <br/>
       <div class="textbox">
         <p class="text" align="left">
           And now we repeat those steps until there are no more edges to update
-          u.est with for any node 'u'.
+          <i>u.est</i> with for any node <i>u</i>.
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 11: Find edges connecting adjacent nodes and update u.est.
+        Pg 11: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
       </h3>
-      <br />
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          Once again, <b>we find all Unvisited nodes adjacent to
+          the Visited nodes</b> and <b>update <i>u.est</i></b> for those Unvisited nodes.
+          <br/><br/>
+          Although we've already found node <i>b</i>, there is another edge leading to it from node <i>f</i>, so we still need to check <i>b.est</i>. 
+          <br/><br/>
+          Since the new calculated distance for <i>b</i> is greater than <i>b.est</i>, the estimate stays the same.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Pg 12: Find the Unvisited Node closest to the source.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          Now we <b>find the Unvisited node with the smallest <i>u.est</i></b>, which is node <i>b</i>.
+          <br/><br/>
+          Then we can add <i>b</i> to the Visited set.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Pg 13: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+      </h3>
+      <br/>
 
       <div class="textbox">
-        <p class="text" align="left">
-          Once again, we find all edges connected to Unvisited nodes adjacent to the Visited nodes.
-        </p>
+        <p class="text" align="left">Again, <b>we find all Unvisited nodes adjacent to
+          the Visited nodes</b> and <b>update <i>u.est</i></b> for those Unvisited nodes.</p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 12: Find the closest Unvisited node.
+        Pg 14: Find the Unvisited Node closest to the source.
       </h3>
-      <br />
+      <br/>
       <div class="textbox">
         <p class="text" align="left">
-          Then we find the closest Unvisited node, which is node 'b'.
+          Then we <b>find the Unvisited node with the smallest <i>u.est</i></b>, which is node <i>c</i>, and <b>move it to the Visited set</b>.
         </p>
-        <p class="text" align="left">Now we can add b to the Visited set.</p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 13: Find edges connecting adjacent nodes and update u.est.
+        Pg 15: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
       </h3>
-      <br />
+      <br/>
 
       <div class="textbox">
-        <p class="text" align="left">Filler Text</p>
+        <p class="text" align="left">We <b>find the Unvisited nodes adjacent to the Visited nodes</b> again, and <b>update their <i>u.est</i> values</b>.</p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 14: Find the closest Unvisited node.
+        Pg 16: Find the Unvisited Node closest to the source.
       </h3>
-      <br />
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left"><b>Find the adjacent Unvisited node with the smallest <i>u.est</i></b> and <b>move it to Visited</b>, which for this step is node <i>e</i>.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Pg 17: Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">Again, we <b>find the Unvisited nodes adjacent to the Visited nodes</b>, and <b>update their <i>u.est</i> values</b>.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">Pg 18: Find the Unvisited Node closest to the source.</h3>
+      <br/>
       <div class="textbox">
         <p class="text" align="left">
-          Node c has the smallest u.est value of the Unvisited nodes.
+          And now, for the last time, we find the adjacent Unvisited node with the smallest <i>u.est</i>.
+          Now there are no more edges to make updates with nor nodes to visit!
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Pg 15: Find edges connecting adjacent nodes and update u.est.
+        Pg 19: All done!
       </h3>
-      <br />
-
+      <br/>
       <div class="textbox">
-        <p class="text" align="left">Filler Text</p>
-      </div>
-    </section>
-    <section>
-      <h3 class="page-head" align="left">
-        Pg 16: Find the closest Unvisited node.
-      </h3>
-      <br />
-      <div class="textbox">
-        <p class="text" align="left">Filler Text</p>
-      </div>
-    </section>
-    <section>
-      <h3 class="page-head" align="left">
-        Pg 17: Find edges connecting adjacent nodes and update u.est.
-      </h3>
-      <br />
-      <div class="textbox">
-        <p class="text" align="left">Filler Text</p>
-      </div>
-    </section>
-    <section>
-      <h3 class="page-head" align="left">Pg 18: Finished</h3>
-      <br />
-      <div class="textbox">
-        <p class="text" align="left">
-          Now there are no more edges to make updates with nor nodes to visit.
+        <p class="text" align="left">We have completed Dijsktra's Algorithm for this positively weighted and directed graph. 
+          <br/><br/>
+          Notice that we not only found the shortest path to node <i>d</i> from node <i>a</i>, but we found the shortest paths between <b>all</b> nodes and node <i>a</i>.
         </p>
-      </div>
-    </section>
-    <section>
-      <h3 class="page-head" align="left">
-        Pg 19: Find edges connecting adjacent nodes and update u.est.
-      </h3>
-      <br />
-      <div class="textbox">
-        <p class="text" align="left">Filler Text</p>
       </div>
     </section>
   </div>

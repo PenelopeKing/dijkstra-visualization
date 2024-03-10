@@ -515,9 +515,10 @@
                 y={y(nodes.nodes[1].y) +
                     uest_vals[nodes.nodes[1].id]["y_shift"]}
             >
-                b.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt; 0 + 9 = {uest_vals[
+                b.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 0 + 9 = {uest_vals[
                     nodes.nodes[1].id
                 ][1]}
+                </tspan>
             </text>
             <text
                 x={x(nodes.nodes[2].x) +
@@ -525,9 +526,10 @@
                 y={y(nodes.nodes[2].y) +
                     uest_vals[nodes.nodes[2].id]["y_shift"]}
             >
-                c.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt; 0 + 14 = {uest_vals[
+                c.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 0 + 14 = {uest_vals[
                     nodes.nodes[2].id
                 ][1]}
+                </tspan>
             </text>
 
             <text
@@ -536,9 +538,10 @@
                 y={y(nodes.nodes[5].y) +
                     uest_vals[nodes.nodes[5].id]["y_shift"]}
             >
-                f.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt; 0 + 7 = {uest_vals[
+                f.est =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 0 + 7 = {uest_vals[
                     nodes.nodes[5].id
                 ][1]}
+                </tspan>
             </text>
         {/if}
 
@@ -702,9 +705,10 @@
                     y={y(nodes.nodes[1].y) +
                         uest_vals[nodes.nodes[1].id]["y_shift"]}
                 >
-                    b.est = &nbsp;&nbsp; &lt; 7 + 10 = {uest_vals[
+                    b.est = &nbsp;&nbsp; <tspan fill={red}>&lt; 7 + 10 = {uest_vals[
                         nodes.nodes[1].id
                     ][2]}
+                    </tspan>
                 </text>
                 <text
                     x={x(nodes.nodes[3].x) +
@@ -712,9 +716,10 @@
                     y={y(nodes.nodes[3].y) +
                         uest_vals[nodes.nodes[3].id]["y_shift"]}
                 >
-                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 7 + 15 = {uest_vals[
+                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 7 + 15 = {uest_vals[
                         nodes.nodes[3].id
                     ][2]}
+                    </tspan>
                 </text>
             {/if}
         {/if}
@@ -868,9 +873,10 @@
                     y={y(nodes.nodes[3].y) +
                         uest_vals[nodes.nodes[3].id]["y_shift"]}
                 >
-                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 9 + 12 = {uest_vals[
+                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 9 + 12 = {uest_vals[
                         nodes.nodes[3].id
                     ][3]}
+                    </tspan>
                 </text>
                 <text
                     x={x(nodes.nodes[2].x) +
@@ -878,9 +884,10 @@
                     y={y(nodes.nodes[2].y) +
                         uest_vals[nodes.nodes[2].id]["y_shift"]}
                 >
-                    c.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 9 + 2 = {uest_vals[
+                    c.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 9 + 2 = {uest_vals[
                         nodes.nodes[2].id
                     ][3]}
+                    </tspan>
                 </text>
             {/if}
         {/if}
@@ -1000,9 +1007,10 @@
                     y={y(nodes.nodes[4].y) +
                         uest_vals[nodes.nodes[4].id]["y_shift"]}
                 >
-                    e.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 11 + 4 = {uest_vals[
+                    e.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 11 + 4 = {uest_vals[
                         nodes.nodes[4].id
                     ][4]}
+                    </tspan>
                 </text>
             {/if}
         {/if}
@@ -1118,9 +1126,10 @@
                     y={y(nodes.nodes[3].y) +
                         uest_vals[nodes.nodes[3].id]["y_shift"]}
                 >
-                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; &gt; 11 + 4 = {uest_vals[
+                    d.est = &nbsp;&nbsp;&nbsp;&nbsp; <tspan fill={red}>&gt; 11 + 4 = {uest_vals[
                         nodes.nodes[3].id
                     ][5]}
+                    </tspan>
                 </text>
             {/if}
         {/if}
