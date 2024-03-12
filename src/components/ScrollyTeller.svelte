@@ -1,17 +1,16 @@
 <script>
-    import Scroller from "./Scroller.svelte";
-    import Nodes from "./Nodes.svelte";
-    let count, index, offset, progress;
-    let width = 800;
-    let height = 100;
+  import Scroller from "./Scroller.svelte";
+  import Nodes from "./Nodes.svelte";
+  let count, index, offset, progress;
+  let width = 800;
+  let height = 120;
 
-    function handleClick(event) {
-        console.log("clicked on whole background")
-        // Update position of rectangle to follow edge to clicked node
-    }
-
-
+  function handleClick(event) {
+    console.log("clicked on whole background");
+    // Update position of rectangle to follow edge to clicked node
+  }
 </script>
+
 <Scroller
   top={0.0}
   bottom={1}
@@ -20,136 +19,390 @@
   bind:index
   bind:offset
   bind:progress
-
 >
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div
     class="background"
     slot="background"
     bind:clientWidth={width}
     bind:clientHeight={height}
     style="pointer-events: auto"
-    on:click={() => handleClick(event)}>
+    on:click={() => handleClick(event)}
+  >
     <div div style="display: flex; flex-direction: row;">
-      <span id = "nodes-graph" style="margin-left: 20px;"> <Nodes {index} {width} {height} /> </span>
-  </div>
-</div>
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="foreground" 
-slot="foreground"
-style="pointer-events: none;">
-  <section class = "first-page">
-    <div class = "header-background">
-        <h1 align="center">An Introduction to Dijkstra Algorithm</h1>
+      <span id="nodes-graph" style="margin-left: 20px;">
+        <Nodes {index} {width} {height} />
+      </span>
     </div>
-      <p style="color:#fcfcfc" >Penny King & Garvey Li</p>
+  </div>
+
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div class="foreground" slot="foreground" style="pointer-events: none;">
+    <section class="first-page">
+      <div class="header-background">
+        <br/>
+        <br/>
+        <br/>
+        <div class="block">
+          <h1 align="center">
+            Food for Thought: An Introduction to Dijkstra Algorithm Using Food
+            Delivery
+          </h1>
+          <p class="names" align="center" style="color:#fcfcfc">
+            Penny King & Garvey Li
+          </p>
+        </div>
+      </div>
       <br/>
       <br/>
-      <p class = "text" align= left >Welcome to your first day at your job at OOperEats. It is time to make your first delivery. Unfortunately our map system is down so it is up to you to decide the path you want to take to your customer’s destination. Keep in mind that we want to be as quick as possible so you can be ready for your next order pick up!
+      <br/>
+      <div class="textbox2">
+        <p class="text2" align="left">
+          Welcome to your first day at your job at OOperEats. It is time to make
+          your first delivery. Unfortunately our map system is down, so it is up
+          to you to decide the path you want to take to your customer’s
+          destination. Keep in mind that we want to be as quick as possible so
+          you can be ready for your next order!
+          <br/><br/>
+          Your Goal: Find the fastest path to your destination from the pick-up order
+          restaurant.
         </p>
-      <p class = "text" align= left> Your Goal: Find the fastest path to your destination from the restaurant pick up.</p>
-  </section>
-  <section>
-    <p>Pg 2: Interactive Map</p>
-    <br/>
-    <p class = "text" align= left>The restaurant you are currently at is the blue dot at the left.</p>
-    <p class = "text" align= left>These pink dots are neighborhoods you can pass through on your drive.</p>
-    <p class = "text" align= left>The numbers represent how long it takes to get from one neighborhood to another.</p>
-    <p class = "text" align= left>This red dot is your final destination.</p>
-    <br />
-    <p class = "text" align= left>Try to find the fastest path possible to your destination. Create the path you think is best by clicking on the nodes. Scroll down when you are done!</p>
-  
-  </section>
-  <section>
-    <p>Pg 3: Answer</p>
-    <br/>
-    <p class = "text" align= left>Was this what you got?</p>
-    <p class = "text" align = left>Finding the shortest path is not a simple task…
-      How can we find the concrete shortest path to your customer?
-      </p>
-    <p class = "text" align = left>One method to do so in this situation is called Dijkstra Algorithm.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">Interactive Map</h3>
+      <br/>
+      <div class="textbox">
+        <p class="text-top" align="left">
+          The restaurant you are currently at is the <span style="color: blue"
+            >blue dot</span
+          > at the left.
+        </p>
+        <p class="text-center" align="left">
+          The <span style="color: pink">pink dots</span> are neighborhoods you
+          can pass through on your drive.
+          <br/><br/>
+          The numbers represent how many minutes it takes to get from one neighborhood
+          to another.
+          <br/><br/>
+          This <span style="color: red">red dot</span> is your final destination.
+        </p>
+        <br/>
+        <p class="text" align="left">
+          <b
+            >Try to find the fastest path possible to your destination. Create
+            the path you think is best by clicking on the nodes.</b
+          > Scroll down when you are done!
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">Answer</h3>
+      <br/>
+      <div class="textbox">
+        <p class="text-top" align="left">Was this what you got?</p>
+        <p class="text-center" align="left">
+          Finding the shortest path is not a simple task… How can we find the
+          concrete shortest path to your customer?
+        </p>
+        <p class="text" align="left">
+          One method to do so in this situation is called <b
+            >Dijkstra Algorithm</b
+          >.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Start of Dijkstra Explanation... Set Up 2
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text-top" align="left">
+          The Dijkstra Algorithm is very similar to the Breadth First Search
+          algorithm, and lets us find the shortest path between a
+          <span style="color: blue">source</span>
+          and
+          <span style="color: red">target</span>
+          node on a positively weighted graph (directed or undirected).
+        </p>
+        <p class="text" align="left">
+          To start out, we define a value
+          <b>
+            u.est for each node u, denoting its estimated distance from the
+            source node.
+          </b>
+          <br/><br/>
+          For the initial source node <i>a</i>, this equals 0, and is unknown for all
+          other nodes, so we set them to positive infinity.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Initialize Visited and Unvisited Sets
+      </h3>
+      <br/>
 
-  </section>
-  <section>
-    <p>Pg 4: Start of Dijkstra Explanation... Set Up 2</p>
-    <br/>
-    <p class = "text" align = left>The Dijkstra Algorithm is very similar to the Breadth First Search algorithm, and lets us find the shortest path between a source and target node on a positively weighted graph (directed or undirected).</p>
-      <p class = "text" align = left>To start out, we define a value u.est for each node denoting the distance from the source node. For the initial source node, this equals 0, and is unknown for all other nodes, so we can set them to positive infinity.</p>
+      <div class="textbox">
+        <p class="text-top" align="left">
+          To help us keep track of which nodes to update and which edges to look
+          at, we'll categorize the nodes into two sets: Visited and Unvisited.
+          <br/><br/>
+          Nodes in Visited have a <b>known shortest distance</b> from the source
+          node, while nodes in Unvisited do not.
+          <br/><br/>
+          With the setup done, we're ready to start.
+        </p>
+        <br/>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited nodes adjacent to the set of Visited nodes.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          The first step is to look at all the nodes in Unvisited that are <b
+            >1 edge away from (or adjacent to) the Visited nodes</b
+          >. <br/><br/>In this case, those nodes are <i>f</i>, <i>b</i>, and <i>c</i>.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Update distance estimates (u.est)
+      </h3>
+      <br/>
 
-  </section>
-  <section>
-    <p>Pg 5: Initialize C and Outside Sets </p>
-    <br/>
-    <p class = "text" align = left>
-      To help us keep track of which edges we need to update, we’ll categorize the nodes into two sets: C and Outside. Nodes in Outside have uest values of infinite, while nodes in C do not.
-    </p>
-    <p class = "text" align = left>
-      With the setup done, we’re ready to start.
-    </p>
-  </section>
-  <section>
-    <p>Pg 6: Find the closest node to C. f</p>
-    <br/>
-    <p class = "text" align = left>The first step is to look at all the nodes in Outside that are 1 edge away from the nodes in C. In this case, those nodes are f, b, and c.</p>
-  </section>
-  <section>
-    <p>Pg 7: Calculate the distance between the source node of C and the closest Outside node.</p>
-    <br/>
-    <p class = "text" align = left>Then, we pick the node with the smallest edge weight connecting to the nodes in set C. We’ll call this a target node. In this case, that would be node f.</p>
-    <p class = "text" align = left>Now, for the target node, we want to calculate its new distance value. We do this by adding the edge weight to the uest value of the respective source node. </p>
-  </section>
-  <section>
-    <p class = "text" align = left>Pg 8: Compare the calculated distance to u.est. c</p>
-    <p class = "text" align = left>If the new distance value is less than the target node’s uest, then we update the target node’s uest to be the distance value. 7 &lt; inf, so f’s new uest is 7.</p>
-    
-  </section>
-  <section>
-    <p>Pg 9: Move the node from Outside to C</p>
-    <br/>
-    <p class = "text" align = left>Since node f has a uest value that isn’t infinity, we move it to C.</p>
-  </section>
-  <section>
-    <p>Pg 10: Repeat!</p>
-    <br/>
-    <p class = "text" align = left>And now we repeat those steps until there are no more edges to update uest with for any node.</p>
-  </section>
-  <section>
-    <p>Pg 11: Explanation cont... </p>
-    <br/>
-    <p class = "text" align = left>Filler Text</p>
-  </section>
-  <section>
-    <p>Pg 12: Final Solution</p>
-    <br/>
-    <p class = "text" align = left>Filler Text</p>
-  </section>
-</div>
+      <div class="textbox">
+        <p class="text-top" align="left">
+          Then, we calculate new distance values for each of the Unvisited nodes adjacent
+          to the Visited nodes.
+          <br/><br/>
+          We do this by <b>adding the edge weight to the u.est value of the connected Visited node</b>. 
+          <br/><br/>
+          If the new distance value is less than the respective Unvisited node’s
+          u.est, then we update u.est to be the calculated distance value.
+          <br/><br/>
+          For node <i>f</i>, infinity &gt; 0 + 7, so <i>f.est</i> is now 7.
+          <br/><br/>
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited Node closest to the source.
+      </h3>
 
+      <div class="textbox">
+        <p class="text" align="left">
+          Now, the next step is to find the node in Unvisited closest to our
+          source node <i>a</i>.
+          <br/><br/>  
+          In otherwords, <b>find the node in Unvisited with the smallest estimated
+          distance</b>, which in this case is node <i>f</i>
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Move the node from Unvisited to Visited
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          Now, we consider the node <i>f</i> to be visited! So we can move it to the Visited set.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">Repeat!</h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          And now we repeat those steps until there are no more edges to update
+          <i>u.est</i> with for any node <i>u</i>.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          Once again, <b>we find all Unvisited nodes adjacent to
+          the Visited nodes</b> and <b>update <i>u.est</i></b> for those Unvisited nodes.
+          <br/><br/>
+          Although we've already found node <i>b</i>, there is another edge leading to it from node <i>f</i>, so we still need to check <i>b.est</i>. 
+          <br/><br/>
+          Since the new calculated distance for <i>b</i> is greater than <i>b.est</i>, the estimate stays the same.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited Node closest to the source.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          Now we <b>find the Unvisited node with the smallest <i>u.est</i></b>, which is node <i>b</i>.
+          <br/><br/>
+          Then we can add <i>b</i> to the Visited set.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+      </h3>
+      <br/>
+
+      <div class="textbox">
+        <p class="text" align="left">Again, <b>we find all Unvisited nodes adjacent to
+          the Visited nodes</b> and <b>update <i>u.est</i></b> for those Unvisited nodes.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited Node closest to the source.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          Then we <b>find the Unvisited node with the smallest <i>u.est</i></b>, which is node <i>c</i>, and <b>move it to the Visited set</b>.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+      </h3>
+      <br/>
+
+      <div class="textbox">
+        <p class="text" align="left">We <b>find the Unvisited nodes adjacent to the Visited nodes</b> again, and <b>update their <i>u.est</i> values</b>.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited Node closest to the source.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left"><b>Find the adjacent Unvisited node with the smallest <i>u.est</i></b> and <b>move it to Visited</b>, which for this step is node <i>e</i>.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">Again, we <b>find the Unvisited nodes adjacent to the Visited nodes</b>, and <b>update their <i>u.est</i> values</b>.</p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">Find the Unvisited Node closest to the source.</h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          And now, for the last time, we find the adjacent Unvisited node with the smallest <i>u.est</i>.
+          Now there are no more edges to make updates with nor nodes to visit!
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        All done!
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">We have completed Dijsktra's Algorithm for this positively weighted and directed graph. 
+          <br/><br/>
+          But wait a minute...
+          <br/><br/>
+          This doesn't look exactly like our solution from before!
+          <br/><br/>
+          As it turns out, Dijsktra's Algorithm finds the shortest path between a source node and <b>ALL</b> the nodes in a positively weighted graph.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h3 class="page-head" align="left">
+        So what is the fastest route from the restaurant to the final destination?
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          To get our solution from before, we simply only consider the path that connects the source and target nodes.
+        </p>
+      </div>
+    </section>
+  </div>
 </Scroller>
 
-
 <style>
- .text {
-  margin-left:750px;
-  margin-right: 50px;
- }
-  * {
-    font-family: 'Nunito', sans-serif;
+  .names {
+    font-size: 0.7em;
+  }
+  .page-head {
+    margin-left: 70%;
+    margin-right: 2%;
+  }
+  .text {
+    padding: 15px;
+  }
+  .text-center {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .text-top {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  .first-page{
-    margin:0;
-    padding:0;
+  .text2 {
+    margin: 2%;
+    padding: 10px;
+    padding-top: -2px;
+    padding-bottom: -2px;
+    display: inline-block;
+  }
+  * {
+    font-family: "Nunito", sans-serif;
+    box-sizing: border-box;
+  }
+  .textbox2 {
+    background: white;
+    margin-left: 55%;
+    margin-right: 10%;
+    border-radius: 5px;
+  }
+  .textbox {
+    background: white;
+    margin-left: 70%;
+    margin-right: 2%;
+    border-radius: 5px;
+  }
+
+  .first-page {
+    margin: 0;
+    padding: 0;
   }
 
   .header-background {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     top: 0;
     align-items: center;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     font-size: 25px;
     width: 100%;
     height: 120px;
@@ -157,12 +410,11 @@ style="pointer-events: none;">
   }
 
   .background {
-    width: 70%;
+    width: 100%;
     height: 100vh;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     position: relative;
-    outline: green solid 3px;
     z-index: 10;
   }
   .foreground {
@@ -171,28 +423,43 @@ style="pointer-events: none;">
     margin: 0;
     height: auto;
     position: relative;
-    outline: red solid 3px;
     z-index: 0;
+    background-color: #ede9dd;
   }
   section {
     height: 95vh;
     /* color: white; */
-    outline: magenta solid 3px;
     text-align: center;
     max-width: 1500px; /* adjust at will */
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
+    margin-top: 10px;
   }
-  span{
-    outline: orange solid 3px;
+
+  .block {
+    background-color: #499e97;
+    height: 31vh;
+    padding: 40px;
+    margin: 10px;
+    margin-left: 10%;
+    margin-top: 6.3%;
+    margin-bottom: -10%;
+    width: 85vh;
+    border-radius: 5px;
   }
   h1 {
-    background-color: #499e97;
-    padding: 60px;
-    margin: 0px;
-    outline: orange 3px;
+    margin-top: -1.5%;
+    font-size: 30px;
   }
 
-
+  h3 {
+    background-color: #499e97;
+    padding: 15px;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+  }
 </style>

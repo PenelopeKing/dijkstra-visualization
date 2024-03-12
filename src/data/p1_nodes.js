@@ -31,7 +31,7 @@ export const nodes = {
         "x": 5,
         "y": 0,
         "u.est": Infinity,
-        "color":"red"
+        "color":"#FFB6C1"
       },
       {
         "id": 4,
