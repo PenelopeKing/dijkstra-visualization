@@ -231,7 +231,7 @@
             {/each}
 
             <image
-                xlink:src="imgs/bluecar.png"
+                xlink:src="https://imgur.com/a/0CG9bly"
                 x={$rectX}
                 y={$rectY}
                 width="70"
