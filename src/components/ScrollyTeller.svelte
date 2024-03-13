@@ -344,6 +344,37 @@
         </p>
       </div>
     </section>
+    <section>
+    <h3 class="page-head" align="left">
+      Your Turn!
+    </h3>
+    <br/>
+    <div class="textbox">
+      <p class="text-top" align="left">
+        Now that you are more familiar with Dijkstra's Algorithm, try finding the shortest path to your customer in this setting.
+      </p>
+      <p class="text" align="left">
+        Click the nodes to move your car. Scroll down to see the answer.
+      </p>
+    </div>
+  </section>
+    <section>
+    <h3 class="page-head" align="left">
+      Your Turn! – Solution 1
+    </h3>
+    <br/>
+    <div class="textbox">
+      <p class="text" align="left">
+        Was this what you got?
+        </p>
+        <p class="text" align="left">
+        The <span style="color: #499e97">teal</span> lines show the right answer.
+        The <span style="color: blue">blue</span> lines are your previous answer.
+      </p>
+    </div>
+  </section>
+
+
   </div>
 </Scroller>
 
@@ -381,8 +412,8 @@
   }
   .textbox2 {
     background: white;
-    margin-left: 55%;
-    margin-right: 10%;
+    margin-left: 60%;
+    margin-right: 7%;
     border-radius: 5px;
   }
   .textbox {
@@ -406,6 +437,7 @@
     font-size: 25px;
     width: 100%;
     height: 120px;
+    padding-right:400px;
     color: #fcfcfc;
   }
 
@@ -430,7 +462,6 @@
     height: 95vh;
     /* color: white; */
     text-align: center;
-    max-width: 1500px; /* adjust at will */
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;

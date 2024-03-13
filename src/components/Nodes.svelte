@@ -2,8 +2,16 @@
     // get node and edge data
     import { nodes } from "../data/ex_nodes";
     import { edges } from "../data/ex_edges";
+
+    import { p1_nodes } from "../data/p1_nodes";
+    import { p1_edges } from "../data/p1_edges";
+
     import { sol_nodes } from "../data/sol_nodes";
     import { sol_edges } from "../data/sol_edges";
+
+    import { p1_sol_nodes } from "../data/p1_nodes_sol";
+    import { p1_sol_edges } from "../data/p1_edges_sol";
+
     import { c_outside } from "../data/sets";
     import { uest_vals } from "../data/uest";
 
@@ -19,7 +27,7 @@
     const C = c_outside.C;
     const Outside = c_outside.Outside;
     const set_index = Object.keys(c_outside.C);
-
+    
     let currNode;
     let svg;
     let tempx;
@@ -28,6 +36,7 @@
     const red = "#FF0000";
     const pink = "#FFB6C1";
     const green = "#008f180";
+    const teal = "#499e97"
 
     let blueLines = [];
     $: x = d3
@@ -46,6 +55,13 @@
     let rectX = tweened(400, { duration: 1000, easing: cubicOut });
     let rectY = tweened(385, { duration: 1000, easing: cubicOut });
 
+    let rectX_p1 = tweened(300, { duration: 1000, easing: cubicOut });
+    let rectY_p1 = tweened(430, { duration: 1000, easing: cubicOut });
+
+    function setRect_p1() {
+        rectX_p1 = tweened(300, { duration: 1000, easing: cubicOut });
+        rectY_p1 = tweened(430, { duration: 1000, easing: cubicOut });
+    }
     function setRect() {
         rectX = tweened(400, { duration: 1000, easing: cubicOut });
         rectY = tweened(385, { duration: 1000, easing: cubicOut });
@@ -63,6 +79,11 @@
         console.log("clicked on node");
         // Update position of rectangle to follow edge to clicked node
         updateRectanglePosition(node);
+    }
+    function handleClick_p1(event, node) {
+        console.log("clicked on node");
+        // Update position of rectangle to follow edge to clicked node
+        updateRectanglePosition_p1(node);
     }
 
     // Function to update position of rectangle based on selected node
@@ -138,6 +159,80 @@
         // create new circle
         setCurrNode(targetNode); // change what currNode is
     }
+    // Function to update position of rectangle based on selected node
+    function updateRectanglePosition_p1(selectedNode) {
+        //console.log(selectedNode)
+        const edges_lst = p1_edges.edges.filter(
+            (e) => e.source === selectedNode.id || e.target === selectedNode.id,
+        );
+        if (!edges_lst) return; // No edge found
+
+        const targetNode = selectedNode; //nodes.nodes.find(n => n.id === edge.target);
+        const exists = edges_lst.some((edge) => edge.source === currNode.id);
+        if (!exists) {
+            console.log("not connected");
+            return;
+        }
+        const sourceNode = currNode;
+        const connected_edge = p1_edges.edges.find(
+            (e) => e.source == sourceNode.ig && e.target == selectedNode.id,
+        );
+
+        // animate movement of car
+        rectX_p1.set(x(sourceNode.x) + (x(targetNode.x) - x(sourceNode.x)) + 25);
+        rectY_p1.set(y(sourceNode.y) + (y(targetNode.y) - y(sourceNode.y)) - 7);
+
+        // draw new lines
+        tempx = x(sourceNode.x) + (x(targetNode.x) - x(sourceNode.x)) + 20;
+        tempy = y(sourceNode.y) + (y(targetNode.y) - y(sourceNode.y)) - 7;
+        // Calculate the new points for the polyline
+
+        const points = `${x(currNode.x)},${y(currNode.y)} ${tempx - 20},${tempy + 7} ${x(selectedNode.x)},${y(selectedNode.y)}`;
+
+        // Update the polyline's points
+
+        // update edge and node colors
+        // Create a new polyline element for the blue line
+        const newLine = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "polyline",
+        );
+        newLine.setAttribute("points", points);
+        newLine.setAttribute("stroke", blue);
+        newLine.setAttribute("stroke-width", "7");
+        newLine.setAttribute("fill", "none");
+        newLine.style.opacity = 0;
+        // Add the new line to the SVG
+        svg.appendChild(newLine);
+        // transition
+        setTimeout(() => {
+            newLine.style.opacity = 1;
+        }, 500);
+
+        blueLines.push(newLine);
+
+        // add new circle
+        const newCircle = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle",
+        );
+        newCircle.setAttribute("fill", blue);
+        newCircle.setAttribute("r", "20");
+        newCircle.setAttribute("cx", `${x(targetNode.x)}`);
+        newCircle.setAttribute("cy", `${y(targetNode.y)}`);
+        newCircle.style.opacity = 0;
+        svg.appendChild(newCircle);
+        blueLines.push(newCircle);
+        setTimeout(() => {
+            newCircle.style.opacity = 1;
+        }, 500);
+        // cx={x(n.x)}
+        // cy={y(n.y)}
+
+        // create new circle
+        setCurrNode(targetNode); // change what currNode is
+    }
+
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -251,7 +346,7 @@
             />
         {/if}
 
-        {#if index > 1}
+        {#if index > 1 && index < 20}
             {setRect()}
             {resetUserInteraction()}
             {#each edges.edges as e}
@@ -362,7 +457,7 @@
             </text>
         {/if}
         <!--Draw in first set of u.est values-->
-        {#if index >= 3}
+        {#if index >= 3 && index < 20}
             {#if index < 7}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
@@ -377,7 +472,7 @@
             {/if}
         {/if}
         <!--Show Set table-->
-        {#if index > 3}
+        {#if index > 3 && index < 20}
             {console.log("table should be here")}
 
             <foreignObject x="50" y="200" width="300" height="500">
@@ -713,7 +808,7 @@
             {/if}
         {/if}
         <!--Add node b to visited-->
-        {#if index >= 11}
+        {#if index >= 11 && index < 20}
             {#if index < 13}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
@@ -879,7 +974,7 @@
             {/if}
         {/if}
         <!--Add node c to Visited-->
-        {#if index >= 13}
+        {#if index >= 13 && index < 20}
             {#if index < 15}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
@@ -949,7 +1044,7 @@
                 >c</text
             >
         {/if}
-        {#if index >= 14}
+        {#if index >= 14 && index < 20}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge f, b
                 String(x(nodes.nodes[2].x)) +
@@ -1001,7 +1096,7 @@
             {/if}
         {/if}
         <!--Add e to visited-->
-        {#if index >= 15}
+        {#if index >= 15 && index < 20}
             {#if index < 17}
                 {#each nodes.nodes as n}
                     <text
@@ -1060,7 +1155,7 @@
             >
         {/if}
         <!--Update d.est-->
-        {#if index >= 16}
+        {#if index >= 16 && index < 20}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge e, d
                 String(x(nodes.nodes[4].x)) +
@@ -1119,7 +1214,7 @@
             {/if}
         {/if}
         <!--Add d to visited-->
-        {#if index >= 17}
+        {#if index >= 17 && index < 20}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge e, d
                 String(x(nodes.nodes[4].x)) +
@@ -1181,6 +1276,214 @@
                 >f</text
             >
         {/if}
+        
+
+    {#if index === 20}
+        {setRect_p1()}
+        {resetUserInteraction()}
+
+        {#each p1_edges.edges as e}
+            <defs>
+                <!-- A marker to be used as an arrowhead. -->
+                <!-- refX determines how far down the line the marker is. -->
+                <marker
+                    id="arrow"
+                    viewBox="0 0 10 10"
+                    refX="22"
+                    refY="5"
+                    markerWidth="5"
+                    markerHeight="5"
+                    orient="auto-start-reverse"
+                    class="arrow-fade-in"
+                >
+                    <path id="arrowPath" d="M 0 0 L 10 5 L 0 10 z" />
+                </marker>
+            </defs>
+            <polyline
+                points={// String of coordinates x0,y0 x1,y1
+                String(x(p1_nodes.nodes[e.source].x)) +
+                    "," +
+                    String(y(p1_nodes.nodes[e.source].y)) +
+                    " " +
+                    String(x(p1_nodes.nodes[e.target].x)) +
+                    "," +
+                    String(y(p1_nodes.nodes[e.target].y))}
+                stroke={e.color}
+                stroke-width="3"
+                in:draw|global={{
+                    intro: true,
+                    duration: 1000,
+                    delay: 100,
+                    easing: cubicInOut,
+                }}
+                marker-end="url(#arrow)"
+            />
+            <text
+                x={x(
+                    (p1_nodes.nodes[e.source].x + p1_nodes.nodes[e.target].x) / 2,
+                ) + e.x_shift}
+                y={y(
+                    (p1_nodes.nodes[e.source].y + p1_nodes.nodes[e.target].y) / 2,
+                ) + e.y_shift}
+            >
+                {e.weight}
+            </text>
+        {/each}
+
+        {#each p1_nodes.nodes as n}
+            {#if n.id == 0}
+                {setCurrNode(n)}
+            {/if}
+
+            <circle
+                key={n.id}
+                cx={x(n.x)}
+                cy={y(n.y)}
+                r="20"
+                fill={n.color}
+                in:fade|global={{
+                    intro: true,
+                    duration: 500,
+                    delay: 50,
+                    easing: cubicInOut,
+                }}
+                style="pointer-events: auto;"
+                on:click={() => handleClick_p1(event, n)}
+            />
+        {/each}
+
+        <image
+            xlink:href="imgs/bluecar.png"
+            x={$rectX_p1}
+            y={$rectY_p1}
+            width="70"
+            height="40"
+            in:fade|global={{
+                intro: true,
+                duration: 500,
+                delay: 10,
+                easing: cubicInOut,
+            }}
+            out:fade|global={{
+                intro: true,
+                duration: 500,
+                delay: 10,
+                easing: cubicInOut,
+            }}
+        />
+    {/if}
+
+    {#if index >= 21}
+        {setRect_p1()}
+
+        {#each p1_edges.edges as e}
+            <defs>
+                <!-- A marker to be used as an arrowhead. -->
+                <!-- refX determines how far down the line the marker is. -->
+                <marker
+                    id="arrow"
+                    viewBox="0 0 10 10"
+                    refX="22"
+                    refY="5"
+                    markerWidth="5"
+                    markerHeight="5"
+                    orient="auto-start-reverse"
+                >
+                    <path d="M 0 0 L 10 5 L 0 10 z" />
+                </marker>
+            </defs>
+            <polyline
+                points={// String of coordintates x0,y0 x1,y1
+                String(x(p1_nodes.nodes[e.source].x)) +
+                    "," +
+                    String(y(p1_nodes.nodes[e.source].y)) +
+                    " " +
+                    String(x(p1_nodes.nodes[e.target].x)) +
+                    "," +
+                    String(y(p1_nodes.nodes[e.target].y))}
+                stroke={e.color}
+                stroke-width="3"
+                marker-end="url(#arrow)"
+            />
+            <text
+                x={x(
+                    (p1_nodes.nodes[e.source].x + p1_nodes.nodes[e.target].x) / 2,
+                ) + e.x_shift}
+                y={y(
+                    (p1_nodes.nodes[e.source].y + p1_nodes.nodes[e.target].y) / 2,
+                ) + e.y_shift}
+            >
+                {e.weight}
+            </text>
+        {/each}
+        {#each p1_nodes.nodes as n}
+            <circle
+                key={n.id}
+                cx={x(n.x)}
+                cy={y(n.y)}
+                r="20"
+                fill={n.color}
+            />
+        {/each}
+    {/if}
+    <!--Draw in solution edges-->
+    {#if index === 21}
+        {#each p1_sol_edges.edges as e}
+        <polyline
+            points={// String of coordintates x0,y0 x1,y1
+            String(x(p1_nodes.nodes[e.source].x)) +
+                "," +
+                String(y(p1_nodes.nodes[e.source].y)) +
+                " " +
+                String(x(p1_nodes.nodes[e.target].x)) +
+                "," +
+                String(y(p1_nodes.nodes[e.target].y))}
+            stroke={teal}
+            stroke-width="5"
+            in:draw|global={{
+                intro: true,
+                duration: 1000,
+                delay: 100 + e.source * 200,
+                easing: cubicInOut,
+            }}
+            out:fade|global={{
+                intro: true,
+                duration: 500,
+                delay: 0,
+                easing: cubicInOut,
+            }}
+        />
+    {/each}
+        {#each p1_sol_nodes.nodes as n}
+            <circle
+                key={n.id}
+                cx={x(n.x)}
+                cy={y(n.y)}
+                r="20"
+                fill={teal}
+                in:fade|global={{
+                    intro: true,
+                    duration: 1000,
+                    delay: 10 + n.id * 200,
+                    easing: cubicInOut,
+                }}
+                out:fade|global={{
+                    intro: true,
+                    duration: 500,
+                    delay: 0,
+                    easing: cubicInOut,
+                }}
+            />
+
+        {/each}
+    <text x={x(nodes.nodes[3].x) + 30} y={y(nodes.nodes[3].y) + 5}>
+        4 + 3 + 6
+    </text>
+    <text x={x(nodes.nodes[3].x) + 30} y={y(nodes.nodes[3].y) + 30}>
+        = 13 minutes
+    </text>
+{/if}
+
     </svg>
 </div>
 
