@@ -387,6 +387,7 @@
     margin-right: 2%;
   }
   .text {
+    margin: 2%;
     padding: 15px;
   }
   .text-center {
