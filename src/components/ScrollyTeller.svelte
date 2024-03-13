@@ -402,9 +402,7 @@
 
   .text2 {
     margin: 2%;
-    padding: 10px;
-    padding-top: -2px;
-    padding-bottom: -2px;
+    padding: 15px;
     display: inline-block;
   }
   * {
