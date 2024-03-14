@@ -475,7 +475,7 @@
         {#if index > 3 && index < 20}
             {console.log("table should be here")}
 
-            <foreignObject x="1100" y="280" width="300" height="500">
+            <foreignObject x={width-325} y="280" width="300" height="500">
                 <div>
                     <table style="width:100%">
                         <thead>
