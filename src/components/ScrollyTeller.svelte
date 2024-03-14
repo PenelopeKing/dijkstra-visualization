@@ -213,8 +213,12 @@
           <p class = "text-bottom" align = "left">
           In otherwords, <b>find the node in Unvisited with the smallest estimated
           distance</b>, which in this case is node <i>f</i>
+          <br/>
+          <br/>
+          Dijkstra's algorithm is a greedy algorithm... it optimally selects the next unvisited node with the shortest known distance from the source at each step.
         </p>
       </div>
+
     </section>
     <section>
       <h3 class="page-head" align="left">
@@ -231,7 +235,7 @@
       <h3 class="page-head" align="left">Repeat!</h3>
       <br/>
       <div class="textbox">
-        <p class = "text" align="left">
+        <p class = "text" align= "left">
           And now we repeat those steps until there are no more edges to update
           <i>u.est</i> with for any node <i>u</i>.
         </p>
@@ -359,8 +363,10 @@
       </h3>
       <div class="textbox-entire">
         <p class="text-top" align="left">
-          By visualizing Dijkstra's algorithm in action with an food delivery destination setting and in an interactive setting, grasping Dijsktra's Algorithmn and understanding route optimization becomes much more simple. 
-          The one thing that everyone should be able to walk away from our visualization with is a better understanding of Dijkstra's Algorithm and the applications in which it can be used.
+          By visualizing Dijkstra's algorithm in action with a food delivery destination and an interactive setting, grasping Dijsktra's Algorithmn and understanding route optimization becomes much more simple. Furthermore, through digestable steps, the algorithmn becomes much more simple.
+          The one thing that everyone should be able to walk away from our visualization with is a better understanding of Dijkstra's Algorithm and the applications in which it can be used. 
+          <br/>
+          In our interactive exploration of Dijkstra's algorithm within the context of a food delivery service, we've uncovered a fundamental principle: efficiency through optimization. While our focus has been on finding the shortest path for delivering food, the underlying lesson extends far beyond this scenario. In other contexts other than this, optimzing routes through greedy algorithms such as Dijkstra's Algorithmn saves time and resources, leading to more efficient processes in general.
         </p>
         <p class="text-bottom" align="left">
           Scroll down to try a different example now that you know Dijkstra's Algorithmn!
