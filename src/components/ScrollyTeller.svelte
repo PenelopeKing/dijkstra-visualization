@@ -55,9 +55,6 @@
           </p>
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
       <div class="textbox2">
         <p class="text2" align="left">
           Welcome to your first day at your job at OOperEats. It is time to make
@@ -70,9 +67,19 @@
           restaurant.
         </p>
       </div>
+      <br/>
+      <div class="textbox2">
+        <p class="text2" align="left">
+          Food delivery services relies on efficient route planning to deliver meals quickly, but understanding the complexity of optimizing delivery routes can be challenging, especially when considering factors like distance. Furthermore, placing route optimization problems in a familiar and interesting context allows for an easier understanding of route optimization problems.
+          <br/><br/>
+          Dijkstra's (DYKE-strəz) algorithm is an algorithmn used to find the shortest path between nodes in a weighted graph. It was created by Edsger W. Dijkstra. This website will teach about how to apply Dijkstra's algorithmn in a directed graph using various interactive features.
+          <br/><br/>
+          Scroll down to continue!
+        </p>
+      </div>
     </section>
     <section>
-      <h3 class="page-head" align="left">Interactive Map</h3>
+      <h3 class="page-head" align="left">Try It Yourself!</h3>
       <br/>
       <div class="textbox">
         <p class="text-top" align="left">
@@ -90,7 +97,7 @@
           This <span style="color: red">red dot</span> is your final destination.
         </p>
         <br/>
-        <p class="text" align="left">
+        <p class="text-bottom" align="left">
           <b
             >Try to find the fastest path possible to your destination. Create
             the path you think is best by clicking on the nodes.</b
@@ -107,16 +114,15 @@
           Finding the shortest path is not a simple task… How can we find the
           concrete shortest path to your customer?
         </p>
-        <p class="text" align="left">
-          One method to do so in this situation is called <b
-            >Dijkstra Algorithm</b
-          >.
+        <p class="text-bottom" align="left">
+        One method to do so in this situation is called <b>Dijkstra Algorithm</b
+        >
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Start of Dijkstra Explanation... Set Up 2
+        Start of Dijkstra Explanation
       </h3>
       <br/>
       <div class="textbox">
@@ -128,7 +134,7 @@
           <span style="color: red">target</span>
           node on a positively weighted graph (directed or undirected).
         </p>
-        <p class="text" align="left">
+        <p class="text-bottom" align="left">
           To start out, we define a value
           <b>
             u.est for each node u, denoting its estimated distance from the
@@ -153,10 +159,10 @@
           <br/><br/>
           Nodes in Visited have a <b>known shortest distance</b> from the source
           node, while nodes in Unvisited do not.
-          <br/><br/>
+        </p>
+        <p class = "text-bottom" align = "left">
           With the setup done, we're ready to start.
         </p>
-        <br/>
       </div>
     </section>
     <section>
@@ -165,10 +171,11 @@
       </h3>
       <br/>
       <div class="textbox">
-        <p class="text" align="left">
+        <p class="text-top" align="left">
           The first step is to look at all the nodes in Unvisited that are <b
             >1 edge away from (or adjacent to) the Visited nodes</b
-          >. <br/><br/>In this case, those nodes are <i>f</i>, <i>b</i>, and <i>c</i>.
+          >. </p>
+          <p class = "text-bottom" align = "left">In this case, those nodes are <i>f</i>, <i>b</i>, and <i>c</i>.
         </p>
       </div>
     </section>
@@ -199,14 +206,19 @@
       </h3>
 
       <div class="textbox">
-        <p class="text" align="left">
+        <p class="text-top" align="left">
           Now, the next step is to find the node in Unvisited closest to our
           source node <i>a</i>.
-          <br/><br/>  
+          </p>
+          <p class = "text-bottom" align = "left">
           In otherwords, <b>find the node in Unvisited with the smallest estimated
           distance</b>, which in this case is node <i>f</i>
+          <br/>
+          <br/>
+          Dijkstra's algorithm is a greedy algorithm... it optimally selects the next unvisited node with the shortest known distance from the source at each step.
         </p>
       </div>
+
     </section>
     <section>
       <h3 class="page-head" align="left">
@@ -223,7 +235,7 @@
       <h3 class="page-head" align="left">Repeat!</h3>
       <br/>
       <div class="textbox">
-        <p class="text" align="left">
+        <p class = "text" align= "left">
           And now we repeat those steps until there are no more edges to update
           <i>u.est</i> with for any node <i>u</i>.
         </p>
@@ -344,6 +356,25 @@
         </p>
       </div>
     </section>
+
+    <section>
+      <h3 class="page-head-entire" align="left">
+        Summary
+      </h3>
+      <div class="textbox-entire">
+        <p class="text-top" align="left">
+          By visualizing Dijkstra's algorithm in action with a food delivery destination and an interactive setting, grasping Dijsktra's Algorithmn and understanding route optimization becomes much more simple. Furthermore, through digestable steps, the algorithmn becomes much more simple.
+          The one thing that everyone should be able to walk away from our visualization with is a better understanding of Dijkstra's Algorithm and the applications in which it can be used. 
+          <br/>
+          In our interactive exploration of Dijkstra's algorithm within the context of a food delivery service, we've uncovered a fundamental principle: efficiency through optimization. While our focus has been on finding the shortest path for delivering food, the underlying lesson extends far beyond this scenario. In other contexts other than this, optimzing routes through greedy algorithms such as Dijkstra's Algorithmn saves time and resources, leading to more efficient processes in general.
+        </p>
+        <p class="text-bottom" align="left">
+          Scroll down to try a different example now that you know Dijkstra's Algorithmn!
+        </p>
+      </div>
+
+    </section>
+
     <section>
     <h3 class="page-head" align="left">
       Your Turn!
@@ -353,14 +384,14 @@
       <p class="text-top" align="left">
         Now that you are more familiar with Dijkstra's Algorithm, try finding the shortest path to your customer in this setting.
       </p>
-      <p class="text" align="left">
+      <p class="text-bottom" align="left">
         Click the nodes to move your car. Scroll down to see the answer.
       </p>
     </div>
   </section>
     <section>
     <h3 class="page-head" align="left">
-      Your Turn! – Solution 1
+      Your Turn! – Solution
     </h3>
     <br/>
     <div class="textbox">
@@ -368,12 +399,11 @@
         Was this what you got?
         </p>
         <p class="text" align="left">
-        The <span style="color: #499e97">teal</span> lines show the right answer.
+        The <span style="color: red">red</span> lines show the right answer.
         The <span style="color: blue">blue</span> lines are your previous answer.
       </p>
     </div>
   </section>
-
 
   </div>
 </Scroller>
@@ -383,12 +413,18 @@
     font-size: 0.7em;
   }
   .page-head {
-    margin-left: 70%;
-    margin-right: 2%;
+    margin-left: 3%;
+    margin-right: 65%;
+  }
+  .page-head-entire {
+    margin-left: 20%;
+    margin-right: 20%;
   }
   .text {
     margin: 2%;
     padding: 15px;
+    padding-left: 10px;
+    margin-bottom: 20px;
   }
   .text-center {
     padding-left: 15px;
@@ -396,6 +432,11 @@
   }
   .text-top {
     padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .text-bottom {
+    padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -411,14 +452,21 @@
   }
   .textbox2 {
     background: white;
-    margin-left: 60%;
+    margin-left: 55%;
     margin-right: 7%;
     border-radius: 5px;
   }
+  .textbox-entire {
+    background: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+  }
+
   .textbox {
     background: white;
-    margin-left: 70%;
-    margin-right: 2%;
+    margin-left: 3%;
+    margin-right: 65%;
     border-radius: 5px;
   }
 

@@ -20,8 +20,8 @@
     import { tweened } from "svelte/motion";
     import * as d3 from "d3";
     export let height, width, index;
-    const marginLeft = 100;
-    const marginRight = 100;
+    const marginLeft = 140;
+    const marginRight = 90;
     const marginTop = 100;
     const marginBottom = 100;
     const C = c_outside.C;
@@ -42,7 +42,7 @@
     $: x = d3
         .scaleLinear()
         .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-        .range([marginLeft * 4, width / 1.7]);
+        .range([marginLeft * 4, width / 1.35]);
     $: y = d3
         .scaleLinear()
         .domain(d3.extent(nodes.nodes, (d) => d.y))
@@ -52,18 +52,18 @@
         duration: 1000,
         easing: cubicOut,
     };
-    let rectX = tweened(400, { duration: 1000, easing: cubicOut });
+    let rectX = tweened(550, { duration: 1000, easing: cubicOut });
     let rectY = tweened(385, { duration: 1000, easing: cubicOut });
 
-    let rectX_p1 = tweened(300, { duration: 1000, easing: cubicOut });
-    let rectY_p1 = tweened(430, { duration: 1000, easing: cubicOut });
+    let rectX_p1 = tweened(550, { duration: 1000, easing: cubicOut });
+    let rectY_p1 = tweened(370, { duration: 1000, easing: cubicOut });
 
     function setRect_p1() {
-        rectX_p1 = tweened(300, { duration: 1000, easing: cubicOut });
-        rectY_p1 = tweened(430, { duration: 1000, easing: cubicOut });
+        rectX_p1 = tweened(550, { duration: 1000, easing: cubicOut });
+        rectY_p1 = tweened(370, { duration: 1000, easing: cubicOut });
     }
     function setRect() {
-        rectX = tweened(400, { duration: 1000, easing: cubicOut });
+        rectX = tweened(550, { duration: 1000, easing: cubicOut });
         rectY = tweened(385, { duration: 1000, easing: cubicOut });
     }
     function resetUserInteraction() {
@@ -126,7 +126,7 @@
         );
         newLine.setAttribute("points", points);
         newLine.setAttribute("stroke", blue);
-        newLine.setAttribute("stroke-width", "7");
+        newLine.setAttribute("stroke-width", "5");
         newLine.setAttribute("fill", "none");
         newLine.style.opacity = 0;
         // Add the new line to the SVG
@@ -199,7 +199,7 @@
         );
         newLine.setAttribute("points", points);
         newLine.setAttribute("stroke", blue);
-        newLine.setAttribute("stroke-width", "7");
+        newLine.setAttribute("stroke-width", "9");
         newLine.setAttribute("fill", "none");
         newLine.style.opacity = 0;
         // Add the new line to the SVG
@@ -475,7 +475,7 @@
         {#if index > 3 && index < 20}
             {console.log("table should be here")}
 
-            <foreignObject x="50" y="200" width="300" height="500">
+            <foreignObject x="1100" y="280" width="300" height="500">
                 <div>
                     <table style="width:100%">
                         <thead>
@@ -1225,7 +1225,7 @@
                     "," +
                     String(y(nodes.nodes[3].y))}
                 stroke={blue}
-                stroke-width="5"
+                stroke-width="7"
                 in:draw|global={{
                     intro: true,
                     duration: 1000,
@@ -1278,7 +1278,7 @@
         {/if}
         
 
-    {#if index === 20}
+    {#if index === 21}
         {setRect_p1()}
         {resetUserInteraction()}
 
@@ -1373,9 +1373,8 @@
         />
     {/if}
 
-    {#if index >= 21}
+    {#if index >= 22}
         {setRect_p1()}
-
         {#each p1_edges.edges as e}
             <defs>
                 <!-- A marker to be used as an arrowhead. -->
@@ -1425,9 +1424,10 @@
                 fill={n.color}
             />
         {/each}
-    {/if}
+    
     <!--Draw in solution edges-->
-    {#if index === 21}
+    {#if index === 22}
+        {setRect_p1()}
         {#each p1_sol_edges.edges as e}
         <polyline
             points={// String of coordintates x0,y0 x1,y1
@@ -1438,51 +1438,51 @@
                 String(x(p1_nodes.nodes[e.target].x)) +
                 "," +
                 String(y(p1_nodes.nodes[e.target].y))}
-            stroke={teal}
+            stroke={red}
             stroke-width="5"
             in:draw|global={{
                 intro: true,
                 duration: 1000,
                 delay: 100 + e.source * 200,
-                easing: cubicInOut,
-            }}
+                easing: cubicInOut,}}
             out:fade|global={{
                 intro: true,
                 duration: 500,
                 delay: 0,
-                easing: cubicInOut,
-            }}
+                easing: cubicInOut,}}
         />
     {/each}
-        {#each p1_sol_nodes.nodes as n}
-            <circle
-                key={n.id}
-                cx={x(n.x)}
-                cy={y(n.y)}
-                r="20"
-                fill={teal}
-                in:fade|global={{
-                    intro: true,
-                    duration: 1000,
-                    delay: 10 + n.id * 200,
-                    easing: cubicInOut,
-                }}
-                out:fade|global={{
-                    intro: true,
-                    duration: 500,
-                    delay: 0,
-                    easing: cubicInOut,
-                }}
-            />
-
+    {#each p1_sol_nodes.nodes as n}
+        <circle
+            key={n.id}
+            cx={x(n.x)}
+            cy={y(n.y)}
+            r="20"
+            fill={red}
+            in:fade|global={{
+                intro: true,
+                duration: 1000,
+                delay: 10 + n.id * 200,
+                easing: cubicInOut}}
+            out:fade|global={{
+                intro: true,
+                duration: 500,
+                delay: 0,
+                easing: cubicInOut}}/>
         {/each}
-    <text x={x(nodes.nodes[3].x) + 30} y={y(nodes.nodes[3].y) + 5}>
+    <text x={x(p1_nodes.nodes[7].x) + 30} y={y(p1_nodes.nodes[7].y) + 5}>
         4 + 3 + 6
     </text>
-    <text x={x(nodes.nodes[3].x) + 30} y={y(nodes.nodes[3].y) + 30}>
+    <text x={x(p1_nodes.nodes[7].x) + 30} y={y(p1_nodes.nodes[7].y) + 30}>
         = 13 minutes
     </text>
-{/if}
+    {/if}
+    {/if}
+
+    
+
+    
+
 
     </svg>
 </div>

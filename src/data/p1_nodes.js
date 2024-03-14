@@ -3,7 +3,7 @@ export const p1_nodes = {
       {
         "id": 0,
         "name": "a",
-        "x": -1,
+        "x": 0,
         "y": .2,
         "u.est": 0,
         "color":"#3d87ff"
@@ -12,7 +12,7 @@ export const p1_nodes = {
       {
         "id": 1,
         "name": "b",
-        "x": 0.85,
+        "x": 1.85,
         "y": 2,
         "u.est": Infinity,
         "color":"#FFB6C1"
@@ -20,7 +20,7 @@ export const p1_nodes = {
       {
         "id": 2,
         "name": "c",
-        "x": .7,
+        "x": 1.7,
         "y": -1,
         "u.est": Infinity,
         "color":"#FFB6C1"
@@ -28,7 +28,7 @@ export const p1_nodes = {
       {
         "id": 3,
         "name": "d",
-        "x": 2.5,
+        "x": 3.5,
         "y": 1.25,
         "u.est": Infinity,
         "color":"#FFB6C1"
@@ -36,7 +36,7 @@ export const p1_nodes = {
       {
         "id": 4,
         "name": "e",
-        "x": 2.5,
+        "x": 3.5,
         "y": .2,
         "u.est": Infinity,
         "color":"#FFB6C1"
@@ -44,7 +44,7 @@ export const p1_nodes = {
       {
         "id": 5,
         "name": "f",
-        "x": 3,
+        "x": 4,
         "y": 2.5,
         "u.est": Infinity,
         "color":"#FFB6C1"
@@ -52,7 +52,7 @@ export const p1_nodes = {
       {
         "id": 6,
         "name": "g",
-        "x": 3,
+        "x": 4,
         "y": -1,
         "u.est": Infinity,
         "color":"#FFB6C1"
@@ -60,7 +60,7 @@ export const p1_nodes = {
       {
         "id": 7,
         "name": "h",
-        "x": 5,
+        "x": 6,
         "y": 0,
         "u.est": Infinity,
         "color":"red"
