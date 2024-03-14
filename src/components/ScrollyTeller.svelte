@@ -356,8 +356,9 @@
         </p>
       </div>
     </section>
-    <section>
+    <section class = "minisection">
       <!--Spacer section-->
+
     </section>
 
     <section>
@@ -413,6 +414,9 @@
 </Scroller>
 
 <style>
+  .minisection {
+    height: 50vh;
+  }
   .names {
     font-size: 0.7em;
   }

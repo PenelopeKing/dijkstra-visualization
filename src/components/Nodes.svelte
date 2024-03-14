@@ -672,8 +672,8 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
-                    delay: 100,
+                    duration: 100,
+                    delay: 0,
                     easing: cubicInOut,
                 }}
             />
@@ -761,7 +761,7 @@
                 fill={blue}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -847,7 +847,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -860,13 +860,13 @@
                 fill={blue}
                 in:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -905,7 +905,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -929,7 +929,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1013,7 +1013,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1032,7 +1032,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1071,7 +1071,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1133,7 +1133,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1152,7 +1152,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1182,7 +1182,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1241,7 +1241,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1260,7 +1260,7 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
+                    duration: 100,
                     delay: 0,
                     easing: cubicInOut,
                 }}
@@ -1353,8 +1353,8 @@
                     fill={n.color}
                     in:fade|global={{
                         intro: true,
-                        duration: 500,
-                        delay: 50,
+                        duration: 100,
+                        delay: 0,
                         easing: cubicInOut,
                     }}
                     style="pointer-events: auto;"
@@ -1376,8 +1376,8 @@
                 }}
                 out:fade|global={{
                     intro: true,
-                    duration: 500,
-                    delay: 10,
+                    duration: 100,
+                    delay: 0,
                     easing: cubicInOut,
                 }}
             />
@@ -1462,7 +1462,7 @@
                         }}
                         out:fade|global={{
                             intro: true,
-                            duration: 500,
+                            duration: 100,
                             delay: 0,
                             easing: cubicInOut,
                         }}
@@ -1483,7 +1483,7 @@
                         }}
                         out:fade|global={{
                             intro: true,
-                            duration: 500,
+                            duration: 100,
                             delay: 0,
                             easing: cubicInOut,
                         }}
