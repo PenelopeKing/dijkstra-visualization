@@ -43,7 +43,7 @@ export const p1_edges = {
     {
       "source": 2,
       "target": 4,
-      "weight": 4,
+      "weight": 3,
       "x_shift": -2,
       "y_shift": -10,
       "color":'#5e5e5e'

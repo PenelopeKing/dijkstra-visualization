@@ -366,6 +366,7 @@
           By visualizing Dijkstra's algorithm in action with a food delivery destination and an interactive setting, grasping Dijsktra's Algorithmn and understanding route optimization becomes much more simple. Furthermore, through digestable steps, the algorithmn becomes much more simple.
           The one thing that everyone should be able to walk away from our visualization with is a better understanding of Dijkstra's Algorithm and the applications in which it can be used. 
           <br/>
+          <br/>
           In our interactive exploration of Dijkstra's algorithm within the context of a food delivery service, we've uncovered a fundamental principle: efficiency through optimization. While our focus has been on finding the shortest path for delivering food, the underlying lesson extends far beyond this scenario. In other contexts other than this, optimzing routes through greedy algorithms such as Dijkstra's Algorithmn saves time and resources, leading to more efficient processes in general.
         </p>
         <p class="text-bottom" align="left">

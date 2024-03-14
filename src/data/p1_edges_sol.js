@@ -9,7 +9,7 @@ export const p1_sol_edges = {
   {
     "source": 2,
     "target": 4,
-    "weight": 4,
+    "weight": 3,
     "color":'#5e5e5e'
   },
   {
