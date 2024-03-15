@@ -70,7 +70,7 @@
       <br/>
       <div class="textbox2">
         <p class="text2" align="left">
-          Food delivery services relies on efficient route planning to deliver meals quickly, but understanding the complexity of optimizing delivery routes can be challenging, especially when considering factors like distance. Furthermore, placing route optimization problems in a familiar and interesting context allows for an easier understanding of route optimization problems.
+          Food delivery services relies on efficient route planning to deliver meals quickly, but understanding the complexity of optimizing delivery routes can be challenging, especially when considering factors like distance. Furthermore, understanding route optimization problems in their pure form can be difficult.
           <br/><br/>
           Dijkstra's (DYKE-strəz) algorithm is an algorithmn used to find the shortest path between nodes in a weighted graph. It was created by Edsger W. Dijkstra. This website will teach about how to apply Dijkstra's algorithmn in a directed graph using various interactive features.
           <br/><br/>
@@ -112,7 +112,7 @@
         <p class="text-top" align="left">Was this what you got?</p>
         <p class="text-center" align="left">
           Finding the shortest path is not a simple task… How can we find the
-          concrete shortest path to your customer?
+          concrete shortest path to your customer in an efficient manner?
         </p>
         <p class="text-bottom" align="left">
         One method to do so in this situation is called <b>Dijkstra Algorithm</b
@@ -127,19 +127,18 @@
       <br/>
       <div class="textbox">
         <p class="text-top" align="left">
-          The Dijkstra Algorithm is very similar to the Breadth First Search
+          Dijkstra Algorithm is very similar to the Breadth First Search
           algorithm, and lets us find the shortest path between a
           <span style="color: blue">source</span>
           and
           <span style="color: red">target</span>
-          node on a positively weighted graph (directed or undirected).
+          node on a positively weighted graph (directed or undirected). In our explanation "u" describes any node (circle) in our map.
         </p>
         <p class="text-bottom" align="left">
-          To start out, we define a value
+          To start out, we define an estimated distance value–
           <b>
-            u.est for each node u, denoting its estimated distance from the
-            source node.
-          </b>
+            u.est for each node u.</b>  This denotes a node's estimated distance from the
+            <span style="color: blue">source</span> node.
           <br/><br/>
           For the initial source node <i>a</i>, this equals 0, and is unknown for all
           other nodes, so we set them to positive infinity.
@@ -155,9 +154,9 @@
       <div class="textbox">
         <p class="text-top" align="left">
           To help us keep track of which nodes to update and which edges to look
-          at, we'll categorize the nodes into two sets: Visited and Unvisited.
+          at, we'll categorize the nodes into two groups: Visited and Unvisited.
           <br/><br/>
-          Nodes in Visited have a <b>known shortest distance</b> from the source
+          Nodes in Visited have a <b>known shortest distance</b> from the <span style="color: blue">source</span>
           node, while nodes in Unvisited do not.
         </p>
         <p class = "text-bottom" align = "left">
@@ -173,7 +172,7 @@
       <div class="textbox">
         <p class="text-top" align="left">
           The first step is to look at all the nodes in Unvisited that are <b
-            >1 edge away from (or adjacent to) the Visited nodes</b
+            >1 edge (road) away from (or adjacent to) the Visited nodes</b
           >. </p>
           <p class = "text-bottom" align = "left">In this case, those nodes are <i>f</i>, <i>b</i>, and <i>c</i>.
         </p>
@@ -190,7 +189,7 @@
           Then, we calculate new distance values for each of the Unvisited nodes adjacent
           to the Visited nodes.
           <br/><br/>
-          We do this by <b>adding the edge weight to the u.est value of the connected Visited node</b>. 
+          We do this by <b>adding the edge weight (time to travel down the road) to the u.est value of the connected Visited node</b>. 
           <br/><br/>
           If the new distance value is less than the respective Unvisited node’s
           u.est, then we update u.est to be the calculated distance value.
