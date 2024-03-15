@@ -370,11 +370,11 @@
       <div class="textbox-entire">
         <p class="text-top" align="left">
           In situations such as food delivery, finding efficient routes is essential, 
-          but understanding route optimization can be very difficult to grasp.
+          but understanding route optimization can be very daunting and difficult to grasp.
           <br/>
-          However, by visualizing Dijkstra's algorithm in action with a food delivery destination 
-          and an interactive setting, understanding Dijsktra's Algorithmn and route optimization becomes much more simple. 
-          Therefore, through these incorproations and digestable steps, the algorithmn becomes easier to understand.
+          <br/>
+          By illustrating Dijkstra's algorithm through a food delivery scenario in an interactive setting, we simplify its complexity 
+          Consequently, understanding this algorithm and its application to route optimization becomes more accessible.
           The one thing that everyone should be able to walk away from our visualization with 
           is a better understanding of Dijkstra's Algorithm and the applications 
           in which it can be used. 
