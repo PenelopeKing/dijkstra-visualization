@@ -92,7 +92,7 @@
           can pass through on your drive.
           <br/><br/>
           The numbers represent how many minutes it takes to get from one neighborhood
-          to another.
+          to another. And the lines are one-way roads that link different neighborhoods to each other.
           <br/><br/>
           This <span style="color: red">red dot</span> is your final destination.
         </p>
@@ -111,8 +111,9 @@
       <div class="textbox">
         <p class="text-top" align="left">Was this what you got?</p>
         <p class="text-center" align="left">
-          Finding the shortest path is not a simple task… How can we find the
-          concrete shortest path to your customer in an efficient manner?
+          Finding the shortest path is not a simple task… In fact, it can be quite tricky 
+          especially in even bigger maps to find the fastest path to the customer. How can we find the
+          concrete shortest path to your customer in an efficient manner? 
         </p>
         <p class="text-bottom" align="left">
         One method to do so in this situation is called <b>Dijkstra Algorithm</b
@@ -140,7 +141,9 @@
             u.est for each node u.</b>  This denotes a node's estimated distance from the
             <span style="color: blue">source</span> node.
           <br/><br/>
-          For the initial source node <i>a</i>, this equals 0, and is unknown for all
+          We already know that the time to take you at the current place you are at (source node <i>a</i>) is 0. 
+          However, for all other neighborhoods and the final destination, we do not know the fastest time it will take yet.
+          Therefore u.est is unknown for all
           other nodes, so we set them to positive infinity.
         </p>
       </div>
@@ -160,7 +163,7 @@
           node, while nodes in Unvisited do not.
         </p>
         <p class = "text-bottom" align = "left">
-          With the setup done, we're ready to start.
+          With the setup done, we're ready to start!
         </p>
       </div>
     </section>
@@ -366,11 +369,25 @@
       </h3>
       <div class="textbox-entire">
         <p class="text-top" align="left">
-          By visualizing Dijkstra's algorithm in action with a food delivery destination and an interactive setting, grasping Dijsktra's Algorithmn and understanding route optimization becomes much more simple. Furthermore, through digestable steps, the algorithmn becomes much more simple.
-          The one thing that everyone should be able to walk away from our visualization with is a better understanding of Dijkstra's Algorithm and the applications in which it can be used. 
+          In situations such as food delivery, finding efficient routes is essential, 
+          but understanding route optimization can be very difficult to grasp.
+          <br/>
+          However, by visualizing Dijkstra's algorithm in action with a food delivery destination 
+          and an interactive setting, understanding Dijsktra's Algorithmn and route optimization becomes much more simple. 
+          Therefore, through these incorproations and digestable steps, the algorithmn becomes easier to understand.
+          The one thing that everyone should be able to walk away from our visualization with 
+          is a better understanding of Dijkstra's Algorithm and the applications 
+          in which it can be used. 
           <br/>
           <br/>
-          In our interactive exploration of Dijkstra's algorithm within the context of a food delivery service, we've uncovered a fundamental principle: efficiency through optimization. While our focus has been on finding the shortest path for delivering food, the underlying lesson extends far beyond this scenario. In other contexts other than this, optimzing routes through greedy algorithms such as Dijkstra's Algorithmn saves time and resources, leading to more efficient processes in general.
+          In our interactive exploration of Dijkstra's algorithm within the context 
+          of a food delivery service, we've uncovered a fundamental principle: 
+          efficiency through optimization. 
+          While our focus has been on finding the shortest path for delivering food, 
+          the underlying lesson extends far beyond this scenario. 
+          In other contexts other than this, 
+          optimzing routes through greedy algorithms such as Dijkstra's Algorithmn 
+          saves time and resources, leading to more efficient processes in general.
         </p>
         <p class="text-bottom" align="left">
           Scroll down to try a different example now that you know Dijkstra's Algorithmn!
