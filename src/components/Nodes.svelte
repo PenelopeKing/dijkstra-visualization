@@ -253,6 +253,7 @@
     >
 
         {#if index === 1}
+            {setRect()}
             {resetUserInteraction()}
         {/if}
 
@@ -353,7 +354,7 @@
 
         {#if index > 2 && index < 21}
             {setRect()}
-            
+            {resetUserInteraction()}
             {#each edges.edges as e}
                 <defs>
                     <!-- A marker to be used as an arrowhead. -->
