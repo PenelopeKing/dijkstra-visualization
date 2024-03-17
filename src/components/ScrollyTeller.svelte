@@ -41,50 +41,101 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="foreground" slot="foreground" style="pointer-events: none;">
     <section class="first-page">
+
       <div class="header-background">
-        <br/>
-        <br/>
-        <br/>
         <div class="block">
           <h1 align="center">
             Food for Thought: An Introduction to Dijkstra Algorithm Using Food
-            Delivery
+            Delivery  <br/>
+            <span style="font-weight: normal; font-size: smaller;">Penny King & Garvey Li</span>
           </h1>
-          <p class="names" align="center" style="color:#fcfcfc">
-            Penny King & Garvey Li
-          </p>
         </div>
       </div>
-      <div class="textbox2">
-        <p class="text2" align="left">
-          Welcome to your first day at your job at OOperEats. It is time to make
-          your first delivery. Unfortunately our map system is down, so it is up
-          to you to decide the path you want to take to your customer’s
-          destination. Keep in mind that we want to be as quick as possible so
-          you can be ready for your next order!
-          <br/><br/>
-          Your Goal: Find the fastest path to your destination from the pick-up order
-          restaurant.
-        </p>
-      </div>
+
+
       <br/>
+      <div style="margin-left: 10%;">
+        <img src="imgs/email2.png" alt="email hook" width="500" align = "left"/>
+      </div>
+
+
+
       <div class="textbox2">
         <p class="text2" align="left">
-          Food delivery services relies on efficient route planning to deliver meals quickly, but understanding the complexity of optimizing delivery routes can be challenging, especially when considering factors like distance. Furthermore, understanding route optimization problems in their pure form can be difficult.
+          Welcome to your first day as a delivery driver at OOperEats. 
           <br/><br/>
-          Dijkstra's (DYKE-strəz) algorithm is an algorithmn used to find the shortest path between nodes in a weighted graph. It was created by Edsger W. Dijkstra. This website will teach about how to apply Dijkstra's algorithmn in a directed graph using various interactive features.
+        Food delivery relies on efficient route planning to deliver meals quickly, 
+        and it's usually something we don't have to worry about, 
+        thanks to the advanced navigation software we rely on. 
+        These tools help delivery drivers navigate through the city maze efficiently, 
+        guiding them along the fastest routes to ensure that customers' meals 
+        arrive hot and fresh at their doorsteps. 
+        <br/><br/>
+        Alright, it's your turn to take the wheel and make that first delivery!
+        But, hold on a second—looks like our map system has decided to take an 
+        unexpected break. I guess route planning really is something to worry about now. 
+        It's up to you to decide the path you want to take to your customer's destination. 
+        Good luck! 
+
           <br/><br/>
           Scroll down to continue!
         </p>
+        <div style="margin-top: -18%;">
+        <img src="imgs/ooper.gif" alt="girl gif" width="250" align = "right"/>
       </div>
+
+      </div>
+
+
     </section>
 
-    <section> hi </section>
+
+    <section> 
+
+      <span>
+      <div style="margin-top: 1%; margin-left:5%">
+        <img src="imgs/map.png" alt="girl gif" width="650" align = "left"/>
+      </div>
+
+
+      <div class="textbox2" style="margin-top: 10%;" >
+        <p class="text2" align="left">
+          This map on the left are the different routes and areas of San Diego
+          you can pass through to get to your customer's destination. 
+          It's a bit daunting in this format to try to find the shortest path to the customer. 
+          But don't worry! We are here to help!
+        </p>
+      </div>
+      <br/>
+      <div class="textbox2" >
+        <p class="text2" align="left">
+          Understanding the complexity of optimizing delivery routes 
+          can be challenging, especially when considering factors like distance. 
+          Furthermore, understanding route optimization problems in their pure 
+          form can be difficult.
+          <br/><br/>
+          What we will use to find the shortest path will be Dijkstra's (DYKE-strəz) algorithm.
+          Dijkstra's algorithm is an algorithmn used to find 
+          the shortest path between nodes in a weighted graph, and was created by Edsger W. Dijkstra. 
+          This website will teach about how to apply Dijkstra's algorithmn in 
+          a directed graph using various interactive features.
+          <br/><br/>
+          Scroll down to explore!
+        </p>
+        <div style="margin-top: -18%;">
+          <img src="imgs/ooper2.gif" alt="girl gif" width="250" align = "right"/>
+        </div>
+      </div>
+    </span>
+
+    </section>
+
     <section>
       <h3 class="page-head" align="left">Try It Yourself!</h3>
       <br/>
       <div class="textbox">
         <p class="text-top" align="left">
+          We turned the map into a simple graph using circles and lines. 
           The restaurant you are currently at is the <span style="color: blue"
             >blue dot</span
           > at the left.
@@ -111,7 +162,7 @@
       <h3 class="page-head" align="left">Answer</h3>
       <br/>
       <div class="textbox">
-        <p class="text-top" align="left">Was this what you got?</p>
+        <p class="text-top" align="left">Was this what you got? </p>
         <p class="text-center" align="left">
           Finding the shortest path is not a simple task… In fact, it can be quite tricky 
           especially in even bigger maps to find the fastest path to the customer. How can we find the
@@ -436,7 +487,7 @@
     height: 50vh;
   }
   .names {
-    font-size: 0.7em;
+    font-size: 0.55em;
   }
   .page-head {
     margin-left: 1%;
@@ -479,7 +530,7 @@
   .textbox2 {
     background: white;
     margin-left: 55%;
-    margin-right: 7%;
+    margin-right: 1.5%;
     border-radius: 5px;
   }
   .textbox-entire {
@@ -510,7 +561,6 @@
     font-size: 25px;
     width: 100%;
     height: 120px;
-    padding-right:400px;
     color: #fcfcfc;
   }
 
@@ -543,18 +593,15 @@
 
   .block {
     background-color: #499e97;
-    height: 31vh;
-    padding: 40px;
+    padding: 10px;
     margin: 10px;
-    margin-left: 10%;
-    margin-top: 6.3%;
-    margin-bottom: -10%;
-    width: 85vh;
+    width: 98.5%;
+    padding-top:40px;
     border-radius: 5px;
   }
   h1 {
     margin-top: -1.5%;
-    font-size: 30px;
+    font-size: 25px;
   }
 
   h3 {

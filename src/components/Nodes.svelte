@@ -44,7 +44,7 @@
     $: x = d3
         .scaleLinear()
         .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
-        .range([marginLeft * 4, width / 1.35]);
+        .range([marginLeft * 4.5, width / 1.35]);
     $: y = d3
         .scaleLinear()
         .domain(d3.extent(nodes.nodes, (d) => d.y))
@@ -353,7 +353,7 @@
 
         {#if index > 2 && index < 21}
             {setRect()}
-            {resetUserInteraction()}
+            
             {#each edges.edges as e}
                 <defs>
                     <!-- A marker to be used as an arrowhead. -->
@@ -406,6 +406,7 @@
         {/if}
         <!--Draw in solution edges-->
         {#if index === 3}
+        
             {#each sol_edges.edges as e}
                 <polyline
                     points={// String of coordintates x0,y0 x1,y1
@@ -463,6 +464,7 @@
         {/if}
         <!--Draw in first set of u.est values-->
         {#if index >= 4 && index < 21}
+
             {#if index < 8}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
