@@ -20,7 +20,7 @@
     import { tweened } from "svelte/motion";
     import * as d3 from "d3";
     export let height, width, index;
-    const marginLeft = 140;
+    const marginLeft = 130;
     const marginRight = 90;
     const marginTop = 100;
     const marginBottom = 100;
@@ -39,6 +39,8 @@
     const teal = "#499e97";
 
     let blueLines = [];
+
+
     $: x = d3
         .scaleLinear()
         .domain(d3.extent(nodes.nodes, (d) => d.x)) /* min and max vals */
@@ -57,6 +59,7 @@
 
     let rectX_p1 = tweened(550, { duration: 1000, easing: cubicOut });
     let rectY_p1 = tweened(370, { duration: 1000, easing: cubicOut });
+
 
     function setRect_p1() {
         rectX_p1 = tweened(550, { duration: 1000, easing: cubicOut });
@@ -248,11 +251,12 @@
         viewBox="0 0 {width} {height}"
         style="max-width: 100%; height: auto; pointer-events: auto;"
     >
-        {#if index === 0}
+
+        {#if index === 1}
             {resetUserInteraction()}
         {/if}
 
-        {#if index === 1}
+        {#if index === 2}
             {setRect()}
             {resetUserInteraction()}
 
@@ -347,7 +351,7 @@
             />
         {/if}
 
-        {#if index > 1 && index < 20}
+        {#if index > 2 && index < 21}
             {setRect()}
             {resetUserInteraction()}
             {#each edges.edges as e}
@@ -401,7 +405,7 @@
             {/each}
         {/if}
         <!--Draw in solution edges-->
-        {#if index === 2}
+        {#if index === 3}
             {#each sol_edges.edges as e}
                 <polyline
                     points={// String of coordintates x0,y0 x1,y1
@@ -458,8 +462,8 @@
             </text>
         {/if}
         <!--Draw in first set of u.est values-->
-        {#if index >= 3 && index < 20}
-            {#if index < 7}
+        {#if index >= 4 && index < 21}
+            {#if index < 8}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
 
@@ -473,10 +477,10 @@
             {/if}
         {/if}
         <!--Show Set table-->
-        {#if index > 3 && index < 20}
+        {#if index > 4 && index < 21}
             {console.log("table should be here")}
 
-            <foreignObject x={width - 325} y="280" width="300" height="500">
+            <foreignObject x={width - 320} y="260" width="300" height="500">
                 <div>
                     <table style="width:100%">
                         <thead>
@@ -500,8 +504,8 @@
             </foreignObject>
         {/if}
         <!--First set of edge updates. (a, f), (a, b), (a, c)-->
-        {#if index >= 5 && index < 19}
-            {#if index < 7}
+        {#if index >= 6 && index < 20}
+            {#if index < 8}
                 <polyline
                     points={// String of coordintates x0,y0 x1,y1 for edge a, f
                     String(x(nodes.nodes[0].x)) +
@@ -527,7 +531,7 @@
                     }}
                 />
             {/if}
-            {#if index < 11}
+            {#if index < 12}
                 <polyline
                     points={// String of coordintates x0,y0 x1,y1 for edge a, b
                     String(x(nodes.nodes[0].x)) +
@@ -598,7 +602,7 @@
             >
         {/if}
         <!--First set of u.est updates-->
-        {#if index >= 6 && index < 7}
+        {#if index >= 7 && index < 8}
             <text
                 x={x(nodes.nodes[1].x) +
                     uest_vals[nodes.nodes[1].id]["x_shift"]}
@@ -633,7 +637,7 @@
         {/if}
 
         <!--Set node f to visited-->
-        {#if index >= 7 && index < 19}
+        {#if index >= 8 && index < 20}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge a, f
                 String(x(nodes.nodes[0].x)) +
@@ -690,7 +694,7 @@
             <text x={x(nodes.nodes[5].x) - 4} y={y(nodes.nodes[5].y) + 5}
                 >f</text
             >
-            {#if index < 11}
+            {#if index < 12}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
 
@@ -704,7 +708,7 @@
             {/if}
         {/if}
         <!-- Second set of edge updates. (f, b), (f, d)-->
-        {#if index >= 10 && index < 19}
+        {#if index >= 11 && index < 20}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge f, d
                 String(x(nodes.nodes[5].x)) +
@@ -791,7 +795,7 @@
             >
 
             <!-- Update b.est and d.est -->
-            {#if index < 11}
+            {#if index < 12}
                 <text
                     x={x(nodes.nodes[1].x) +
                         uest_vals[nodes.nodes[1].id]["x_shift"]}
@@ -815,8 +819,8 @@
             {/if}
         {/if}
         <!--Add node b to visited-->
-        {#if index >= 11 && index < 20}
-            {#if index < 13}
+        {#if index >= 12 && index < 21}
+            {#if index < 14}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
 
@@ -885,7 +889,7 @@
                 >b</text
             >
         {/if}
-        {#if index >= 12 && index < 19}
+        {#if index >= 13 && index < 20}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge f, b
                 String(x(nodes.nodes[1].x)) +
@@ -957,7 +961,7 @@
             <text x={x(nodes.nodes[3].x) - 4} y={y(nodes.nodes[3].y) + 5}
                 >d</text
             >
-            {#if index < 13}
+            {#if index < 14}
                 <text
                     x={x(nodes.nodes[3].x) +
                         uest_vals[nodes.nodes[3].id]["x_shift"]}
@@ -981,8 +985,8 @@
             {/if}
         {/if}
         <!--Add node c to Visited-->
-        {#if index >= 13 && index < 20}
-            {#if index < 15}
+        {#if index >= 14 && index < 21}
+            {#if index < 16}
                 {#each nodes.nodes as n}
                     <text x={x(n.x) - 4} y={y(n.y) + 5}>{n.name}</text>
 
@@ -1051,7 +1055,7 @@
                 >c</text
             >
         {/if}
-        {#if index >= 14 && index < 20}
+        {#if index >= 15 && index < 21}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge f, b
                 String(x(nodes.nodes[2].x)) +
@@ -1089,7 +1093,7 @@
             <text x={x(nodes.nodes[4].x) - 4} y={y(nodes.nodes[4].y) + 5}
                 >e</text
             >
-            {#if index < 15}
+            {#if index < 16}
                 <text
                     x={x(nodes.nodes[4].x) +
                         uest_vals[nodes.nodes[4].id]["x_shift"]}
@@ -1103,8 +1107,8 @@
             {/if}
         {/if}
         <!--Add e to visited-->
-        {#if index >= 15 && index < 20}
-            {#if index < 17}
+        {#if index >= 16 && index < 21}
+            {#if index < 18}
                 {#each nodes.nodes as n}
                     <text
                         x={x(n.x) + uest_vals[n.id]["x_shift"]}
@@ -1162,7 +1166,7 @@
             >
         {/if}
         <!--Update d.est-->
-        {#if index >= 16 && index < 20}
+        {#if index >= 17 && index < 21}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge e, d
                 String(x(nodes.nodes[4].x)) +
@@ -1207,7 +1211,7 @@
             <text x={x(nodes.nodes[4].x) - 4} y={y(nodes.nodes[4].y) + 5}
                 >e</text
             >
-            {#if index < 17}
+            {#if index < 18}
                 <text
                     x={x(nodes.nodes[3].x) +
                         uest_vals[nodes.nodes[3].id]["x_shift"]}
@@ -1221,7 +1225,7 @@
             {/if}
         {/if}
         <!--Add d to visited-->
-        {#if index >= 17 && index < 20}
+        {#if index >= 18 && index < 21}
             <polyline
                 points={// String of coordintates x0,y0 x1,y1 for edge e, d
                 String(x(nodes.nodes[4].x)) +
@@ -1284,7 +1288,7 @@
             >
         {/if}
 
-        {#if index === 22}
+        {#if index === 23}
             {setRect_p1()}
             {resetUserInteraction()}
 
@@ -1383,7 +1387,7 @@
             />
         {/if}
 
-        {#if index >= 23}
+        {#if index >= 24}
             {setRect_p1()}
             {#each p1_edges.edges as e}
                 <defs>
@@ -1440,7 +1444,7 @@
             {/each}
 
             <!--Draw in solution edges-->
-            {#if index === 23}
+            {#if index === 24}
                 {setRect_p1()}
                 {#each p1_sol_edges.edges as e}
                     <polyline

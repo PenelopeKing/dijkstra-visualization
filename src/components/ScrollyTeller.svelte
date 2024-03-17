@@ -78,6 +78,8 @@
         </p>
       </div>
     </section>
+
+    <section> hi </section>
     <section>
       <h3 class="page-head" align="left">Try It Yourself!</h3>
       <br/>
@@ -437,7 +439,7 @@
     font-size: 0.7em;
   }
   .page-head {
-    margin-left: 3%;
+    margin-left: 1%;
     margin-right: 65%;
   }
   .page-head-entire {
@@ -489,7 +491,7 @@
 
   .textbox {
     background: white;
-    margin-left: 3%;
+    margin-left: 1%;
     margin-right: 65%;
     border-radius: 5px;
   }
