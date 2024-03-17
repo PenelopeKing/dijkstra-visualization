@@ -194,7 +194,7 @@
             u.est for each node u.</b>  This denotes a node's estimated distance from the
             <span style="color: blue">source</span> node.
           <br/><br/>
-          We already know that the time to take you at the current place you are at (source node <i>a</i>) is 0. 
+          We already know it takes 0 minutes to get to the source node <i>a</i>), so <i>a.est</i> = 0. 
           However, for all other neighborhoods and the final destination, we do not know the fastest time it will take yet.
           Therefore u.est is unknown for all
           other nodes, so we set them to positive infinity.
@@ -222,7 +222,7 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Find the Unvisited nodes adjacent to the set of Visited nodes.
+        Find the Unvisited nodes adjacent to the set of Visited nodes
       </h3>
       <br/>
       <div class="textbox">
@@ -259,13 +259,12 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Find the Unvisited Node closest to the source.
+        Find the Unvisited Node closest to the source
       </h3>
 
       <div class="textbox">
         <p class="text-top" align="left">
-          Now, the next step is to find a node who has found its shortest path from the source node. 
-          We will pick the smallest distance of such nodes. 
+          Now, the next step is to find a node with the shortest estimated path from the source node. 
           </p>
           <p class = "text-bottom" align = "left">
           In this case, this will be node <i>f</i>.
@@ -273,7 +272,7 @@
           <br/>
           Dijkstra's algorithm is a greedy algorithm... 
           it optimally selects the next unvisited node with the shortest 
-          known distance from the source at each step.
+          estimated distance from the source at each step.
         </p>
       </div>
 
@@ -294,7 +293,7 @@
       <br/>
       <div class="textbox">
         <p class = "text" align= "left">
-          And now, with a new "Visited" set, we repeat the last few steps again.
+          And now, with a new "Visited" set, we repeat the last few steps again
         </p>
       </div>
     </section>
@@ -444,9 +443,9 @@
           and understanding route optimization can be very daunting and difficult to grasp.
           <br/>
           <br/>
-          However, illustrating Dijkstra's algorithm through a food delivery scenario in an 
+          However, by illustrating Dijkstra's algorithm through a food delivery scenario in an 
           interactive setting, we simplify its complexity. 
-          Consequently, understanding this algorithm and its application to route optimization becomes more accessible.
+          Consequently, understanding this algorithm and how it's used in route optimization becomes more accessible.
           The one thing that everyone should be able to walk away from our visualization with 
           is a better understanding of Dijkstra's Algorithm and the applications 
           in which it can be used. 
