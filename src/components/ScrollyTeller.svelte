@@ -228,8 +228,10 @@
       <div class="textbox">
         <p class="text-top" align="left">
           The first step is to look at all the nodes in Unvisited that are <b
-            >1 edge (road) away from (or adjacent to) the Visited nodes</b
-          >. </p>
+            >1 edge (road) away from (or adjacent to) the Visited nodes</b>.
+          <br/><br/>In the context of our map, we want to see the neighborhoods 
+          that are the closet to us by road.</p>
+
           <p class = "text-bottom" align = "left">In this case, those nodes are <i>f</i>, <i>b</i>, and <i>c</i>.
         </p>
       </div>
@@ -262,15 +264,16 @@
 
       <div class="textbox">
         <p class="text-top" align="left">
-          Now, the next step is to find the node in Unvisited closest to our
-          source node <i>a</i>.
+          Now, the next step is to find a node who has found its shortest path from the source node. 
+          We will pick the smallest distance of such nodes. 
           </p>
           <p class = "text-bottom" align = "left">
-          In otherwords, <b>find the node in Unvisited with the smallest estimated
-          distance</b>, which in this case is node <i>f</i>
+          In this case, this will be node <i>f</i>.
           <br/>
           <br/>
-          Dijkstra's algorithm is a greedy algorithm... it optimally selects the next unvisited node with the shortest known distance from the source at each step.
+          Dijkstra's algorithm is a greedy algorithm... 
+          it optimally selects the next unvisited node with the shortest 
+          known distance from the source at each step.
         </p>
       </div>
 
@@ -291,22 +294,20 @@
       <br/>
       <div class="textbox">
         <p class = "text" align= "left">
-          And now we repeat those steps until there are no more edges to update
-          <i>u.est</i> with for any node <i>u</i>.
+          And now, with a new "Visited" set, we repeat the last few steps again.
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>
       </h3>
       <br/>
       <div class="textbox">
         <p class="text" align="left">
-          Once again, <b>we find all Unvisited nodes adjacent to
-          the Visited nodes</b> and <b>update <i>u.est</i></b> for those Unvisited nodes.
+          Once again, we will update any "Unvisited" nodes (u.est) that are directly connected to the nodes in "Visited"
           <br/><br/>
-          Although we've already found node <i>b</i>, there is another edge leading to it from node <i>f</i>, so we still need to check <i>b.est</i>. 
+          Although we've already found node <i>b</i>, there is another edge leading to <i>b</i> from node <i>f</i>, so we still need to check <i>b.est</i>. 
           <br/><br/>
           Since the new calculated distance for <i>b</i> is greater than <i>b.est</i>, the estimate stays the same.
         </p>
@@ -314,46 +315,58 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Find the Unvisited Node closest to the source.
-      </h3>
+        Adding <i>b</i> to Visited set
+      </h3> 
       <br/>
       <div class="textbox">
         <p class="text" align="left">
           Now we <b>find the Unvisited node with the smallest <i>u.est</i></b>, which is node <i>b</i>.
           <br/><br/>
-          Then we can add <i>b</i> to the Visited set.</p>
+          Then we can add <i>b</i> to the Visited set, like we did previously for <i>f</i>.</p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Updating nodes <i>c</i> and <i>d</i>
       </h3>
       <br/>
 
       <div class="textbox">
         <p class="text" align="left">Again, <b>we find all Unvisited nodes adjacent to
-          the Visited nodes</b> and <b>update <i>u.est</i></b> for those Unvisited nodes.</p>
-      </div>
-    </section>
-    <section>
-      <h3 class="page-head" align="left">
-        Find the Unvisited Node closest to the source.
-      </h3>
-      <br/>
-      <div class="textbox">
-        <p class="text" align="left">
-          Then we <b>find the Unvisited node with the smallest <i>u.est</i></b>, which is node <i>c</i>, and <b>move it to the Visited set</b>.
+          the Visited nodes</b> and <b>update <i>u.est</i></b> for those Unvisited nodes.
+        
+          <br/><br/>
+          At this stage, we now are looking at <i>c</i> and <i>d</i>. 
+          <br/><br/>
+          Since neighborhoods <i>c</i> and <i>d</i> can be updated, 
+          we will adjust their estimated value to the shortest one possible based on what we have visited.
+        
         </p>
       </div>
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Adding <i>c</i> to Visited
+      </h3>
+      <br/>
+      <div class="textbox">
+        <p class="text" align="left">
+          We have now found the shortest path between the source node and node <i>c</i>, so we can now add <i>c</i> to "Visited".</p>
+      </div>
+    </section>
+    
+    
+    <section>
+      <h3 class="page-head" align="left">
+        Updating node <i>e</i>
       </h3>
       <br/>
 
       <div class="textbox">
-        <p class="text" align="left">We <b>find the Unvisited nodes adjacent to the Visited nodes</b> again, and <b>update their <i>u.est</i> values</b>.</p>
+        <p class="text" align="left">We <b>find the Unvisited nodes adjacent to the Visited nodes</b> again, and <b>update their <i>u.est</i> values</b>.
+        <br/> <br/>
+        Node <i>e</i> can now be updated. It has a direct path from node <i>c</i>, so we can get <i>e.est</i> = <i>c.est</i> + edge weight = 15. 
+        </p>
       </div>
     </section>
     <section>
@@ -367,15 +380,20 @@
     </section>
     <section>
       <h3 class="page-head" align="left">
-        Find the Unvisited nodes adjacent to the set of Visited nodes and update <i>u.est</i>.
+        Updated what nodes are adjacent to "Visited" set
       </h3>
       <br/>
       <div class="textbox">
-        <p class="text" align="left">Again, we <b>find the Unvisited nodes adjacent to the Visited nodes</b>, and <b>update their <i>u.est</i> values</b>.</p>
+        <p class="text" align="left">Again, we <b>find the Unvisited nodes adjacent to the Visited nodes</b>, and <b>update their <i>u.est</i> values</b>.
+          <br/><br/>
+          In this case, this is node <i>d</i>. The only node left is our final destination to the customer!
+          <br><br/>
+          Our old estimate for node <i>d</i> is larger than our new edge that we are currently exploring, so we can replace 21 with 20.
+        </p>
       </div>
     </section>
     <section>
-      <h3 class="page-head" align="left">Find the Unvisited Node closest to the source.</h3>
+      <h3 class="page-head" align="left">Adding <i>d</i> to Visited</h3>
       <br/>
       <div class="textbox">
         <p class="text" align="left">
@@ -423,10 +441,11 @@
       <div class="textbox-entire">
         <p class="text-top" align="left">
           In situations such as food delivery, finding efficient routes is essential, 
-          but understanding route optimization can be very daunting and difficult to grasp.
+          and understanding route optimization can be very daunting and difficult to grasp.
           <br/>
           <br/>
-          By illustrating Dijkstra's algorithm through a food delivery scenario in an interactive setting, we simplify its complexity 
+          However, illustrating Dijkstra's algorithm through a food delivery scenario in an 
+          interactive setting, we simplify its complexity. 
           Consequently, understanding this algorithm and its application to route optimization becomes more accessible.
           The one thing that everyone should be able to walk away from our visualization with 
           is a better understanding of Dijkstra's Algorithm and the applications 
@@ -443,7 +462,7 @@
           saves time and resources, leading to more efficient processes in general.
         </p>
         <p class="text-bottom" align="left">
-          Scroll down to try a different example now that you know Dijkstra's Algorithmn!
+          Scroll down to try a different example now that you know Dijkstra's Algorithmn.
         </p>
       </div>
 
