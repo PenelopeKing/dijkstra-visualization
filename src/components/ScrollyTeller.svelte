@@ -447,13 +447,9 @@
           interactive setting, we simplify its complexity. 
           Consequently, understanding this algorithm and how it's used in route optimization becomes more accessible.
           The one thing that everyone should be able to walk away from our visualization with 
-          is a better understanding of Dijkstra's Algorithm and the applications 
-          in which it can be used. 
+          is a better understanding of Dijkstra's Algorithm and the its applications.
           <br/>
           <br/>
-          In our interactive exploration of Dijkstra's algorithm within the context 
-          of a food delivery service, we've uncovered a fundamental principle: 
-          efficiency through optimization. 
           While our focus has been on finding the shortest path for delivering food, 
           the underlying lesson extends far beyond this scenario. 
           In other contexts other than this, 
