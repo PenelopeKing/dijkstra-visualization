@@ -45,7 +45,7 @@
       <div class="header-background">
         <div class="block">
           <h1 align="center">
-            Food for Thought: An Introduction to Dijkstra Algorithm Using Food
+            Food for Thought: An Introduction to Dijkstra's Algorithm Using Food
             Delivery  <br/>
             <span style="font-weight: normal; font-size: smaller;">Penny King & Garvey Li</span>
           </h1>
@@ -169,7 +169,7 @@
           concrete shortest path to your customer in an efficient manner? 
         </p>
         <p class="text-bottom" align="left">
-        One method to do so in this situation is called <b>Dijkstra Algorithm</b
+        One method to do so in this situation is called <b>Dijkstra's Algorithm</b
         >
         </p>
       </div>
@@ -181,7 +181,7 @@
       <br/>
       <div class="textbox">
         <p class="text-top" align="left">
-          Dijkstra Algorithm is very similar to the Breadth First Search
+          Dijkstra's Algorithm is very similar to the Breadth First Search
           algorithm, and lets us find the shortest path between a
           <span style="color: blue">source</span>
           and
@@ -408,13 +408,13 @@
       </h3>
       <br/>
       <div class="textbox">
-        <p class="text" align="left">We have completed Dijsktra's Algorithm for this positively weighted and directed graph. 
+        <p class="text" align="left">We have completed Dijkstra's Algorithm for this positively weighted and directed graph. 
           <br/><br/>
           But wait a minute...
           <br/><br/>
           This doesn't look exactly like our solution from before!
           <br/><br/>
-          As it turns out, Dijsktra's Algorithm finds the shortest path between a source node and <b>ALL</b> the nodes in a positively weighted graph.
+          As it turns out, Dijkstra's Algorithm finds the shortest path between a source node and <b>ALL</b> the nodes in a positively weighted graph.
         </p>
       </div>
     </section>
